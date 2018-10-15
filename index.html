@@ -1,1 +1,91 @@
-hello
+<!DOCTYPE html>
+
+<head>
+
+<script type="text/javascript">
+function timeCountdown(){
+    var timeNode = new Array();
+    timeNode[0] = [ 0, 1]; // 00:01 NightMoon starts (monthly)
+    timeNode[1] = [23,59]; // 23:59 NightMoon ends (monthly)
+    timeNode[2] = [ 3, 0]; // daily quest (daily)
+    timeNode[3] = [ 7, 0]; // weekly events starts (weekly)
+                           // raid CD; Mythic(+) CD/box (weekly)
+                           // world quest 1; Azrite, opposite (daily)
+                           // 5H (daily)
+    timeNode[4] = [15, 0]; // world quest 2 (daily)
+    timeNode[5] = [19, 0]; // world quest 3; opposite (daily)
+    timeNode[6] = [23, 0]; // world quest 4 (daily)
+    timeNode[7] = [ 4, 0]; // weekly events ends (weekly)
+
+    var loadTime = new Date();
+    var cur = {
+        date: loadTime.getDate(), // 1~31
+        day: loadTime.getDay(), // 0~6 Sun~Sat
+        Hours: loadTime.getHours(), // 0~23
+        min: loadTime.getMinutes(), // 0~59
+        Seconds: loadTime.getSeconds(), // 0~59
+        toNextHour:function(){
+            m = loadTime.getMinutes();
+            s = loadTime.getSeconds();
+            return 3600 - m * 60 - s;
+        }
+    }
+
+    var functionOutput = {
+        dailyQuest: function(){
+            var h = (26 - cur.Hours) % 24;
+            var s = cur.toNextHour() % 60;
+            var m = (cur.toNextHour() - s) / 60;
+            if (m == 60)
+                {h+=1;m=0;}
+
+            h=checkNum(h);
+            m=checkNum(m);
+            s=checkNum(s);
+
+            return h+":"+m+":"+s;
+        },
+        worldQuest: function(){
+            if (cur.Hours >= 7 && cur.Hours < 15)
+                {var h = 14 - cur.Hours;}
+            else if (cur.Hours >= 15 && cur.Hours < 19)
+                {var h = 18 - cur.Hours;}
+            else if (cur.Hours >= 19 && cur.Hours < 23)
+                {var h = 22 - cur.Hours;}
+            else
+                {var h = (30 - cur.Hours) % 24;}
+
+            var s = cur.toNextHour() % 60;
+            var m = (cur.toNextHour() - s) / 60;
+            if (m == 60)
+                {h+=1;m=0;}
+
+            h=checkNum(h);
+            m=checkNum(m);
+            s=checkNum(s);
+
+            return h+":"+m+":"+s;
+        }
+    }
+
+    document.getElementById("world-Quest").innerHTML="下一次世界任务 "+functionOutput.worldQuest();
+    document.getElementById("daily-Quest").innerHTML="下一次日常刷新 "+functionOutput.dailyQuest();
+    t=setTimeout('timeCountdown()',500) // 无需"t="也可运行
+};
+
+function checkNum(i){
+    if (i < 10) 
+        {i = "0" + i;}
+    return i;
+};
+
+</script>
+</head>
+
+<body onload="timeCountdown()">
+<h1>今日赞达拉 v0.0.0</h1>
+<div id="world-Quest"></div>
+<div id="daily-Quest"></div>
+</body>
+
+</html>
