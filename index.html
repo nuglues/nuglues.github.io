@@ -160,22 +160,27 @@ function timeCountdown(){
         }
     }
 
-    document.getElementById("world-Quest").innerHTML="下一次世界任务 "+timeOutput.worldQuest.norm();
-    document.getElementById("wQ-cOA-5H").innerHTML="下一次世界任务(艾泽拉斯勇士) | 5H "+timeOutput.worldQuest.cOA();
-    document.getElementById("wQ-oppo").innerHTML="下一次世界任务(对立阵营) "+timeOutput.worldQuest.opposite();
-    document.getElementById("daily-Quest").innerHTML="下一次日常刷新 "+timeOutput.dailyQuest();
+    document.getElementById("world-Quest").innerHTML = timeOutput.worldQuest.norm();
+    document.getElementById("wQ-cOA-5H").innerHTML = timeOutput.worldQuest.cOA();
+    document.getElementById("wQ-oppo").innerHTML = timeOutput.worldQuest.opposite();
+    document.getElementById("daily-Quest").innerHTML = timeOutput.dailyQuest();
 
-    document.getElementById("weekly-Thu").innerHTML="下一次周CD更新 | 低保 "+timeOutput.weeklyThu();
+    document.getElementById("weekly-Thu").innerHTML = timeOutput.weeklyThu();
     if (timeOutput.weeklyEvents().charAt(timeOutput.weeklyEvents().length - 1) == "-")
-        {document.getElementById("weekly-Events").innerHTML="周常活动即将开始 "+timeOutput.weeklyEvents().slice(0,-1);}
+        {document.getElementById("weekly-Events-Str").innerHTML = "周常活动即将开始";
+         document.getElementById("weekly-Events-Time").innerHTML = timeOutput.weeklyEvents().slice(0,-1);}
     else
-        {document.getElementById("weekly-Events").innerHTML="周常活动剩余时间 "+timeOutput.weeklyEvents().slice(0,-1);}
-    if (timeOutput.nightMoon().charAt(timeOutput.nightMoon().length - 1) == "-")
-        {document.getElementById("night-Moon").innerHTML="暗月马戏团下次到达 "+timeOutput.nightMoon().slice(0,-1);}
-    else
-        {document.getElementById("night-Moon").innerHTML="暗月马戏团剩余时间 "+timeOutput.nightMoon().slice(0,-1);}
+        {document.getElementById("weekly-Events-Str").innerHTML = "周常活动剩余时间 ";
+         document.getElementById("weekly-Events-Time").innerHTML = timeOutput.weeklyEvents().slice(0,-1);}
 
-    setTimeout('timeCountdown()',500) // 无需"t="也可运行
+    if (timeOutput.nightMoon().charAt(timeOutput.nightMoon().length - 1) == "-")
+        {document.getElementById("night-Moon-Str").innerHTML = "暗月马戏团下次到达 ";
+         document.getElementById("night-Moon-Time").innerHTML = timeOutput.nightMoon().slice(0,-1);}
+    else
+        {document.getElementById("night-Moon-Str").innerHTML = "暗月马戏团剩余时间 ";
+         document.getElementById("night-Moon-Time").innerHTML = timeOutput.nightMoon().slice(0,-1);}
+
+    setTimeout('timeCountdown()',500)
 };
 
 function checkTime(arr){
@@ -192,18 +197,22 @@ function checkTime(arr){
 
 <body onload="timeCountdown()">
 <h1>今日赞达拉 v0.0.0</h1>
-每日刷新
-<div id="world-Quest"></div>
-<div id="wQ-cOA-5H"></div>
-<div id="wQ-oppo"></div>
-<div id="daily-Quest"></div>
-<br>
-每周刷新
-<div id="weekly-Thu"></div>
-<div id="weekly-Events"></div>
-<br>
-每月刷新
-<div id="night-Moon"></div>
+
+<table>
+<tr><td colspan=2><strong>每日刷新</strong></td></tr>
+<tr><td>下一次世界任务</td>			<td align = "right"><span id="world-Quest"></span></td></tr>
+<tr><td>下一次世界任务(艾泽拉斯勇士) | 5H</td>	<td align = "right"><span id="wQ-cOA-5H"></span></td></tr>
+<tr><td>下一次世界任务(对立阵营)</td>		<td align = "right"><span id="wQ-oppo"></span></td></tr>
+<tr><td>下一次日常刷新</td>			<td align = "right"><span id="daily-Quest"></span></td></tr>
+
+<tr><td colspan=2><br><strong>每周刷新</strong></td></tr>
+<tr><td>下一次周CD更新 | 低保</td>		<td align = "right"><span id="weekly-Thu"></span></td></tr>
+<tr><td><span id="weekly-Events-Str"></span></td><td align = "right"><span id="weekly-Events-Time"></span></td></tr>
+
+<tr><td colspan=2><br><strong>每月刷新</strong></td></tr>
+<tr><td><span id="night-Moon-Str"></span></td>	<td align = "right"><span id="night-Moon-Time"></span></td></tr>
+</table>
+
 </body>
 
 </html>
