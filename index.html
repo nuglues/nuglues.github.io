@@ -26,7 +26,7 @@ function timeCountdown(){
         month: loadTime.getMonth(), // 0~11
         date: loadTime.getDate(), // 1~31
         day: loadTime.getDay(), // 0~6 Sun~Sat
-        hours: loadTime.getHours(), // 0~23
+        hour: loadTime.getHours(), // 0~23
         min: loadTime.getMinutes(), // 0~59
         Seconds: loadTime.getSeconds(), // 0~59
         toNextHour:function(){
@@ -48,7 +48,7 @@ function timeCountdown(){
         // monthly: NightMoon
 
         dailyQuest: function(){
-            var h = (timeNode[2][0] + 23 - cur.hours) % 24;
+            var h = (timeNode[2][0] + 23 - cur.hour) % 24;
             h += cur.toNextHour()[0];
             var m = cur.toNextHour()[1];
             var s = cur.toNextHour()[2];
@@ -59,14 +59,14 @@ function timeCountdown(){
         worldQuest:{
             // norm: 0700 1500 1900 2300 | cOA(Chanmpions of Azeroth) with 5H: 0700 | opposite: 0700 1900
             norm: function(){
-                if (cur.hours >= timeNode[3][0] && cur.hours < timeNode[4][0])
-                    {var h = timeNode[4][0] - cur.hours - 1;}
-                else if (cur.hours >= timeNode[4][0] && cur.hours < timeNode[5][0])
-                    {var h = timeNode[5][0] - cur.hours - 1;}
-                else if (cur.hours >= timeNode[5][0] && cur.hours < timeNode[6][0])
-                    {var h = timeNode[6][0] - cur.hours - 1;}
+                if (cur.hour >= timeNode[3][0] && cur.hour < timeNode[4][0])
+                    {var h = timeNode[4][0] - cur.hour - 1;}
+                else if (cur.hour >= timeNode[4][0] && cur.hour < timeNode[5][0])
+                    {var h = timeNode[5][0] - cur.hour - 1;}
+                else if (cur.hour >= timeNode[5][0] && cur.hour < timeNode[6][0])
+                    {var h = timeNode[6][0] - cur.hour - 1;}
                 else
-                    {var h = (timeNode[3][0] + 23 - cur.hours) % 24;}
+                    {var h = (timeNode[3][0] + 23 - cur.hour) % 24;}
 
                 [h,m,s]=checkTime([ h+cur.toNextHour()[0],
                                     cur.toNextHour()[1],
@@ -75,22 +75,22 @@ function timeCountdown(){
                 return h+":"+m+":"+s;
             },
             cOA: function(){
-                var h = (timeNode[3][0] + 23 - cur.hours) % 24;
+                var h = (timeNode[3][0] + 23 - cur.hour) % 24;
                 [h,m,s]=checkTime([h+cur.toNextHour()[0], cur.toNextHour()[1], cur.toNextHour()[2]]);
                 return h+":"+m+":"+s;
             },
             opposite: function(){
-                if (cur.hours >= timeNode[3][0] && cur.hours < timeNode[5][0])
-                    {var h = timeNode[5][0] - cur.hours - 1;}
+                if (cur.hour >= timeNode[3][0] && cur.hour < timeNode[5][0])
+                    {var h = timeNode[5][0] - cur.hour - 1;}
                 else
-                    {var h = (timeNode[3][0] + 23 - cur.hours) % 24;}
+                    {var h = (timeNode[3][0] + 23 - cur.hour) % 24;}
                 [h,m,s]=checkTime([h+cur.toNextHour()[0], cur.toNextHour()[1], cur.toNextHour()[2]]);
                 return h+":"+m+":"+s;
             }
         },
         weeklyThu: function(){
-            var d = (10 - cur.day) % 7;
-            var h = (timeNode[3][0] + 23 - cur.hours) % 24;
+            var h = (timeNode[3][0] + 23 - cur.hour) % 24;
+            var d = (10 - cur.day) % 7 + (timeNode[3][0] + 23 - cur.hour - h) / 24;
             h += cur.toNextHour()[0];
             if (h == 24)
                 {d += 1;h = 0;}
@@ -99,14 +99,14 @@ function timeCountdown(){
             return d+"天 "+h+":"+m+":"+s;
         },
         weeklyEvents: function(){
-            if (cur.day == 4 && cur.hours >= timeNode[7][0] && cur.hours < timeNode[3][0]){
-                var h = timeNode[3][0] - cur.hours - 1;
+            if (cur.day == 4 && cur.hour >= timeNode[7][0] && cur.hour < timeNode[3][0]){
+                var h = timeNode[3][0] - cur.hour - 1;
                 [h,m,s]=checkTime([h+cur.toNextHour()[0], cur.toNextHour()[1], cur.toNextHour()[2]]);
                 return h+":"+m+":"+s+"-";
             }
             else{
-                var d = (10 - cur.day) % 7;
-                var h = (timeNode[7][0] + 23 - cur.hours) % 24;
+                var h = (timeNode[7][0] + 23 - cur.hour) % 24;
+                var d = (10 - cur.day) % 7 + (timeNode[7][0] + 23 - cur.hour - h) / 24;
                 h += cur.toNextHour()[0];
                 if (h == 24)
                     {d += 1;h = 0;}
@@ -124,7 +124,7 @@ function timeCountdown(){
             // the actual duaration is Sun.000100~Sat.235859, but I make it Sun.000000~Sat.235959 here, may cause tiny error
             if (cur.date >= startDate && cur.date < endDate){
                 var d = endDate - cur.date - 1;
-                var h = (23 - cur.hours) % 24;
+                var h = (23 - cur.hour) % 24;
                 h += cur.toNextHour()[0];
                 if (h == 24)
                     {d += 1;h = 0;}
@@ -134,7 +134,7 @@ function timeCountdown(){
             }
             else if (cur.date < startDate){
                 var d = startDate - cur.date - 1;
-                var h = (23 - cur.hours) % 24;
+                var h = (23 - cur.hour) % 24;
                 h += cur.toNextHour()[0];
                 if (h == 24)
                     {d += 1;h = 0;}
@@ -149,7 +149,7 @@ function timeCountdown(){
                 if (nextStartDate == 0)
                     {nextStartDate = 7;}
                 var d = curMonlast.getDate() - cur.date + nextStartDate - 1;
-                var h = (23 - cur.hours) % 24;
+                var h = (23 - cur.hour) % 24;
                 h += cur.toNextHour()[0];
                 if (h == 24)
                     {d += 1;h = 0;}
