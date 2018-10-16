@@ -21,16 +21,21 @@ function timeCountdown(){
     var loadTime = new Date(); // get current time (full information)
     var cur = {
         // cur is short for 'current (time)', actually same as 'Date'
-        // toNextHour -- time to next hour (in seconds)
+        // toNextHour -- time to next hour [hrs,mins,secs]
         date: loadTime.getDate(), // 1~31
         day: loadTime.getDay(), // 0~6 Sun~Sat
         hours: loadTime.getHours(), // 0~23
         min: loadTime.getMinutes(), // 0~59
         Seconds: loadTime.getSeconds(), // 0~59
         toNextHour:function(){
-            m = loadTime.getMinutes();
-            s = loadTime.getSeconds();
-            return 3600 - m * 60 - s;
+            mCur = loadTime.getMinutes();
+            sCur = loadTime.getSeconds();
+            s = (3600 - mCur * 60 - sCur) % 60;
+            m = (3600 - mCur * 60 - sCur - s) / 60;
+            h=0;
+            if (m == 60)
+                {h=1;m=0;}
+            return [h,m,s];
         }
     }
 
@@ -38,10 +43,9 @@ function timeCountdown(){
     // return a string -- (days) hrs:mins:secs
         dailyQuest: function(){
             var h = (timeNode[2][0] + 23 - cur.hours) % 24;
-            var s = cur.toNextHour() % 60;
-            var m = (cur.toNextHour() - s) / 60;
-            if (m == 60)
-                {h+=1;m=0;}
+            h += cur.toNextHour()[0];
+            var m = cur.toNextHour()[1];
+            var s = cur.toNextHour()[2];
             [h,m,s]=checkTime([h,m,s]);
 
             return h+":"+m+":"+s;
@@ -56,10 +60,9 @@ function timeCountdown(){
             else
                 {var h = (timeNode[3][0] + 23 - cur.hours) % 24;}
 
-            var s = cur.toNextHour() % 60;
-            var m = (cur.toNextHour() - s) / 60;
-            if (m == 60)
-                {h+=1;m=0;}
+            h += cur.toNextHour()[0];
+            var m = cur.toNextHour()[1];
+            var s = cur.toNextHour()[2];
             [h,m,s]=checkTime([h,m,s]);
 
             return h+":"+m+":"+s;
