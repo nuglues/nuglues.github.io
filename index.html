@@ -3,27 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="base.css">
+    <link type="text/css" rel="stylesheet" href="overall.css">
 </head>
 
-<body onload="timeCountdown()" style="margin: 10px">
-<h1 style="margin: 5px 0px">今日赞达拉 v0.0.0</h1>
+<body onload="timeCountdown(),func()">
+<h1>今日赞达拉 v0.0.0</h1>
 
-<div style="width:330px;background:rgba(31,128,123,0.2);padding: 10px">
+<div class="block" style="background:rgba(128,0,33,0.25);">
     <p>
-        <strong>每日刷新</strong><br>
-        下一次世界任务<span style="float: right"><span id="world-Quest"></span></span><br>
-        下一次世界任务(艾泽拉斯勇士) | 5H<span style="float: right"><span id="wQ-cOA-5H"></span></span><br>
-        下一次世界任务(对立阵营)<span style="float: right"><span id="wQ-oppo"></span></span><br>
-        下一次日常刷新<span style="float: right"><span id="daily-Quest"></span></span><br><br>
-        <strong>每周刷新</strong><br>
-        下一次周CD更新 | 低保<span style="float: right"><span id="weekly-Thu"></span></span><br>
-        <span id="weekly-Events-Txt"></span><span style="float: right">
-        <span id="weekly-Events-Time"></span></span><br><br>
-        <strong>每月刷新</strong><br>
-        <span id="night-Moon-Txt"></span><span style="float: right"><span id="night-Moon-Time"></span></span>
+    <h2>倒计时板</h2>
+    <strong>每日刷新</strong><br>
+    下一次世界任务<span style="float: right"><span id="world-Quest"></span></span><br>
+    下一次世界任务(艾酱) | 5H | 大使<span style="float: right"><span id="wQ-cOA-5H"></span></span><br>
+    下一次世界任务(对立阵营)<span style="float: right"><span id="wQ-oppo"></span></span><br>
+    下一次日常刷新<span style="float: right"><span id="daily-Quest"></span></span><br><br>
+    <strong>每周刷新</strong><br>
+    下一次周CD更新 | 低保<span style="float: right"><span id="weekly-Thu"></span></span><br>
+    <span id="weekly-Events-Txt"></span><span style="float: right"><span id="weekly-Events-Time"></span></span><br><br>
+    <strong>每月刷新</strong><br>
+    <span id="night-Moon-Txt"></span><span style="float: right"><span id="night-Moon-Time"></span></span>
     </p>
 </div>
 
-<script type="text/javascript" src="timeCountdown.js"></script>
+<div class="block" style="background:rgba(253,224,48,0.25)">
+    <p>
+    <h2>信息速览(施工中...)</h2>
+    本周词缀<br>
+    今日大使箱子
+    </p>
+</div>
+
+<div class="block" style="background:rgba(64,253,76,0.25)">
+    <p>
+    <h2>友情链接</h2>
+    <a target="_blank" href="https://www.warcraftlogs.com/guild/reports-list/390775/">公会WCL主页</a><br>
+    <a target="_blank" href="https://www.herodamage.com/">Hero Damage</a><br>
+    <a target="_blank" href="http://www.simulationcraft.org/">SimulationCraft</a><span style="float: right"><a target="_blank" href="http://downloads.simulationcraft.org/?C=M;O=D"><i>download</i></a></span><br>
+    <a target="_blank" href="http://bbs.nga.cn/thread.php?fid=310">NGA前瞻区</a><br>
+    </p>
+</div>
+
 </body>
+<script type="text/javascript" src="timeCountdown.js"></script>
+<script type="text/javascript" src="2.js"></script>
 </html>

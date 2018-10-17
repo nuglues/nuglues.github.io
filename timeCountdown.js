@@ -1,3 +1,5 @@
+var timeOutput = null; // global
+
 function timeCountdown() {
     var timeNode = [];
     timeNode[0] = [0, 1]; // 00:01 NightMoon starts (monthly, first Sunday)
@@ -37,7 +39,7 @@ function timeCountdown() {
         }
     };
 
-    var timeOutput = {
+    timeOutput = {
         // return a string -- (days) hrs:mins:secs
         // daily: dailyQuest | worldQuest(cOA, opposite) | 5H
         // weekly: weekly events | raid CD; Mythic(+) CD/box
