@@ -1,54 +1,29 @@
 <!DOCTYPE html>
-<html lang = "zh-CN">
+<html lang="zh-CN">
 <head>
-    <meta charset = "UTF-8">
+    <meta charset="UTF-8">
+    <style type="text/css" src="base.css"></style>
 </head>
 
-<body onload = "timeCountdown()">
+<body onload="timeCountdown()">
 <h1>今日赞达拉 v0.0.0</h1>
 
-<table>
-    <tr>
-        <td colspan = 2><strong>每日刷新</strong></td>
-    </tr>
-    <tr>
-        <td>下一次世界任务</td>
-        <td align = "right"><span id = "world-Quest"></span></td>
-    </tr>
-    <tr>
-        <td>下一次世界任务(艾泽拉斯勇士) | 5H</td>
-        <td align="right"><span id = "wQ-cOA-5H"></span></td>
-    </tr>
-    <tr>
-        <td>下一次世界任务(对立阵营)</td>
-        <td align = "right"><span id = "wQ-oppo"></span></td>
-    </tr>
-    <tr>
-        <td>下一次日常刷新</td>
-        <td align = "right"><span id = "daily-Quest"></span></td>
-    </tr>
+<div style="width:330px;background:rgba(128,0,128,0.2);padding: 1px">
+    <p>
+        <strong>每日刷新</strong><br>
+        下一次世界任务<span style="float: right"><span id="world-Quest"></span></span><br>
+        下一次世界任务(艾泽拉斯勇士) | 5H<span style="float: right"><span id="wQ-cOA-5H"></span></span><br>
+        下一次世界任务(对立阵营)<span style="float: right"><span id="wQ-oppo"></span></span><br>
+        下一次日常刷新<span style="float: right"><span id="daily-Quest"></span></span><br><br>
+        <strong>每周刷新</strong><br>
+        下一次周CD更新 | 低保<span style="float: right"><span id="weekly-Thu"></span></span><br>
+        <span id="weekly-Events-Txt"></span><span style="float: right">
+        <span id="weekly-Events-Time"></span></span><br><br>
+        <strong>每月刷新</strong><br>
+        <span id="night-Moon-Txt"></span><span style="float: right"><span id="night-Moon-Time"></span></span>
+    </p>
+</div>
 
-    <tr>
-        <td colspan = 2><br><strong>每周刷新</strong></td>
-    </tr>
-    <tr>
-        <td>下一次周CD更新 | 低保</td>
-        <td align = "right"><span id = "weekly-Thu"></span></td>
-    </tr>
-    <tr>
-        <td><span id = "weekly-Events-Txt"></span></td>
-        <td align = "right"><span id = "weekly-Events-Time"></span></td>
-    </tr>
-
-    <tr>
-        <td colspan = 2><br><strong>每月刷新</strong></td>
-    </tr>
-    <tr>
-        <td><span id = "night-Moon-Txt"></span></td>
-        <td align = "right"><span id = "night-Moon-Time"></span></td>
-    </tr>
-</table>
-
-<script type = "text/javascript" src = "timeCountdown.js"></script>
+<script type="text/javascript" src="timeCountdown.js"></script>
 </body>
 </html>

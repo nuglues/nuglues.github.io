@@ -1,5 +1,5 @@
 function timeCountdown() {
-    var timeNode = new Array();
+    var timeNode = [];
     timeNode[0] = [0, 1]; // 00:01 NightMoon starts (monthly, first Sunday)
     timeNode[1] = [23, 59]; // 23:59 NightMoon ends (monthly, the Saturday after first Sunday)
     timeNode[2] = [3, 0]; // daily quest (daily)
@@ -29,13 +29,13 @@ function timeCountdown() {
             s = (3600 - mCur * 60 - sCur) % 60;
             m = (3600 - mCur * 60 - sCur - s) / 60;
             h = 0;
-            if (m == 60) {
+            if (m === 60) {
                 h = 1;
                 m = 0;
             }
             return [h, m, s];
         }
-    }
+    };
 
     var timeOutput = {
         // return a string -- (days) hrs:mins:secs
@@ -94,7 +94,7 @@ function timeCountdown() {
             var h = (timeNode[3][0] + 23 - cur.hour) % 24;
             var d = (10 - cur.day) % 7 + (timeNode[3][0] + 23 - cur.hour - h) / 24;
             h += cur.toNextHour()[0];
-            if (h == 24) {
+            if (h === 24) {
                 d += 1;
                 h = 0;
             }
@@ -199,7 +199,7 @@ function timeCountdown() {
     }
 
     setTimeout('timeCountdown()', 500)
-};
+}
 
 function checkTime(arr) {
     // add front 0 for numbers less than 10
@@ -209,4 +209,4 @@ function checkTime(arr) {
         }
     }
     return arr;
-};
+}
