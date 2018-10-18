@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3a76b69f-6d31-43c9-9616-5e708e109c4b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/goTop.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/goTop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notepage.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notepage.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,7 +40,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="298" />
-          <entry key="html" value="1941" />
+          <entry key="html" value="2009" />
           <entry key="js" value="1589" />
           <entry key="txt" value="23" />
         </counts>
@@ -50,7 +48,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="298" />
-          <entry key="HTML" value="1941" />
+          <entry key="HTML" value="2009" />
           <entry key="JavaScript" value="1589" />
           <entry key="PLAIN_TEXT" value="23" />
         </counts>
@@ -80,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+            <state relative-caret-position="739">
+              <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -108,7 +106,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/cycleTip.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
+            <state relative-caret-position="245">
               <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
             </state>
           </provider>
@@ -247,7 +245,7 @@
       <option name="presentableId" value="Default" />
       <updated>1539763980611</updated>
       <workItem from="1539763983248" duration="21574000" />
-      <workItem from="1539825506796" duration="32940000" />
+      <workItem from="1539825506796" duration="34231000" />
     </task>
     <task id="LOCAL-00001" summary="Transported to WebStorm">
       <created>1539764623956</created>
@@ -260,7 +258,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54514000" />
+    <option name="totallyTimeSpent" value="55805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -326,15 +324,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/cycleTip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
+        <state relative-caret-position="245">
           <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+        <state relative-caret-position="739">
+          <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
