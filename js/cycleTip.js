@@ -33,7 +33,7 @@ var emissaryQuest = ["塔兰吉远征队","始祖龟求知者","沃顿奈","艾�
 var emissaryReward = new Array(40);
 emissaryReward = emissaryReward.join("老任还没写,").split(",");
 emissaryReward.lenth = emissaryReward.lenth - 1; // 批量赋值 https://blog.csdn.net/jackwen110200/article/details/51669578
-emissaryReward.splice(38,0,"340装备","600能量","340装备","特质装","200物资");
+emissaryReward.splice(38,0,"340装备","600能量","340装备","特质装","200物资","700金币");
 
 function cycleTip() {
     var loadTime = new Date();
