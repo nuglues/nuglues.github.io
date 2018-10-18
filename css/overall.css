@@ -4,11 +4,18 @@ body {
 
 h1 {
     margin: 0 0 10px 10px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33);
 }
 
 h2 {
     margin: 0 0 5px 0;
     text-align: center;
+}
+
+a.goTop {
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
 }
 
 .block {
@@ -17,10 +24,10 @@ h2 {
     padding: 10px;
     margin: 0 10px 20px 10px;
     float: left;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
 }
 
-a.goTop {
-    position: fixed;
-    bottom: 3%;
-    right: 2%;
+.link:hover{
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+    transition-duration: 300ms;
 }

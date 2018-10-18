@@ -200,7 +200,7 @@ function timeCountdown() {
         document.getElementById("night-Moon-Time").innerHTML = timeRemain.nightMoon().slice(0, -1);
     }
 
-    setTimeout('timeCountdown()', 500)
+    setTimeout('timeCountdown()', 500);
 }
 
 function checkTime(arr) {
