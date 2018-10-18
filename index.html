@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <title>快乐咸鱼每一天！</title>
-    <link type="image/x-icon" rel="icon" href="icon.ico"/>
-    <link type="text/css" rel="stylesheet" href="base.css">
-    <link type="text/css" rel="stylesheet" href="overall.css">
+    <link type="image/x-icon" rel="icon" href="img/icon.ico"/>
+    <link type="text/css" rel="stylesheet" href="css/base.css">
+    <link type="text/css" rel="stylesheet" href="css/overall.css">
+
+
 </head>
 
-<body onload="timeCountdown(),func()">
-<a name="top"></a>
-
+<body onload="timeCountdown();func();">
 <h1>今日赞达拉 v0.0.0</h1>
 
 <div class="block" style="background:rgba(128,0,33,0.25);">
@@ -26,7 +27,6 @@
     <span id="weekly-Events-Txt"></span><span style="float: right"><span id="weekly-Events-Time"></span></span><br><br>
     <strong>每月刷新</strong><br>
     <span id="night-Moon-Txt"></span><span style="float: right"><span id="night-Moon-Time"></span></span>
-    </p>
 </div>
 
 <div class="block" style="background:rgba(253,224,48,0.25)">
@@ -34,23 +34,24 @@
     <h2>信息速览(施工中...)</h2>
     本周词缀<br>
     今日大使箱子
-    </p>
 </div>
 
 <div class="block" style="background:rgba(64,253,76,0.25)">
     <p>
     <h2>友情链接</h2>
     <a target="_blank" href="https://www.warcraftlogs.com/guild/reports-list/390775/">公会WCL主页</a><br>
-    <a target="_blank" href="https://www.herodamage.com/">Hero Damage</a><br>
+    <a target="_blank" href="https://www.herodamage.com/">Hero Damage</a> | <a target="_blank" href="https://www.herodamage.com/zh/">中文</a><br>
     <a target="_blank" href="http://www.simulationcraft.org/">SimulationCraft</a> | <a target="_blank" href="http://downloads.simulationcraft.org/?C=M;O=D">下载</a><br>
     <a target="_blank" href="http://bbs.nga.cn/thread.php?fid=310">NGA前瞻区</a><br>
-    </p>
 </div>
 <div style="clear: both"></div> <!--end for div in one line-->
 <div class="block" style="width: 20px;height: 800px;"></div>
 <div style="clear: both"></div>
-<a href="#top"target="_self" style="position: fixed;bottom: 3%;right: 2%;"><img src="happyNorth.png"></a>
+
+<a href="javascript:void(0);" onclick="goTop();" class="goTop"><img src="img/happyNorth.png"></a>
+
 </body>
-<script type="text/javascript" src="timeCountdown.js"></script>
-<script type="text/javascript" src="2.js"></script>
+<script type="text/javascript" src="js/goTop.js"></script>
+<script type="text/javascript" src="js/timeCountdown.js"></script>
+<script type="text/javascript" src="js/2.js"></script>
 </html>

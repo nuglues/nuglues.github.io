@@ -1,4 +1,4 @@
-var timeOutput = null; // global
+var timeRemain = null; // global
 
 function timeCountdown() {
     var timeNode = [];
@@ -39,7 +39,7 @@ function timeCountdown() {
         }
     };
 
-    timeOutput = {
+    timeRemain = {
         // return a string -- (days) hrs:mins:secs
         // daily: dailyQuest | worldQuest(cOA, opposite) | 5H
         // weekly: weekly events | raid CD; Mythic(+) CD/box
@@ -176,28 +176,28 @@ function timeCountdown() {
         }
     }
 
-    document.getElementById("world-Quest").innerHTML = timeOutput.worldQuest.norm();
-    document.getElementById("wQ-cOA-5H").innerHTML = timeOutput.worldQuest.cOA();
-    document.getElementById("wQ-oppo").innerHTML = timeOutput.worldQuest.opposite();
-    document.getElementById("daily-Quest").innerHTML = timeOutput.dailyQuest();
+    document.getElementById("world-Quest").innerHTML = timeRemain.worldQuest.norm();
+    document.getElementById("wQ-cOA-5H").innerHTML = timeRemain.worldQuest.cOA();
+    document.getElementById("wQ-oppo").innerHTML = timeRemain.worldQuest.opposite();
+    document.getElementById("daily-Quest").innerHTML = timeRemain.dailyQuest();
 
-    document.getElementById("weekly-Thu").innerHTML = timeOutput.weeklyThu();
-    if (timeOutput.weeklyEvents().charAt(timeOutput.weeklyEvents().length - 1) == "-") {
+    document.getElementById("weekly-Thu").innerHTML = timeRemain.weeklyThu();
+    if (timeRemain.weeklyEvents().charAt(timeRemain.weeklyEvents().length - 1) == "-") {
         document.getElementById("weekly-Events-Txt").innerHTML = "周常活动即将开始";
-        document.getElementById("weekly-Events-Time").innerHTML = timeOutput.weeklyEvents().slice(0, -1);
+        document.getElementById("weekly-Events-Time").innerHTML = timeRemain.weeklyEvents().slice(0, -1);
     }
     else {
         document.getElementById("weekly-Events-Txt").innerHTML = "周常活动剩余时间 ";
-        document.getElementById("weekly-Events-Time").innerHTML = timeOutput.weeklyEvents().slice(0, -1);
+        document.getElementById("weekly-Events-Time").innerHTML = timeRemain.weeklyEvents().slice(0, -1);
     }
 
-    if (timeOutput.nightMoon().charAt(timeOutput.nightMoon().length - 1) == "-") {
+    if (timeRemain.nightMoon().charAt(timeRemain.nightMoon().length - 1) == "-") {
         document.getElementById("night-Moon-Txt").innerHTML = "暗月马戏团下次到达 ";
-        document.getElementById("night-Moon-Time").innerHTML = timeOutput.nightMoon().slice(0, -1);
+        document.getElementById("night-Moon-Time").innerHTML = timeRemain.nightMoon().slice(0, -1);
     }
     else {
         document.getElementById("night-Moon-Txt").innerHTML = "暗月马戏团剩余时间 ";
-        document.getElementById("night-Moon-Time").innerHTML = timeOutput.nightMoon().slice(0, -1);
+        document.getElementById("night-Moon-Time").innerHTML = timeRemain.nightMoon().slice(0, -1);
     }
 
     setTimeout('timeCountdown()', 500)
