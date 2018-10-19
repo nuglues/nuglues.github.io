@@ -1,6 +1,6 @@
 var dayInMs = new Date(1970, 0, 2, 8).getTime(); // Jan. is 0 !!! 8 is for GMT +8:00
 var startDay = {
-    ver801: new Date(2018,8,6,7),
+    ver801: new Date(2018,8,6,7), // new Date("YYYY,M,D,8:00") does not fit safari
     ver810: new Date("2018,11,29,7:00")
 };
 
