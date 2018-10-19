@@ -1,6 +1,6 @@
 var dayInMs = new Date(1970, 0, 2, 8).getTime(); // Jan. is 0 !!! 8 is for GMT +8:00
 var startDay = {
-    ver801: new Date("2018,9,6,7:00"),
+    ver801: new Date(2018,8,6,7),
     ver810: new Date("2018,11,29,7:00")
 };
 
