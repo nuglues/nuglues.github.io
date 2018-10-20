@@ -62,7 +62,7 @@ worldBoss[0] = ["斯托颂谷地","沃顿","提拉加德海峡","祖达萨","德
 worldBoss[1] = ["战争使者耶纳基兹","食沙者克劳洛克","蔚索斯，飞翼台风","基阿拉克","冰雹构造体","提赞"];
 
 var weeklyEvent = [];
-weeklyEvent[0] = ["时光漫游：巫妖王之怒"];
+weeklyEvent[0] = ["时光漫游：熊猫人之谜"];
 
 var warFrontlineDonation = []; // 炼金 铭文 锻造 珠宝 工程 制皮 裁缝 附魔 烹饪
 warFrontlineDonation[0] = [ [20,3,60,15,3,2,1,3,60] ];
