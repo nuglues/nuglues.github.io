@@ -174,7 +174,7 @@ function timeCountdown() {
                 return d + "天 " + h + ":" + m + ":" + s + "-";
             }
         }
-    }
+    };
 
     document.getElementById("world-Quest").innerHTML = timeRemain.worldQuest.norm();
     document.getElementById("wQ-cOA-5H").innerHTML = timeRemain.worldQuest.cOA();

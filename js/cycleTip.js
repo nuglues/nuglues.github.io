@@ -29,11 +29,20 @@ var mythAffOrder = {
     残暴+激励+重伤 */
 };
 
-var emissaryQuest = ["塔兰吉远征队","始祖龟求知者","沃顿奈","艾泽拉斯的勇士","部落战事","赞达拉帝国"];
+var emissaryPool = [];
+emissaryPool[0] = ["塔兰吉远征队","始祖龟求知者","沃顿奈","艾泽拉斯的勇士","部落战事","赞达拉帝国"];
+emissaryPool[1] = ["340装备","600能量","340装备","特质装","200物资","700金币","特质装"];
+// var emissaryQuest = ["塔兰吉远征队","始祖龟求知者","沃顿奈","艾泽拉斯的勇士","部落战事","赞达拉帝国"];
+// the cycle maybe incorrect
+var emissaryQuest = new Array(40);
+emissaryQuest = emissaryQuest.join("老任还没写,").split(",");
+emissaryQuest.lenth = emissaryQuest.lenth - 1;
+emissaryQuest.splice(38,0,emissaryPool[0][2],emissaryPool[0][3],emissaryPool[0][4],emissaryPool[0][5],emissaryPool[0][0],emissaryPool[0][1], emissaryPool[0][4]);
+
 var emissaryReward = new Array(40);
-emissaryReward = emissaryReward.join("老任还没写,").split(",");
+emissaryReward = emissaryReward.join("老任还没写,").split(","); // initialise array
 emissaryReward.lenth = emissaryReward.lenth - 1; // 批量赋值 https://blog.csdn.net/jackwen110200/article/details/51669578
-emissaryReward.splice(38,0,"340装备","600能量","340装备","特质装","200物资","700金币");
+emissaryReward.splice(38,0,emissaryPool[1][0],emissaryPool[1][1],emissaryPool[1][2],emissaryPool[1][3],emissaryPool[1][4],emissaryPool[1][5],emissaryPool[1][3]);
 
 function cycleTip() {
     var loadTime = new Date();
@@ -53,7 +62,6 @@ function cycleTip() {
     mythicAffixNext[2] = mythAffPool[2][mythAffOrder.ver801[2][(mythicAffixTurn+1) % 12]];
     mythicAffixNext[3] = mythAffPool[3][mythAffOrder.ver801[3][0]];
 
-
     document.getElementById("cycleTip-mythAff-0").innerHTML = mythicAffix[0];
     document.getElementById("cycleTip-mythAff-1").innerHTML = mythicAffix[1];
     document.getElementById("cycleTip-mythAff-2").innerHTML = mythicAffix[2];
@@ -64,15 +72,18 @@ function cycleTip() {
     document.getElementById("cycleTip-mythAffNext-2").innerHTML = mythicAffixNext[2];
     document.getElementById("cycleTip-mythAffNext-3").innerHTML = mythicAffixNext[3];
 
-    document.getElementById("cycleTip-emQue-0").innerHTML = emissaryQuest[deltaDay.ver801 % 6]; // today
-    document.getElementById("cycleTip-emQue-1").innerHTML = emissaryQuest[(deltaDay.ver801 - 1) % 6]; // yesterday
-    document.getElementById("cycleTip-emQue-2").innerHTML = emissaryQuest[(deltaDay.ver801 - 2) % 6]; // the day before yesterday
+    // document.getElementById("cycleTip-emQue-0").innerHTML = emissaryQuest[deltaDay.ver801 % 6]; // today
+    // document.getElementById("cycleTip-emQue-1").innerHTML = emissaryQuest[(deltaDay.ver801 - 1) % 6]; // yesterday
+    // document.getElementById("cycleTip-emQue-2").innerHTML = emissaryQuest[(deltaDay.ver801 - 2) % 6]; // the day before yesterday
+    document.getElementById("cycleTip-emQue-0").innerHTML = emissaryQuest[deltaDay.ver801];
+    document.getElementById("cycleTip-emQue-1").innerHTML = emissaryQuest[deltaDay.ver801 - 1];
+    document.getElementById("cycleTip-emQue-2").innerHTML = emissaryQuest[deltaDay.ver801 - 2];
 
     document.getElementById("cycleTip-emRe-0").innerHTML = emissaryReward[deltaDay.ver801];
     document.getElementById("cycleTip-emRe-1").innerHTML = emissaryReward[deltaDay.ver801 - 1];
     document.getElementById("cycleTip-emRe-2").innerHTML = emissaryReward[deltaDay.ver801 - 2];
 
-    document.getElementById("cycleTip-emQue-next").innerHTML = emissaryQuest[(deltaDay.ver801 + 1) % 6]; // tomorrow
+    // document.getElementById("cycleTip-emQue-next").innerHTML = emissaryQuest[(deltaDay.ver801 + 1) % 6]; // tomorrow Stop predicting (maybe restart after I find the real cycle)
 
-    setTimeout('cycleTip()', 900);
+    setTimeout('cycleTip()',900);
 }
