@@ -10,55 +10,60 @@
 
 </head>
 
-<body onload="timeCountdown();cycleTip();">
-<div style="position: fixed;bottom: 1%;right: 2%">Copyright&copy;任其自然@NGA<br><p style="text-align: right">All Rights Reserved</p></div>
-<div style="position: fixed;bottom: 6%;right: 2%"><a href="javascript:void(0);" onclick="goTop();" ><img src="img/happyNorth.gif"></a></div> <!--firefox show incorrect output when uss class style-->
+<body onload="mainLoop();">
+<div style="position: fixed;bottom: 1%;right: 2%">Copyright&copy;<a class="link" target="_blank"  href="http://bbs.nga.cn/nuke.php?func=ucp&uid=7789181">任其自然@NGA</a><br><p style="text-align: right">All Rights Reserved</p></div>
+<div class="goTop"><a href="javascript:void(0);" onclick="goTop();"><img src="img/happyNorth.gif"></a></div>
+<!--firefox show incorrect output when uss class style-->
 
-<h1>今日赞达拉 v0.0.0</h1>
+<h1>今日赞达拉 v0.0.1</h1>
+<div class="goYa">
+    <strong>冲鸭！</strong> <span id="diBao" style="color: #ff0000"></span><br>
+    <span id="goYa-emExpire-time"></span> <span id="goYa-emExpire-name"></span> 大使任务要过期了<br>
+    <span id="goYa-weeklyEvent"></span>
+    <span id="goYa-weeklyThu"></span>
+    <span id="goYa-nightMoon"></span>
+</div>
+<div style="clear: both"></div>
 
 <div class="block" style="background:rgba(128,0,33,0.25);">
     <h2>倒计时板</h2><br>
     <strong>每日刷新</strong><br>
-    下一次世界任务<span id="world-Quest" style="float:right"></span><br>
-    下一次世界任务(艾酱) | 5H | 大使<span id="wQ-cOA-5H" style="float:right"></span><br>
-    下一次世界任务(对立阵营)<span id="wQ-oppo" style="float:right"></span><br>
-    下一次日常刷新<span id="daily-Quest" style="float:right"></span><br>
+    下一波世界任务<span id="wQ-Norm" class="floatRight"></span><br>
+    下一波艾酱任务 | 大使任务 | 5H更新<span id="wQ-COA-5H" class="floatRight"></span><br>
+    下一波对面地图任务<span id="wQ-Opp" class="floatRight"></span><br>
+    下一次日常刷新<span id="daily-Quest" class="floatRight"></span><br>
     <br><strong>每周刷新</strong><br>
-    下一次周CD更新 | 低保<span id="weekly-Thu" style="float:right"></span><br>
-    <span id="weekly-Events-Txt"></span><span id="weekly-Events-Time" style="float:right"></span><br>
+    下一次周CD更新 | 低保<span id="weekly-Thu" class="floatRight"></span><br>
+    周常活动<span id="weekly-Events-State"></span><span id="weekly-Events-Time" class="floatRight"></span><br>
     <br><strong>每月刷新</strong><br>
-    <span id="night-Moon-Txt"></span><span id="night-Moon-Time" style="float:right"></span>
+    暗月马戏团<span id="night-Moon-State"></span><span id="night-Moon-Time" class="floatRight"></span>
 </div>
 
-<div class="block" style="background:rgba(253,224,48,0.25);position: relative">
+<div class="block" style="background:rgba(253,180,0,0.25);">
     <h2>信息速览(施工中...)</h2><br>
     <strong>大米词缀</strong><br>
     <span id="cycleTip-mythAff-0"></span> + <span id="cycleTip-mythAff-1"></span> + <span id="cycleTip-mythAff-2"></span> + <span id="cycleTip-mythAff-3"></span><br>
     <hr style="margin: 3px 0 2px 0;" width="100%" color="#7f7f7f">
     <span id="cycleTip-mythAffNext-0"></span> + <span id="cycleTip-mythAffNext-1"></span> + <span id="cycleTip-mythAffNext-2"></span> + <span id="cycleTip-mythAffNext-3"></span><br>
     <br><strong>大使任务</strong><br>
-    <span id="cycleTip-emQue-2"></span><span style="color: #ff4c51;position: absolute;left: 35%"> (即将结束)</span><span id="cycleTip-emRe-2" style="float:right"></span><br>
-    <span id="cycleTip-emQue-1"></span><span id="cycleTip-emRe-1" style="float:right"></span><br>
-    <span id="cycleTip-emQue-0"></span><span id="cycleTip-emRe-0" style="float:right"></span><br>
+    <span id="cycleTip-emQue-2"></span><span style="color: #ff4c51;position: absolute;left: 35%"> (即将结束)</span><span id="cycleTip-emRe-2" class="floatRight"></span><br>
+    <span id="cycleTip-emQue-1"></span><span id="cycleTip-emRe-1" class="floatRight"></span><br>
+    <span id="cycleTip-emQue-0"></span><span id="cycleTip-emRe-0" class="floatRight"></span><br>
+    <br><strong>世界Boss</strong><br>
+    <span id="cycleTip-worldBoss-Location"></span><span id="cycleTip-worldBoss-Name" class="floatRight"></span><br>
+    <br><strong>周常活动</strong><br>
+    <span id="cycleTip-weeklyEvent"></span>
 </div>
 
-<div class="block" style="position: relative">
+<div class="block">
     <h2>战争前线(施工中...)</h2><br>
     <strong>部落捐献中</strong><br>
-    炼金 - 20 海滨治疗药水<br>
-    铭文 - 3 &nbsp;&nbsp;智力战争卷轴<br>
-    锻造 - 60 镍铜矿石<br>
-    珠宝 - 15 全能蓝晶石<br>
-    工程 - 3 &nbsp;&nbsp;霜纹弹药<br>
-    制皮 - 2 &nbsp;&nbsp;漩涡战鼓<br>
-    裁缝 - 1 &nbsp;&nbsp;战旗：自由精神<br>
-    附魔 - 3 &nbsp;&nbsp;附魔戒指 - 全能之纹<br>
-    烹饪 - 60 肥厚腰肉
+    <div id="war-Frontline-Donation"></div>
 </div>
 
-<div class="block" style="background:rgba(64,253,76,0.25)">
+<div class="block" style="background:rgba(64,253,76,0.25);">
     <h2>友情链接</h2><br>
-    <a class="link" target="_blank" href="https://www.warcraftlogs.com/guild/reports-list/390775/">公会WCL主页</a><br>
+    <a class="link" target="_blank" href="https://www.warcraftlogs.com/guild/reports-list/390775/">老年鸽会WCL主页</a><br>
     <a class="link" target="_blank" href="https://www.herodamage.com/">Hero Damage</a> | <a class="link" target="_blank" href="https://www.herodamage.com/zh/">中文</a><br>
     <a class="link" target="_blank" href="http://www.simulationcraft.org/">SimulationCraft</a> | <a class="link" target="_blank" href="http://downloads.simulationcraft.org/?C=M;O=D">下载</a><br>
     <a class="link" target="_blank" href="https://www.wowprogress.com/">WoWProgress</a><br>
@@ -67,6 +72,7 @@
 </div>
 
 <div style="clear: both"></div> <!--end for div in one line-->
+
 <div class="block" style="width: 80px;height: 800px;">
     这只是一个<br>
     测试用方块<br>
@@ -75,7 +81,5 @@
 <div style="clear: both"></div>
 
 </body>
-<script type="text/javascript" src="js/goTop.js"></script>
-<script type="text/javascript" src="js/timeCountdown.js"></script>
-<script type="text/javascript" src="js/cycleTip.js"></script>
+<script type="text/javascript" src="js/main_js.js"></script>
 </html>
