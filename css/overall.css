@@ -1,15 +1,20 @@
 body {
-    margin: 10px;
+    cursor: url("../img/cursor/wow_default.cur"),default;
 }
 
 h1 {
-    margin: 0 0 15px 10px;
+    margin: 10px 0 15px 20px;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33);
+
 }
 
 h2 {
     margin: 0 0 5px 0;
     text-align: center;
+}
+
+span {
+    cursor: url("../img/cursor/wow_text.cur"),text;
 }
 
 .goTop {
@@ -22,10 +27,28 @@ h2 {
     width: 330px;
     background: rgba(31, 128, 123, 0.2);
     padding: 10px;
-    margin: 0 10px 15px 10px;
+    margin: 0 0 15px 20px;
     float: left;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
     position: relative;
+}
+
+.leftDiv {
+    width: var(--leftDivWidth);
+}
+
+.rightSidebar {
+    width: 200px;
+    height: var(--leftDivHeight);
+    background: linear-gradient(180deg, rgb(0, 0, 0), rgba(21, 153, 87, 0));
+    padding: 10px;
+    margin: 0;
+    float: right;
+    position: fixed;top: 0;right: 0;
+}
+
+.rightSidebarText{
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .floatRight {
@@ -36,7 +59,7 @@ h2 {
     width: 650px;
     background: linear-gradient(130deg, rgba(248, 255, 0, 0.5), rgba(21, 153, 87, 0));
     padding: 10px;
-    margin: 0 10px 15px 10px;
+    margin: 0 10px 15px 20px;
     float: left;
     position: relative;
 }

@@ -182,7 +182,11 @@ function mainLoop(){
     document.getElementById("goYa-weeklyThu").innerHTML = checkExpire(timeRemain.weeklyThu[0],"no need"," 快去打低保/世界BOSS");
     document.getElementById("goYa-nightMoon").innerHTML = checkExpire(timeRemain.nightMoon[1],timeRemain.nightMoon[0]," 暗月马戏团即将结束");
 
-    setTimeout('mainLoop()', 500);
+    // For left div width
+    document.documentElement.style.setProperty('--leftDivWidth', leftDivWidAndRightDivHeiCalc()[0]);
+    document.documentElement.style.setProperty('--leftDivHeight', leftDivWidAndRightDivHeiCalc()[1]);
+
+    setTimeout('mainLoop()', 200);
 }
 
 function timeCountdown(cur, node, index) {
@@ -345,4 +349,8 @@ function goTop() {
     if (document.documentElement.scrollTop + document.documentElement.scrollLeft < 1) {
         clearTimeout(t);
     }
+}
+
+function leftDivWidAndRightDivHeiCalc() {
+    return [window.innerWidth - 290 + "px", window.innerHeight - 200 + "px"] // padding owns 10 + 10 px and 10 + 10 px
 }
