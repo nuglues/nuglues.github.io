@@ -184,7 +184,8 @@ function mainLoop(){
 
     // For left div width
     document.documentElement.style.setProperty('--leftDivWidth', leftDivWidAndRightDivHeiCalc()[0]);
-    document.documentElement.style.setProperty('--leftDivHeight', leftDivWidAndRightDivHeiCalc()[1]);
+    document.documentElement.style.setProperty('--rightDivHeight', leftDivWidAndRightDivHeiCalc()[1]);
+    document.getElementById("window-innerWidth").innerHTML = window.innerWidth;
 
     setTimeout('mainLoop()', 200);
 }
@@ -352,5 +353,5 @@ function goTop() {
 }
 
 function leftDivWidAndRightDivHeiCalc() {
-    return [window.innerWidth - 290 + "px", window.innerHeight - 200 + "px"] // padding owns 10 + 10 px and 10 + 10 px
+    return [window.innerWidth - 230 + "px", window.innerHeight - 200 + "px"] // padding owns 10 + 10 px and 10 + 10 px
 }
