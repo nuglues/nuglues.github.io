@@ -44,13 +44,14 @@ var mythAffOrder = {
 
 var emissaryPool = [];
 emissaryPool[0] = ["塔兰吉远征队","始祖龟求知者","沃顿奈","艾泽拉斯的勇士","部落战事","赞达拉帝国"];
-emissaryPool[1] = ["340装备","600能量","340装备","特质装","200物资","700金币","特质装"];
+emissaryPool[1] = ["340装备","600能量","340装备","特质装","200物资","700金币"];
 // var emissaryQuest = ["塔兰吉远征队","始祖龟求知者","沃顿奈","艾泽拉斯的勇士","部落战事","赞达拉帝国"];
 // the cycle maybe incorrect
 var emissaryQuest = new Array(40);
 emissaryQuest = emissaryQuest.join("老任还没写,").split(",");
 emissaryQuest.lenth = emissaryQuest.lenth - 1;
-emissaryQuest.splice(38,0,emissaryPool[0][2],emissaryPool[0][3],emissaryPool[0][4],emissaryPool[0][5],emissaryPool[0][0],emissaryPool[0][1],emissaryPool[0][4],emissaryPool[0][3],emissaryPool[0][2]);
+emissaryQuest.splice(38,0,emissaryPool[0][2],emissaryPool[0][3],emissaryPool[0][4],emissaryPool[0][5],emissaryPool[0][0],emissaryPool[0][1],emissaryPool[0][4],
+    emissaryPool[0][3],emissaryPool[0][2],emissaryPool[0][0]);
 
 var emissaryReward = new Array(40);
 emissaryReward = emissaryReward.join("老任还没写,").split(","); // initialise array
