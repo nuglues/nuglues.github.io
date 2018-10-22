@@ -50,12 +50,12 @@ emissaryPool[1] = ["340装备","600能量","340装备","特质装","200物资","
 var emissaryQuest = new Array(40);
 emissaryQuest = emissaryQuest.join("老任还没写,").split(",");
 emissaryQuest.lenth = emissaryQuest.lenth - 1;
-emissaryQuest.splice(38,0,emissaryPool[0][2],emissaryPool[0][3],emissaryPool[0][4],emissaryPool[0][5],emissaryPool[0][0],emissaryPool[0][1], emissaryPool[0][4], emissaryPool[0][3]);
+emissaryQuest.splice(38,0,emissaryPool[0][2],emissaryPool[0][3],emissaryPool[0][4],emissaryPool[0][5],emissaryPool[0][0],emissaryPool[0][1],emissaryPool[0][4],emissaryPool[0][3],emissaryPool[0][2]);
 
 var emissaryReward = new Array(40);
 emissaryReward = emissaryReward.join("老任还没写,").split(","); // initialise array
 emissaryReward.lenth = emissaryReward.lenth - 1; // 批量赋值 https://blog.csdn.net/jackwen110200/article/details/51669578
-emissaryReward.splice(38,0,emissaryPool[1][0],emissaryPool[1][1],emissaryPool[1][2],emissaryPool[1][3],emissaryPool[1][4],emissaryPool[1][5],emissaryPool[1][3],emissaryPool[1][1]);
+emissaryReward.splice(38,0,emissaryPool[1][0],emissaryPool[1][1],emissaryPool[1][2],emissaryPool[1][3],emissaryPool[1][4],emissaryPool[1][5],emissaryPool[1][3],emissaryPool[1][1],emissaryPool[1][3]);
 
 var worldBoss = [];
 worldBoss[0] = ["斯托颂谷地","沃顿","提拉加德海峡","祖达萨","德鲁斯瓦","纳兹米尔"];
@@ -353,5 +353,5 @@ function goTop() {
 }
 
 function leftDivWidAndRightDivHeiCalc() {
-    return [window.innerWidth - 230 + "px", window.innerHeight - 200 + "px"] // padding owns 10 + 10 px and 10 + 10 px
+    return [window.innerWidth - 240 + "px", window.innerHeight - 200 + "px"] // padding owns 10 + 10 px and 10 + 10 px
 }

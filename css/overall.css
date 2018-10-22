@@ -19,8 +19,8 @@ span {
 
 .goTop {
     position: fixed;
-    bottom: 6%;
-    right: 2%;
+    bottom: 60px;
+    right: 20px;
 }
 
 .block {
@@ -38,7 +38,7 @@ span {
 }
 
 .rightSidebar {
-    width: 140px;
+    width: 200px;
     height: var(--rightDivHeight);
     background: linear-gradient(180deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
     padding: 10px;
