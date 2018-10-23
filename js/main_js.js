@@ -56,7 +56,8 @@ emissaryQuest.splice(38,0,emissaryPool[0][2],emissaryPool[0][3],emissaryPool[0][
 var emissaryReward = new Array(40);
 emissaryReward = emissaryReward.join("老任还没写,").split(","); // initialise array
 emissaryReward.lenth = emissaryReward.lenth - 1; // 批量赋值 https://blog.csdn.net/jackwen110200/article/details/51669578
-emissaryReward.splice(38,0,emissaryPool[1][0],emissaryPool[1][1],emissaryPool[1][2],emissaryPool[1][3],emissaryPool[1][4],emissaryPool[1][5],emissaryPool[1][3],emissaryPool[1][1],emissaryPool[1][3]);
+emissaryReward.splice(38,0,emissaryPool[1][0],emissaryPool[1][1],emissaryPool[1][2],emissaryPool[1][3],emissaryPool[1][4],emissaryPool[1][5],emissaryPool[1][3],
+    emissaryPool[1][1],emissaryPool[1][3],emissaryPool[1][5]);
 
 var worldBoss = [];
 worldBoss[0] = ["斯托颂谷地","沃顿","提拉加德海峡","祖达萨","德鲁斯瓦","纳兹米尔"];
