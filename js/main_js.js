@@ -359,6 +359,6 @@ function leftDivWidAndRightDivHeiCalc() {
     return [document.body.scrollWidth - 240 + "px", window.innerHeight - 200 + "px"] // padding owns 10 + 10 px and 10 + 10 px
 }
 
-rightSidebarWidth = "50px";
+rightSidebarWidth = "200px";
 document.getElementById("right-sidebarWidth").innerHTML = rightSidebarWidth;
 document.documentElement.style.setProperty('--rightSidebarWidth', rightSidebarWidth);
