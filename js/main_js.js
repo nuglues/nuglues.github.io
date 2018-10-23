@@ -188,7 +188,7 @@ function mainLoop(){
     // For left div width
     document.documentElement.style.setProperty('--leftDivWidth', leftDivWidAndRightDivHeiCalc()[0]);
     document.documentElement.style.setProperty('--rightSidebarHeight', leftDivWidAndRightDivHeiCalc()[1]);
-    document.getElementById("window-innerWidth").innerHTML = window.innerWidth;
+    document.getElementById("body-scrollWidth").innerHTML = document.body.scrollWidth;
 
     setTimeout('mainLoop()', 200);
 }
@@ -356,7 +356,7 @@ function goTop() {
 }
 
 function leftDivWidAndRightDivHeiCalc() {
-    return [window.innerWidth - 240 + "px", window.innerHeight - 200 + "px"] // padding owns 10 + 10 px and 10 + 10 px
+    return [document.body.scrollWidth - 240 + "px", window.innerHeight - 200 + "px"] // padding owns 10 + 10 px and 10 + 10 px
 }
 
 rightSidebarWidth = "50px";
