@@ -71,7 +71,7 @@ warFrontlineDonation[0] = [ [20,3,60,15,3,2,1,3,60] ];
 warFrontlineDonation[1] = [ ["海滨治疗药水","智力战争卷轴","镍铜矿石","全能蓝晶石","霜纹弹药","漩涡战鼓","战旗：自由精神","附魔戒指 - 全能之纹","肥厚腰肉"] ];
 warFrontlineDonationNum = checkQuantity(warFrontlineDonation[0][0]);
 warFrontlineDonationGoods = warFrontlineDonation[1][0];
-document.getElementById("war-Frontline-Donation").innerHTML =
+/*document.getElementById("war-Frontline-Donation").innerHTML =
     "炼金 - " + warFrontlineDonation[0][0][0] + warFrontlineDonation[1][0][0] +"<br>" +
     "铭文 - " + warFrontlineDonation[0][0][1] + warFrontlineDonation[1][0][1] +"<br>" +
     "锻造 - " + warFrontlineDonation[0][0][2] + warFrontlineDonation[1][0][2] +"<br>" +
@@ -81,6 +81,7 @@ document.getElementById("war-Frontline-Donation").innerHTML =
     "裁缝 - " + warFrontlineDonation[0][0][6] + warFrontlineDonation[1][0][6] +"<br>" +
     "附魔 - " + warFrontlineDonation[0][0][7] + warFrontlineDonation[1][0][7] +"<br>" +
     "烹饪 - " + warFrontlineDonation[0][0][8] + warFrontlineDonation[1][0][8];
+*/
 
 function mainLoop(){
     var loadTime = new Date(); // get current time (full information)
@@ -186,7 +187,7 @@ function mainLoop(){
 
     // For left div width
     document.documentElement.style.setProperty('--leftDivWidth', leftDivWidAndRightDivHeiCalc()[0]);
-    document.documentElement.style.setProperty('--rightDivHeight', leftDivWidAndRightDivHeiCalc()[1]);
+    document.documentElement.style.setProperty('--rightSidebarHeight', leftDivWidAndRightDivHeiCalc()[1]);
     document.getElementById("window-innerWidth").innerHTML = window.innerWidth;
 
     setTimeout('mainLoop()', 200);
@@ -357,3 +358,7 @@ function goTop() {
 function leftDivWidAndRightDivHeiCalc() {
     return [window.innerWidth - 240 + "px", window.innerHeight - 200 + "px"] // padding owns 10 + 10 px and 10 + 10 px
 }
+
+rightSidebarWidth = "155px";
+document.getElementById("right-sidebarWidth").innerHTML = rightSidebarWidth;
+document.documentElement.style.setProperty('--rightSidebarWidth', rightSidebarWidth);
