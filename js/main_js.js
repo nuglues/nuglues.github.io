@@ -51,7 +51,7 @@ var emissaryQuest = new Array(40);
 emissaryQuest = emissaryQuest.join("老任还没写,").split(",");
 emissaryQuest.lenth = emissaryQuest.lenth - 1;
 emissaryQuest.splice(38,0,emissaryPool[0][2],emissaryPool[0][3],emissaryPool[0][4],emissaryPool[0][5],emissaryPool[0][0],emissaryPool[0][1],emissaryPool[0][4],
-    emissaryPool[0][3],emissaryPool[0][2],emissaryPool[0][0]);
+    emissaryPool[0][3],emissaryPool[0][2],emissaryPool[0][0],emissaryPool[0][1]);
 
 var emissaryReward = new Array(40);
 emissaryReward = emissaryReward.join("老任还没写,").split(","); // initialise array
