@@ -37,7 +37,7 @@ span {
 }
 
 .rightSidebar {
-    width: 80px;
+    width: 170px;
     height: var(--rightDivHeight);
     background: linear-gradient(180deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
     padding: 10px;
