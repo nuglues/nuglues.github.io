@@ -16,18 +16,17 @@
     <span class = "rightSidebarText">这还是一个测试块</span><br>
     <span class = "rightSidebarText">答应我不要管它</span><br>
     <span class = "rightSidebarText">好吗</span><br>
-    <span class = "rightSidebarText" style="color: #ff0000;">以下信息毫无参考价值!</span><br>
 
     <br><span class = "rightSidebarText" id = "body-scrollWidth"></span><br>
     <span class = "rightSidebarText" id = "right-sidebarWidth"></span><br>
 
-    <br><span class = "rightSidebarText">北京时间</span><span class = "rightSidebarText" style = "float: right">2018-10-21</span><br>
-    <span class = "rightSidebarText">星期四</span><span class = "rightSidebarText" style = "float: right">23:36:59</span><br>
+    <br><span class = "rightSidebarText">北京时间</span><span class = "rightSidebarText" style = "float: right" id="rightSidebar-date"></span><br>
+    <span class = "rightSidebarText" id="rightSidebar-day"></span><span class = "rightSidebarText" style = "float: right" id="rightSidebar-time"></span><br>
 
-    <br><span class = "rightSidebarText">8. 0 已开 123天 34周</span><br>
-    <span class = "rightSidebarText">团本已开 087天 33周</span><br>
+    <br><span class = "rightSidebarText" id="rightSidebar-800Already"></span><br>
+    <span class = "rightSidebarText" id="rightSidebar-800RaidAlready"></span><br>
 
-    <br><span class = "rightSidebarText">神器知识等级</span><span class = "rightSidebarText" style = "float: right">12级</span><br>
+    <br><span class = "rightSidebarText">神器知识等级</span><span class = "rightSidebarText" style = "float: right" id="rightSidebar-heartLevel"></span><br>
     <br><span class = "rightSidebarText">肝度需求计算</span><br>
 </div>
 
@@ -57,7 +56,7 @@
     </div>
 
     <div class = "block" style = "background:rgba(253,180,0,0.25);">
-        <h2>信息速览(施工中...)</h2><br>
+        <h2>信息速览</h2><br>
         <span><strong>大米词缀</strong></span><br>
         <span id = "cycleTip-mythAff-0"></span> + <span id = "cycleTip-mythAff-1"></span> + <span id = "cycleTip-mythAff-2"></span> + <span id = "cycleTip-mythAff-3"></span><br>
         <hr style = "margin: 3px 0 2px 0;" width = "100%" color = "#7f7f7f">
@@ -68,13 +67,19 @@
         <span id = "cycleTip-emQue-0"></span><span id = "cycleTip-emRe-0" class = "floatRight"></span><br>
         <br><span><strong>世界Boss</strong></span><br>
         <span id = "cycleTip-worldBoss-Location"></span><span id = "cycleTip-worldBoss-Name" class = "floatRight"></span><br>
+        <hr style = "margin: 3px 0 2px 0;" width = "100%" color = "#7f7f7f">
+        <span id = "cycleTip-worldBoss-Location-Next"></span><span id = "cycleTip-worldBoss-Name-Next" class = "floatRight"></span><br>
         <br><span><strong>周常活动</strong></span><br>
-        <span id = "cycleTip-weeklyEvent"></span>
+        <span id = "cycleTip-weeklyEvent"></span><br>
+        <hr style = "margin: 3px 0 2px 0;" width = "100%" color = "#7f7f7f">
+        <span id = "cycleTip-weeklyEvent-Next"></span><br>
     </div>
 
     <div class = "block">
         <h2>战争前线(施工中...)</h2><br>
-        <span><strong>部落进攻中</strong></span><br>
+        <span id="war-Frontline-output"></span><br>
+
+        <br><span><strong>部落进攻中</strong></span><br>
         <span>剩余时间：施工中</span><br>
         <br><span>联盟的小伙伴快去打Boss鸭</span><br>
         <!--<span><strong>部落捐献中</strong></span><br>
@@ -95,6 +100,21 @@
 
     <div style = "clear: both"></div> <!--end for div in one line-->
 
+    <div class = "block" style = "background: rgba(66,255,0,0.25);">
+        <h2>军团信息(施工中...)</h2><br>
+        <br><strong>大使任务</strong><br>
+        <span id = "legTip-emQue-2"></span><span style = "color: #ff4c51;position: absolute;left: 35%"> (即将结束)</span><span id = "legTip-emQue-time-2" class = "floatRight"></span><br>
+        <span id = "legTip-emQue-1"></span><span id = "legTip-emQue-time-1" class = "floatRight"></span><br>
+        <span id = "legTip-emQue-0"></span><span id = "legTip-emQue-time-0" class = "floatRight"></span><br>
+        <br><span><strong>世界Boss</strong></span><br>
+        <span id = "legTip-worldBoss1-Location"></span><span id = "legTip-worldBoss1-Name" class = "floatRight"></span><br>
+        <span id = "legTip-worldBoss2-Location"></span><span id = "legTip-worldBoss2-Name" class = "floatRight"></span><br>
+        <hr style = "margin: 3px 0 2px 0;" width = "100%" color = "#7f7f7f">
+        <span id = "legTip-worldBoss1-Location-Next"></span><span id = "legTip-worldBoss1-Name-Next" class = "floatRight"></span><br>
+        <span id = "legTip-worldBoss2-Location-Next"></span><span id = "legTip-worldBoss2-Name-Next" class = "floatRight"></span><br>
+    </div>
+
+    <div style = "clear: both"></div>
     <div class = "block" style = "width: 80px;height: 1200px;">
         这只是一个<br>
         测试用方块<br>

@@ -63,8 +63,8 @@ var worldBoss = [];
 worldBoss[0] = ["斯托颂谷地","沃顿","提拉加德海峡","祖达萨","德鲁斯瓦","纳兹米尔"];
 worldBoss[1] = ["战争使者耶纳基兹","食沙者克劳洛克","蔚索斯，飞翼台风","基阿拉克","冰雹构造体","提赞"];
 
-var weeklyEvent = [];
-weeklyEvent[0] = ["时光漫游：熊猫人之谜"];
+var weeklyEventPool = ["争霸艾泽拉斯地下城","宠物对战","时空漫游：大地的裂变","竞技场练习赛","世界任务","时空漫游：熊猫人之谜","战场",
+                    "争霸艾泽拉斯地下城","宠物对战","时空漫游：燃烧的远征","竞技场练习赛","世界任务","时空漫游：巫妖王之怒","战场"];
 
 var warFrontlineDonation = []; // 炼金 铭文 锻造 珠宝 工程 制皮 裁缝 附魔 烹饪
 warFrontlineDonation[0] = [ [20,3,60,15,3,2,1,3,60] ];
@@ -83,6 +83,21 @@ warFrontlineDonationGoods = warFrontlineDonation[1][0];
     "烹饪 - " + warFrontlineDonation[0][0][8] + warFrontlineDonation[1][0][8];
 */
 
+// LEG part
+var legEmiPool = ["法罗迪斯宫廷","织梦者","高岭部族","瓦拉加尔","堕夜精灵","肯瑞托","守望者","抗魔联军","圣光军团","placeholder"];
+var legEmiQuest = new Array(45);
+legEmiQuest = legEmiQuest.join("老任还没写,").split(",");
+legEmiQuest.lenth = legEmiQuest.lenth - 1;
+legEmiQuest.splice(43,0,legEmiPool[0],legEmiPool[6],legEmiPool[4],legEmiPool[3],legEmiPool[1],legEmiPool[0]);
+
+var legWorldBoss1 = [];
+legWorldBoss1[0] = ["苏拉玛","苏拉玛","风暴峡湾","风暴峡湾","瓦尔莎拉","瓦尔莎拉","至高岭","至高岭","阿苏纳","阿苏纳","阿苏纳"];
+legWorldBoss1[1] = ["魔王纳扎克","鬼母阿娜","尼索格","夺魂者","胡墨格里斯","沙索斯","浮骸","冷血的杜贡","卡拉米尔","凋零者吉姆","勒凡图斯"];
+
+var legWorldBoss2 = [];
+legWorldBoss2[0] = ["燃烧废土","燃烧废土","妖女loca","主母芙努娜loca","索塔纳索尔loca","燃烧废土"];
+legWorldBoss2[1] = ["深渊领主","奥库拉鲁斯","妖女奥露拉黛儿","主母芙努娜","索塔纳索尔","审判官梅托"];
+
 function mainLoop(){
     var loadTime = new Date(); // get current time (full information)
 
@@ -96,7 +111,7 @@ function mainLoop(){
         day: loadTime.getDay(), // 0~6 Sun~Sat
         hour: loadTime.getHours(), // 0~23
         min: loadTime.getMinutes(), // 0~59
-        Seconds: loadTime.getSeconds(), // 0~59
+        seconds: loadTime.getSeconds(), // 0~59
         toNextHour: function () {
             var mCur = loadTime.getMinutes();
             var sCur = loadTime.getSeconds();
@@ -123,17 +138,18 @@ function mainLoop(){
         nightMoon: timeCountdown(cur,timeNode[0],4)
     };
 
-    document.getElementById("wQ-Norm").innerHTML = timeRemain.worldQuestNorm[0];
-    document.getElementById("wQ-COA-5H").innerHTML = timeRemain.worldQuestCOA[0];
-    document.getElementById("wQ-Opp").innerHTML = timeRemain.worldQuestOpp[0];
-    document.getElementById("daily-Quest").innerHTML = timeRemain.dailyQuest[0];
+    //document.getElementById("wQ-Norm").innerHTML = timeRemain.worldQuestNorm[0];
+    innerHtml("wQ-Norm",timeRemain.worldQuestNorm[0]);
+    innerHtml("wQ-COA-5H",timeRemain.worldQuestCOA[0]);
+    innerHtml("wQ-Opp",timeRemain.worldQuestOpp[0]);
+    innerHtml("daily-Quest",timeRemain.dailyQuest[0]);
 
-    document.getElementById("weekly-Thu").innerHTML = timeRemain.weeklyThu[0];
-    document.getElementById("weekly-Events-State").innerHTML = timeRemain.weeklyEvent[0];
-    document.getElementById("weekly-Events-Time").innerHTML = timeRemain.weeklyEvent[1];
+    innerHtml("weekly-Thu",timeRemain.weeklyThu[0]);
+    innerHtml("weekly-Events-State",timeRemain.weeklyEvent[0]);
+    innerHtml("weekly-Events-Time",timeRemain.weeklyEvent[1]);
 
-    document.getElementById("night-Moon-State").innerHTML = timeRemain.nightMoon[0];
-    document.getElementById("night-Moon-Time").innerHTML = timeRemain.nightMoon[1];
+    innerHtml("night-Moon-State",timeRemain.nightMoon[0]);
+    innerHtml("night-Moon-Time",timeRemain.nightMoon[1]);
 
     // For Information Board
     var deltaDay = {
@@ -144,51 +160,93 @@ function mainLoop(){
     var mythicAffix = mythicAffixCalc(mythicAffixTurn);
     var mythicAffixNext = mythicAffixCalc(mythicAffixTurn + 1);
 
-    document.getElementById("cycleTip-mythAff-0").innerHTML = mythicAffix[0];
-    document.getElementById("cycleTip-mythAff-1").innerHTML = mythicAffix[1];
-    document.getElementById("cycleTip-mythAff-2").innerHTML = mythicAffix[2];
-    document.getElementById("cycleTip-mythAff-3").innerHTML = mythicAffix[3];
+    innerHtml("cycleTip-mythAff-0",mythicAffix[0]);
+    innerHtml("cycleTip-mythAff-1",mythicAffix[1]);
+    innerHtml("cycleTip-mythAff-2",mythicAffix[2]);
+    innerHtml("cycleTip-mythAff-3",mythicAffix[3]);
 
-    document.getElementById("cycleTip-mythAffNext-0").innerHTML = mythicAffixNext[0];
-    document.getElementById("cycleTip-mythAffNext-1").innerHTML = mythicAffixNext[1];
-    document.getElementById("cycleTip-mythAffNext-2").innerHTML = mythicAffixNext[2];
-    document.getElementById("cycleTip-mythAffNext-3").innerHTML = mythicAffixNext[3];
+    innerHtml("cycleTip-mythAffNext-0",mythicAffixNext[0]);
+    innerHtml("cycleTip-mythAffNext-1",mythicAffixNext[1]);
+    innerHtml("cycleTip-mythAffNext-2",mythicAffixNext[2]);
+    innerHtml("cycleTip-mythAffNext-3",mythicAffixNext[3]);
 
     // document.getElementById("cycleTip-emQue-0").innerHTML = emissaryQuest[deltaDay.ver801 % 6]; // today
     // document.getElementById("cycleTip-emQue-1").innerHTML = emissaryQuest[(deltaDay.ver801 - 1) % 6]; // yesterday
     // document.getElementById("cycleTip-emQue-2").innerHTML = emissaryQuest[(deltaDay.ver801 - 2) % 6]; // the day before yesterday
-    document.getElementById("cycleTip-emQue-0").innerHTML = emissaryQuest[deltaDay.ver801];
-    document.getElementById("cycleTip-emQue-1").innerHTML = emissaryQuest[deltaDay.ver801 - 1];
-    document.getElementById("cycleTip-emQue-2").innerHTML = emissaryQuest[deltaDay.ver801 - 2];
+    innerHtml("cycleTip-emQue-0",emissaryQuest[deltaDay.ver801]);
+    innerHtml("cycleTip-emQue-1",emissaryQuest[deltaDay.ver801 - 1]);
+    innerHtml("cycleTip-emQue-2",emissaryQuest[deltaDay.ver801 - 2]);
 
-    document.getElementById("cycleTip-emRe-0").innerHTML = emissaryReward[deltaDay.ver801];
-    document.getElementById("cycleTip-emRe-1").innerHTML = emissaryReward[deltaDay.ver801 - 1];
-    document.getElementById("cycleTip-emRe-2").innerHTML = emissaryReward[deltaDay.ver801 - 2];
+    innerHtml("cycleTip-emRe-0",emissaryReward[deltaDay.ver801]);
+    innerHtml("cycleTip-emRe-1",emissaryReward[deltaDay.ver801 - 1]);
+    innerHtml("cycleTip-emRe-2",emissaryReward[deltaDay.ver801 - 2]);
     // document.getElementById("cycleTip-emQue-next").innerHTML = emissaryQuest[(deltaDay.ver801 + 1) % 6]; // tomorrow Stop predicting (maybe restart after I find the real cycle)
 
     var worldBossTurn = Math.floor(deltaDay.ver801 / 7) % 6; // from 0 to 5
-    document.getElementById("cycleTip-worldBoss-Location").innerHTML = worldBoss[0][worldBossTurn];
-    document.getElementById("cycleTip-worldBoss-Name").innerHTML = worldBoss[1][worldBossTurn];
+    var worldBossTurnNext = Math.floor(deltaDay.ver801 / 7 + 1) % 6;
+    innerHtml("cycleTip-worldBoss-Location",worldBoss[0][worldBossTurn]);
+    innerHtml("cycleTip-worldBoss-Name",worldBoss[1][worldBossTurn]);
+    innerHtml("cycleTip-worldBoss-Location-Next",worldBoss[0][worldBossTurnNext]);
+    innerHtml("cycleTip-worldBoss-Name-Next",worldBoss[1][worldBossTurnNext]);
 
-    document.getElementById("cycleTip-weeklyEvent").innerHTML = weeklyEvent[0];
+    var weeklyEventTurn = Math.floor(deltaDay.ver801 / 7 - 1) % 14; // weeklyEvent started one week later than world boss
+    var weeklyEventTurnNext = Math.floor(deltaDay.ver801 / 7) % 14;
+    innerHtml("cycleTip-weeklyEvent",weeklyEventPool[weeklyEventTurn]);
+    innerHtml("cycleTip-weeklyEvent-Next",weeklyEventPool[weeklyEventTurnNext]);
+
+    // For war frontline board
+    innerHtml("war-Frontline-output",warFrontlineOutput(2, "部落", new Date(2018,9,22,9,24),cur));
 
     // For goYa!
     if (cur.day == 4 && cur.hour >=7) {
-        document.getElementById("diBao").innerHTML = "今天开低保！";
+        innerHtml("diBao","今天开低保！");
     }
     else{
-        document.getElementById("diBao").innerHTML = "";
+        innerHtml("diBao","");
     }
-    document.getElementById("goYa-emExpire-time").innerHTML = timeRemain.worldQuestCOA[0];
-    document.getElementById("goYa-emExpire-name").innerHTML = emissaryQuest[deltaDay.ver801 - 2];
-    document.getElementById("goYa-weeklyEvent").innerHTML = checkExpire(timeRemain.weeklyEvent[1],timeRemain.weeklyEvent[0]," 周常活动即将结束");
-    document.getElementById("goYa-weeklyThu").innerHTML = checkExpire(timeRemain.weeklyThu[0],"no need"," 快去打低保/世界BOSS");
-    document.getElementById("goYa-nightMoon").innerHTML = checkExpire(timeRemain.nightMoon[1],timeRemain.nightMoon[0]," 暗月马戏团即将结束");
+    innerHtml("goYa-emExpire-time",timeRemain.worldQuestCOA[0]);
+    innerHtml("goYa-emExpire-name",emissaryQuest[deltaDay.ver801 - 2]);
+    innerHtml("goYa-weeklyEvent",checkExpire(timeRemain.weeklyEvent[1],timeRemain.weeklyEvent[0]," 周常活动即将结束"));
+    innerHtml("goYa-weeklyThu",checkExpire(timeRemain.weeklyThu[0],"no need"," 快去打低保/世界BOSS"));
+    innerHtml("goYa-nightMoon",checkExpire(timeRemain.nightMoon[1],timeRemain.nightMoon[0]," 暗月马戏团即将结束"));
+
+    // For right sidebar
+    innerHtml("rightSidebar-date",cur.year + "-" + checkTime(cur.month + 1) + "-" + checkTime(cur.date));
+    innerHtml("rightSidebar-day",dayTrans(cur.day));
+    innerHtml("rightSidebar-time",checkTime(cur.hour) + ":" + checkTime(cur.min) + ":" + checkTime(cur.seconds));
+
+    innerHtml("rightSidebar-800Already","8. 0 已开 " + (deltaDay.ver801 + 23) + "天 第" + checkTime(Math.floor(deltaDay.ver801 / 7 + 4)) + "周");
+    innerHtml("rightSidebar-800RaidAlready","团本已开 " + deltaDay.ver801 + "天 第" + checkTime(Math.floor(deltaDay.ver801 / 7 + 1)) + "周");
+
+    innerHtml("rightSidebar-heartLevel",Math.floor(deltaDay.ver801 / 7 + 2) + "级");
 
     // For left div width
     document.documentElement.style.setProperty('--leftDivWidth', leftDivWidAndRightDivHeiCalc()[0]);
     document.documentElement.style.setProperty('--rightSidebarHeight', leftDivWidAndRightDivHeiCalc()[1]);
     document.getElementById("body-scrollWidth").innerHTML = document.body.scrollWidth;
+
+    // For leg tip board
+
+    innerHtml("legTip-emQue-0",legEmiQuest[deltaDay.ver801]);
+    innerHtml("legTip-emQue-1",legEmiQuest[deltaDay.ver801 - 1]);
+    innerHtml("legTip-emQue-2",legEmiQuest[deltaDay.ver801 - 2]);
+
+    innerHtml("legTip-emQue-time-2",timeRemain.worldQuestCOA[0]);
+    innerHtml("legTip-emQue-time-1","1天 "+ timeRemain.worldQuestCOA[0]);
+    innerHtml("legTip-emQue-time-0","2天 "+ timeRemain.worldQuestCOA[0]);
+
+    var legWorldBoss1Turn = Math.floor(deltaDay.ver801 / 7) % 11; // from 0 to 5
+    var legWorldBoss1TurnNext = Math.floor(deltaDay.ver801 / 7 + 1) % 11;
+    var legWorldBoss2Turn = Math.floor(deltaDay.ver801 / 7) % 6; // from 0 to 5
+    var legWorldBoss2TurnNext = Math.floor(deltaDay.ver801 / 7 + 1) % 6;
+    innerHtml("legTip-worldBoss1-Location",legWorldBoss1[0][legWorldBoss1Turn]);
+    innerHtml("legTip-worldBoss1-Name",legWorldBoss1[1][legWorldBoss1Turn]);
+    innerHtml("legTip-worldBoss2-Location",legWorldBoss2[0][legWorldBoss2Turn]);
+    innerHtml("legTip-worldBoss2-Name",legWorldBoss2[1][legWorldBoss2Turn]);
+    innerHtml("legTip-worldBoss1-Location-Next",legWorldBoss1[0][legWorldBoss1TurnNext]);
+    innerHtml("legTip-worldBoss1-Name-Next",legWorldBoss1[1][legWorldBoss1TurnNext]);
+    innerHtml("legTip-worldBoss2-Location-Next",legWorldBoss2[0][legWorldBoss2TurnNext]);
+    innerHtml("legTip-worldBoss2-Name-Next",legWorldBoss2[1][legWorldBoss2TurnNext]);
 
     setTimeout('mainLoop()', 200);
 }
@@ -315,6 +373,11 @@ function mythicAffixCalc(turn) {
 
 function checkTime(arr) {
     // add front 0 for numbers less than 10
+    if (typeof(arr) == "number"){
+        if (arr < 10){
+            arr = "0" + arr;
+        }
+    }
     for (var i = 0; i < arr.length; i++) {
         if (arr[i] < 10) {
             arr[i] = "0" + arr[i];
@@ -357,6 +420,76 @@ function goTop() {
 
 function leftDivWidAndRightDivHeiCalc() {
     return [document.body.scrollWidth - 240 + "px", window.innerHeight - 200 + "px"] // padding owns 10 + 10 px and 10 + 10 px
+}
+
+function innerHtml(id,str) {
+    document.getElementById(id).innerHTML = str;
+}
+
+function warFrontlineOutput(index, camp, startTime, cur){
+    // index = 1:contributing; index = 2:attacking last for 7 days
+    switch (index) {
+        case 1:
+
+            break;
+        case 2:
+            var timeRemainInSec;
+            if (cur.month == startTime.getMonth()){
+                timeRemainInSec = 7 * dayInMs / 1000 -
+                    ( ((cur.date * 24 + cur.hour) * 60 + cur.min) * 60 + cur.seconds - ((startTime.getDate() * 24 + startTime.getHours()) * 60 + startTime.getMinutes()) * 60 - startTime.getSeconds() );
+            }
+            else{
+                timeRemainInSec = 7 * dayInMs / 1000 -
+                    ( (( new Date(startTime.getFullYear(),startTime.getMonth(),startTime.getDate() + 1,startTime.getHours(),startTime.getMinutes(),startTime.getSeconds()).getDate() * 24 + startTime.getHours()) * 60 + startTime.getMinutes()) * 60 + startTime.getSeconds() - ((cur.date * 24 + cur.hour) * 60 + cur.min) * 60 - cur.seconds );
+            }
+
+            var timeRemainStr = Math.floor(timeRemainInSec / dayInMs * 1000) + "天 ";
+            timeRemainInSec -= Math.floor(timeRemainInSec / dayInMs * 1000) * dayInMs / 1000;
+            timeRemainStr += checkTime(Math.floor(timeRemainInSec / 3600)) + ":";
+            timeRemainInSec -= Math.floor(timeRemainInSec / 3600) * 3600;
+            timeRemainStr += checkTime(Math.floor(timeRemainInSec / 60)) + ":";
+            timeRemainInSec -= Math.floor(timeRemainInSec / 60) * 60;
+            timeRemainStr += checkTime(timeRemainInSec);
+            var outputStr = "<strong>" + camp + "进攻中</strong><br>";
+            outputStr += "剩余时间：" + timeRemainStr + "<br>";
+            outputStr += "<br>" + oppoCamp(camp) + "的小伙伴快去打Boss鸭";
+            break;
+    }
+    return outputStr;
+}
+
+function oppoCamp(campStr){
+    if (campStr == "联盟"){
+        return "部落";
+    }
+    else if(campStr == "部落"){
+        return "联盟";
+    }
+    else{
+        return "error input";
+    }
+}
+
+function dayTrans (day) {
+    switch (day) {
+        case 1:
+            return "星期一";
+        case 2:
+            return "星期二";
+        case 3:
+            return "星期三";
+        case 4:
+            return "星期四";
+        case 5:
+            return "星期五";
+        case 6:
+            return "星期六";
+        case 0:
+            return "星期日";
+        default:
+            return "error input";
+
+    }
 }
 
 rightSidebarWidth = "200px";
