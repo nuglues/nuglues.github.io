@@ -51,13 +51,13 @@ var emissaryQuest = new Array(40);
 emissaryQuest = emissaryQuest.join("老任还没写,").split(",");
 emissaryQuest.lenth = emissaryQuest.lenth - 1;
 emissaryQuest.splice(38,0,emissaryPool[0][2],emissaryPool[0][3],emissaryPool[0][4],emissaryPool[0][5],emissaryPool[0][0],emissaryPool[0][1],emissaryPool[0][4],
-    emissaryPool[0][3],emissaryPool[0][2],emissaryPool[0][0],emissaryPool[0][1]);
+    emissaryPool[0][3],emissaryPool[0][2],emissaryPool[0][0],emissaryPool[0][1],emissaryPool[0][5]);
 
 var emissaryReward = new Array(40);
 emissaryReward = emissaryReward.join("老任还没写,").split(","); // initialise array
 emissaryReward.lenth = emissaryReward.lenth - 1; // 批量赋值 https://blog.csdn.net/jackwen110200/article/details/51669578
 emissaryReward.splice(38,0,emissaryPool[1][0],emissaryPool[1][1],emissaryPool[1][2],emissaryPool[1][3],emissaryPool[1][4],emissaryPool[1][5],emissaryPool[1][3],
-    emissaryPool[1][1],emissaryPool[1][3],emissaryPool[1][5],emissaryPool[1][1]);
+    emissaryPool[1][1],emissaryPool[1][3],emissaryPool[1][5],emissaryPool[1][1],emissaryPool[1][3]);
 
 var worldBoss = [];
 worldBoss[0] = ["斯托颂谷地","沃顿","提拉加德海峡","祖达萨","德鲁斯瓦","纳兹米尔"];
@@ -83,12 +83,25 @@ warFrontlineDonationGoods = warFrontlineDonation[1][0];
     "烹饪 - " + warFrontlineDonation[0][0][8] + warFrontlineDonation[1][0][8];
 */
 
+var heartPower = [];
+heartPower[0] = 300;
+for  (var i = 1; i < 9; i++){
+    heartPower[i] = heartPower[i - 1] + 50;
+}
+for  (var i = 9; i < 14; i++){
+    heartPower[i] = Math.floor(heartPower[i - 1] * 1.5);
+}
+heartPower[14] = 8000;
+for  (var i = 15; i < 61; i++){
+    heartPower[i] = Math.floor(heartPower[i - 1] * 1.3);
+}
+
 // LEG part
 var legEmiPool = ["法罗迪斯宫廷","织梦者","高岭部族","瓦拉加尔","堕夜精灵","肯瑞托","守望者","抗魔联军","圣光军团","placeholder"];
 var legEmiQuest = new Array(45);
 legEmiQuest = legEmiQuest.join("老任还没写,").split(",");
 legEmiQuest.lenth = legEmiQuest.lenth - 1;
-legEmiQuest.splice(43,0,legEmiPool[0],legEmiPool[6],legEmiPool[4],legEmiPool[3],legEmiPool[1],legEmiPool[0]);
+legEmiQuest.splice(43,0,legEmiPool[0],legEmiPool[6],legEmiPool[4],legEmiPool[3],legEmiPool[1],legEmiPool[0],legEmiPool[5]);
 
 var legWorldBoss1 = [];
 legWorldBoss1[0] = ["苏拉玛","苏拉玛","风暴峡湾","风暴峡湾","瓦尔莎拉","瓦尔莎拉","至高岭","至高岭","阿苏纳","阿苏纳","阿苏纳"];
@@ -96,7 +109,7 @@ legWorldBoss1[1] = ["魔王纳扎克","鬼母阿娜","尼索格","夺魂者","�
 
 var legWorldBoss2 = [];
 legWorldBoss2[0] = ["燃烧废土","燃烧废土","妖女loca","主母芙努娜loca","索塔纳索尔loca","燃烧废土"];
-legWorldBoss2[1] = ["深渊领主","奥库拉鲁斯","妖女奥露拉黛儿","主母芙努娜","索塔纳索尔","审判官梅托"];
+legWorldBoss2[1] = ["深渊领主维尔姆斯","奥库拉鲁斯","妖女奥露拉黛儿","主母芙努娜","索塔纳索尔","审判官梅托"];
 
 function mainLoop(){
     var loadTime = new Date(); // get current time (full information)
@@ -219,6 +232,15 @@ function mainLoop(){
     innerHtml("rightSidebar-800RaidAlready","团本已开 " + deltaDay.ver801 + "天 第" + checkTime(Math.floor(deltaDay.ver801 / 7 + 1)) + "周");
 
     innerHtml("rightSidebar-heartLevel",Math.floor(deltaDay.ver801 / 7 + 2) + "级");
+    var curHeartLevel = document.getElementById("heartLevelInput");
+    var curHeartPower = document.getElementById("heartPowerInput");
+    var aimLevel = document.getElementById("aimLevelInput");
+    curHeartLevel = Number(curHeartLevel.value);
+    curHeartPower = Number(curHeartPower.value);
+    aimLevel = Number(aimLevel.value);
+    // var heartPowerOutput = aimLevel - curHeartLevel - curHeartPower;
+    var heartPowerOutput = heartPower[curHeartLevel];
+    innerHtml("heartPowerOutput", heartPowerOutput);
 
     // For left div width
     document.documentElement.style.setProperty('--leftDivWidth', leftDivWidAndRightDivHeiCalc()[0]);
