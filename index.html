@@ -27,10 +27,12 @@
     <span class = "rightSidebarText" id="rightSidebar-800RaidAlready"></span><br>
 
     <br><span class = "rightSidebarText">神器知识等级</span><span class = "rightSidebarText" style = "float: right" id="rightSidebar-heartLevel"></span><br>
-    <br><span class = "rightSidebarText">肝度需求计算</span><br>
-    <input type="number" id="heartLevelInput"><br>
-    <input type="number" id="heartPowerInput"><br>
-    <input type="number" id="aimLevelInput"><br>
+    <br><span class = "rightSidebarText">肝度需求计算器</span><br>
+    <input type="number" id="heartLevelInput" placeholder="当前项链等级 (1~59)"><br>
+    <input type="number" id="heartPowerInput" placeholder="当前已有能量 (留空为0)"><br>
+    <input type="number" id="aimLevelInput" placeholder="目标项链等级 (2~60)"><br>
+    <!--<a href = "javascript:void(0);" onclick = "heartPowerCalc();">点击计算</a><br>-->
+    <button style="margin: 10px 0 10px 0" onclick = "heartPowerCalc();">点击计算所需能量</button><br>
     <span class = "rightSidebarText" style="color: #000;" id="heartPowerOutput"></span><br>
 </div>
 

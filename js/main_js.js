@@ -1,3 +1,5 @@
+innerHtml("heartPowerOutput",""); // initial heart power calc's default result with ""
+
 var timeNode = [];
 timeNode[0] = [0, 1]; // 00:01 NightMoon starts (monthly, first Sunday)
 timeNode[1] = [23, 59]; // 23:59 NightMoon ends (monthly, the Saturday after first Sunday)
@@ -91,7 +93,7 @@ for  (var i = 1; i < 9; i++){
 for  (var i = 9; i < 14; i++){
     heartPower[i] = Math.floor(heartPower[i - 1] * 1.5);
 }
-heartPower[14] = 8000;
+heartPower[14] = 7992;
 for  (var i = 15; i < 61; i++){
     heartPower[i] = Math.floor(heartPower[i - 1] * 1.3);
 }
@@ -228,19 +230,11 @@ function mainLoop(){
     innerHtml("rightSidebar-day",dayTrans(cur.day));
     innerHtml("rightSidebar-time",checkTime(cur.hour) + ":" + checkTime(cur.min) + ":" + checkTime(cur.seconds));
 
-    innerHtml("rightSidebar-800Already","8. 0 已开 " + (deltaDay.ver801 + 23) + "天 第" + checkTime(Math.floor(deltaDay.ver801 / 7 + 4)) + "周");
+    innerHtml("rightSidebar-800Already","8. 0 已开 " + (deltaDay.ver801 + 23) + "天 第" + checkTime(Math.floor((deltaDay.ver801 + 23) / 7 +1)) + "周");
     innerHtml("rightSidebar-800RaidAlready","团本已开 " + deltaDay.ver801 + "天 第" + checkTime(Math.floor(deltaDay.ver801 / 7 + 1)) + "周");
 
-    innerHtml("rightSidebar-heartLevel",Math.floor(deltaDay.ver801 / 7 + 2) + "级");
-    var curHeartLevel = document.getElementById("heartLevelInput");
-    var curHeartPower = document.getElementById("heartPowerInput");
-    var aimLevel = document.getElementById("aimLevelInput");
-    curHeartLevel = Number(curHeartLevel.value);
-    curHeartPower = Number(curHeartPower.value);
-    aimLevel = Number(aimLevel.value);
-    // var heartPowerOutput = aimLevel - curHeartLevel - curHeartPower;
-    var heartPowerOutput = heartPower[curHeartLevel];
-    innerHtml("heartPowerOutput", heartPowerOutput);
+    window.knowledgeLevel = Math.floor(deltaDay.ver801 / 7 + 2);
+    innerHtml("rightSidebar-heartLevel",knowledgeLevel + "级");
 
     // For left div width
     document.documentElement.style.setProperty('--leftDivWidth', leftDivWidAndRightDivHeiCalc()[0]);
@@ -393,6 +387,126 @@ function mythicAffixCalc(turn) {
         mythAffPool[3][mythAffOrder.ver801[3][0]] ];
 }
 
+function warFrontlineOutput(index, camp, startTime, cur){
+    // index = 1:contributing; index = 2:attacking last for 7 days
+    switch (index) {
+        case 1:
+
+            break;
+        case 2:
+            var timeRemainInSec;
+            if (cur.month == startTime.getMonth()){
+                timeRemainInSec = 7 * dayInMs / 1000 -
+                    ( ((cur.date * 24 + cur.hour) * 60 + cur.min) * 60 + cur.seconds - ((startTime.getDate() * 24 + startTime.getHours()) * 60 + startTime.getMinutes()) * 60 - startTime.getSeconds() );
+            }
+            else{
+                timeRemainInSec = 7 * dayInMs / 1000 -
+                    ( (( new Date(startTime.getFullYear(),startTime.getMonth(),startTime.getDate() + 1,startTime.getHours(),startTime.getMinutes(),startTime.getSeconds()).getDate() * 24 + startTime.getHours()) * 60 + startTime.getMinutes()) * 60 + startTime.getSeconds() - ((cur.date * 24 + cur.hour) * 60 + cur.min) * 60 - cur.seconds );
+            }
+
+            var timeRemainStr = Math.floor(timeRemainInSec / dayInMs * 1000) + "天 ";
+            timeRemainInSec -= Math.floor(timeRemainInSec / dayInMs * 1000) * dayInMs / 1000;
+            timeRemainStr += checkTime(Math.floor(timeRemainInSec / 3600)) + ":";
+            timeRemainInSec -= Math.floor(timeRemainInSec / 3600) * 3600;
+            timeRemainStr += checkTime(Math.floor(timeRemainInSec / 60)) + ":";
+            timeRemainInSec -= Math.floor(timeRemainInSec / 60) * 60;
+            timeRemainStr += checkTime(timeRemainInSec);
+            var outputStr = "<strong>" + camp + "进攻中</strong><br>";
+            outputStr += "剩余时间：" + timeRemainStr + "<br>";
+            outputStr += "<br>" + oppoCamp(camp) + "的小伙伴快去打Boss鸭";
+            break;
+    }
+    return outputStr;
+}
+
+function heartPowerCalc() {
+    var curHeartLevel = document.getElementById("heartLevelInput");
+    var curHeartPower = document.getElementById("heartPowerInput");
+    var aimLevel = document.getElementById("aimLevelInput");
+    curHeartLevel = Number(curHeartLevel.value);
+    curHeartPower = Number(curHeartPower.value);
+    aimLevel = Number(aimLevel.value);
+
+    var output;
+    if (isLegal_heartPowerCalc(curHeartLevel, curHeartPower, aimLevel)) {
+        var curPList = [];
+        var needP = 0;
+        for (var i = curHeartLevel; i < aimLevel; i++) {
+            // heartPower[0] is already been placed by 300 as initial number, so the number of level is exactly the same with order, no need to - 1
+            if (heartPower[i] <= 1000) {
+                curPList[i] = heartPower[i];
+            }
+            else {
+                curPList[i] = heartPower[i];
+                for (var j = 0; j < knowledgeLevel; j++) {
+                    curPList[i] = Math.floor(curPList[i] / 1.3);
+                    if (curPList[i] <= 1000){
+                        curPList[i] = 1000;
+                        break;
+                    }
+                }
+            }
+            needP += curPList[i];
+        }
+        output = "还需 " + (needP - curHeartPower) + " 能量";
+    }
+    else{
+        output = "无效输入";
+    }
+    innerHtml("heartPowerOutput", output);
+}
+
+function isLegal_heartPowerCalc(curL, curP, aimL) {
+    if (curL >= aimL){return 0;}
+    if (Math.floor(curL) < curL || Math.floor(curP) < curP || Math.floor(aimL) < aimL){return 0;}
+    if (curL < 1 || curL > 59 || curP < 0 || aimL > 60){return 0;}
+    if (curP > 1000) {
+        for (var i = 0; i < knowledgeLevel; i++) {
+            curP = Math.floor(curP / 1.3);
+            if (curP <= 1000){
+                curP = 1000;
+                break;
+            }
+        }
+    }
+    if ((heartPower[curL] - curP) / heartPower[curL] < -0.01){return 0;}
+    return 1;
+}
+
+function oppoCamp(campStr){
+    if (campStr == "联盟"){
+        return "部落";
+    }
+    else if(campStr == "部落"){
+        return "联盟";
+    }
+    else{
+        return "error input";
+    }
+}
+
+function dayTrans (day) {
+    switch (day) {
+        case 1:
+            return "星期一";
+        case 2:
+            return "星期二";
+        case 3:
+            return "星期三";
+        case 4:
+            return "星期四";
+        case 5:
+            return "星期五";
+        case 6:
+            return "星期六";
+        case 0:
+            return "星期日";
+        default:
+            return "error input";
+
+    }
+}
+
 function checkTime(arr) {
     // add front 0 for numbers less than 10
     if (typeof(arr) == "number"){
@@ -446,72 +560,6 @@ function leftDivWidAndRightDivHeiCalc() {
 
 function innerHtml(id,str) {
     document.getElementById(id).innerHTML = str;
-}
-
-function warFrontlineOutput(index, camp, startTime, cur){
-    // index = 1:contributing; index = 2:attacking last for 7 days
-    switch (index) {
-        case 1:
-
-            break;
-        case 2:
-            var timeRemainInSec;
-            if (cur.month == startTime.getMonth()){
-                timeRemainInSec = 7 * dayInMs / 1000 -
-                    ( ((cur.date * 24 + cur.hour) * 60 + cur.min) * 60 + cur.seconds - ((startTime.getDate() * 24 + startTime.getHours()) * 60 + startTime.getMinutes()) * 60 - startTime.getSeconds() );
-            }
-            else{
-                timeRemainInSec = 7 * dayInMs / 1000 -
-                    ( (( new Date(startTime.getFullYear(),startTime.getMonth(),startTime.getDate() + 1,startTime.getHours(),startTime.getMinutes(),startTime.getSeconds()).getDate() * 24 + startTime.getHours()) * 60 + startTime.getMinutes()) * 60 + startTime.getSeconds() - ((cur.date * 24 + cur.hour) * 60 + cur.min) * 60 - cur.seconds );
-            }
-
-            var timeRemainStr = Math.floor(timeRemainInSec / dayInMs * 1000) + "天 ";
-            timeRemainInSec -= Math.floor(timeRemainInSec / dayInMs * 1000) * dayInMs / 1000;
-            timeRemainStr += checkTime(Math.floor(timeRemainInSec / 3600)) + ":";
-            timeRemainInSec -= Math.floor(timeRemainInSec / 3600) * 3600;
-            timeRemainStr += checkTime(Math.floor(timeRemainInSec / 60)) + ":";
-            timeRemainInSec -= Math.floor(timeRemainInSec / 60) * 60;
-            timeRemainStr += checkTime(timeRemainInSec);
-            var outputStr = "<strong>" + camp + "进攻中</strong><br>";
-            outputStr += "剩余时间：" + timeRemainStr + "<br>";
-            outputStr += "<br>" + oppoCamp(camp) + "的小伙伴快去打Boss鸭";
-            break;
-    }
-    return outputStr;
-}
-
-function oppoCamp(campStr){
-    if (campStr == "联盟"){
-        return "部落";
-    }
-    else if(campStr == "部落"){
-        return "联盟";
-    }
-    else{
-        return "error input";
-    }
-}
-
-function dayTrans (day) {
-    switch (day) {
-        case 1:
-            return "星期一";
-        case 2:
-            return "星期二";
-        case 3:
-            return "星期三";
-        case 4:
-            return "星期四";
-        case 5:
-            return "星期五";
-        case 6:
-            return "星期六";
-        case 0:
-            return "星期日";
-        default:
-            return "error input";
-
-    }
 }
 
 rightSidebarWidth = "200px";
