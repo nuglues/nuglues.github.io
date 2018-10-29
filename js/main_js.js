@@ -388,7 +388,7 @@ function warFrontlineOutput(index, camp, startTime, cur){
             //outputStr += "捐献清单收集中……" + "<br>";
 
             for (var i = 0; i < 9; i++) {
-                outputStr += warFrontlineDonation[0][i] + " - " + warFrontlineDonationNum[i] + warFrontlineDonationGoods[i] + "<br>";
+                outputStr += "<br>" + warFrontlineDonation[0][i] + " - " + warFrontlineDonationNum[i] + warFrontlineDonationGoods[i];
             }
             break;
         case 2:
