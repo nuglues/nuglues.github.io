@@ -71,22 +71,11 @@ var weeklyEventPool = ["争霸艾泽拉斯地下城","宠物对战","时空漫�
 var warFrontlineDonation = []; // 炼金 铭文 锻造 珠宝 工程 制皮 裁缝 附魔 烹饪
 warFrontlineDonation[0] = ["炼金"," 铭文","锻造","珠宝","工程","制皮","裁缝","附魔","烹饪"];
 warFrontlineDonation[1] = [[20,3,60,15,3,2,1,3,60],
-                                    []];
+                                    [20,3,2,15,6,2,1,3,60]];
 warFrontlineDonation[2] = [["海滨治疗药水","智力战争卷轴","镍铜矿石","全能蓝晶石","霜纹弹药","漩涡战鼓","战旗：自由精神","附魔戒指 - 全能之纹","肥厚腰肉"],
-                                    []];
-var warFrontlineDonationNum = checkQuantity(warFrontlineDonation[1][0]);
-var warFrontlineDonationGoods = warFrontlineDonation[2][0];
-/*document.getElementById("war-Frontline-Donation").innerHTML =
-    "炼金 - " + warFrontlineDonation[0][0][0] + warFrontlineDonation[1][0][0] +"<br>" +
-    "铭文 - " + warFrontlineDonation[0][0][1] + warFrontlineDonation[1][0][1] +"<br>" +
-    "锻造 - " + warFrontlineDonation[0][0][2] + warFrontlineDonation[1][0][2] +"<br>" +
-    "珠宝 - " + warFrontlineDonation[0][0][3] + warFrontlineDonation[1][0][3] +"<br>" +
-    "工程 - " + warFrontlineDonation[0][0][4] + warFrontlineDonation[1][0][4] +"<br>" +
-    "制皮 - " + warFrontlineDonation[0][0][5] + warFrontlineDonation[1][0][5] +"<br>" +
-    "裁缝 - " + warFrontlineDonation[0][0][6] + warFrontlineDonation[1][0][6] +"<br>" +
-    "附魔 - " + warFrontlineDonation[0][0][7] + warFrontlineDonation[1][0][7] +"<br>" +
-    "烹饪 - " + warFrontlineDonation[0][0][8] + warFrontlineDonation[1][0][8];
-*/
+                                    ["海滨法力药水","耐力战争卷轴","镍铜硬化护蹄","跨界绿铱石","速烤燃爆装置","糙皮骑甲","战旗：迅猛集结","附魔戒指 - 爆击之纹","生烤鲶鱼"]];
+var warFrontlineDonationNum = checkQuantity(warFrontlineDonation[1][1]);
+var warFrontlineDonationGoods = warFrontlineDonation[2][1];
 
 var heartPower = [];
 heartPower[0] = 300;
@@ -396,9 +385,9 @@ function warFrontlineOutput(index, camp, startTime, cur){
     switch (index) {
         case 1:
             var outputStr = "<strong>" + camp + "捐献中</strong><br>";
-            outputStr += "捐献清单收集中……" + "<br>";
+            //outputStr += "捐献清单收集中……" + "<br>";
 
-            for (var i = 0; i < 0; i++) {
+            for (var i = 0; i < 9; i++) {
                 outputStr += warFrontlineDonation[0][i] + " - " + warFrontlineDonationNum[i] + warFrontlineDonationGoods[i] + "<br>";
             }
             break;
