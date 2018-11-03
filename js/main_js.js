@@ -52,14 +52,14 @@ emissaryQuest = emissaryQuest.join("老任还没写,").split(",");
 emissaryQuest.lenth = emissaryQuest.lenth - 1;
 emissaryQuest.splice(38,0,emissaryPool[0][2],emissaryPool[0][3],emissaryPool[0][4],emissaryPool[0][5],emissaryPool[0][0],emissaryPool[0][1],emissaryPool[0][4],
     emissaryPool[0][3],emissaryPool[0][2],emissaryPool[0][0],emissaryPool[0][1],emissaryPool[0][5],emissaryPool[0][2],emissaryPool[0][4],
-    emissaryPool[0][3],emissaryPool[0][0],emissaryPool[0][5],emissaryPool[0][1],emissaryPool[0][3],emissaryPool[0][2]);
+    emissaryPool[0][3],emissaryPool[0][0],emissaryPool[0][5],emissaryPool[0][1],emissaryPool[0][3],emissaryPool[0][2],emissaryPool[0][4]);
 
 var emissaryReward = new Array(40);
 emissaryReward = emissaryReward.join("老任还没写,").split(","); // initialise array
 emissaryReward.lenth = emissaryReward.lenth - 1; // 批量赋值 https://blog.csdn.net/jackwen110200/article/details/51669578
 emissaryReward.splice(38,0,emissaryPool[1][0],emissaryPool[1][1],emissaryPool[1][0],emissaryPool[1][2],emissaryPool[1][3],emissaryPool[1][4],emissaryPool[1][2],
     emissaryPool[1][1],emissaryPool[1][2],emissaryPool[1][4],emissaryPool[1][1],emissaryPool[1][2],emissaryPool[1][0],emissaryPool[1][4],
-    emissaryPool[1][1],emissaryPool[1][4],emissaryPool[1][0],emissaryPool[1][1],emissaryPool[1][1],emissaryPool[1][0]);
+    emissaryPool[1][1],emissaryPool[1][4],emissaryPool[1][0],emissaryPool[1][1],emissaryPool[1][1],emissaryPool[1][0],emissaryPool[1][1]);
 
 var worldBoss = [];
 worldBoss[0] = ["斯托颂谷地","沃顿","提拉加德海峡","祖达萨","德鲁斯瓦","纳兹米尔"];
@@ -96,14 +96,15 @@ var legEmiQuest = new Array(45);
 legEmiQuest = legEmiQuest.join("老任还没写,").split(",");
 legEmiQuest.lenth = legEmiQuest.lenth - 1;
 legEmiQuest.splice(43,0,legEmiPool[0],legEmiPool[6],legEmiPool[4],legEmiPool[3],legEmiPool[1],legEmiPool[0],legEmiPool[5],
-    legEmiPool[8],legEmiPool[6],legEmiPool[3],legEmiPool[7],legEmiPool[0],legEmiPool[5],legEmiPool[6],legEmiPool[4]);
+    legEmiPool[8],legEmiPool[6],legEmiPool[3],legEmiPool[7],legEmiPool[0],legEmiPool[5],legEmiPool[6],legEmiPool[4],
+    legEmiPool[3]);
 
 var legWorldBoss1 = [];
 legWorldBoss1[0] = ["苏拉玛","苏拉玛","风暴峡湾","风暴峡湾","瓦尔莎拉","瓦尔莎拉","至高岭","至高岭","阿苏纳","阿苏纳","阿苏纳"];
 legWorldBoss1[1] = ["魔王纳扎克","鬼母阿娜","尼索格","夺魂者","胡墨格里斯","沙索斯","浮骸","冷血的杜贡","卡拉米尔","凋零者吉姆","勒凡图斯"];
 
 var legWorldBoss2 = [];
-legWorldBoss2[0] = ["燃烧废土","燃烧废土","妖女loca","主母芙努娜loca","索塔纳索尔loca","燃烧废土"];
+legWorldBoss2[0] = ["燃烧废土","燃烧废土","安托兰废土","主母芙努娜loca","索塔纳索尔loca","燃烧废土"];
 legWorldBoss2[1] = ["深渊领主维尔姆斯","奥库拉鲁斯","妖女奥露拉黛儿","主母芙努娜","索塔纳索尔","审判官梅托"];
 
 function mainLoop(){
@@ -203,7 +204,7 @@ function mainLoop(){
     innerHtml("cycleTip-weeklyEvent-Next",weeklyEventPool[weeklyEventTurnNext]);
 
     // For war frontline board
-    innerHtml("war-Frontline-output",warFrontlineOutput(1, "联盟", new Date(2018,9,22,9,24),cur));
+    innerHtml("war-Frontline-output",warFrontlineOutput(2, "联盟", new Date(2018,10,1,19,10),cur));
 
     // For goYa!
     if (cur.day == 4 && cur.hour >=7) {
