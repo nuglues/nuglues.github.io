@@ -261,6 +261,20 @@ function mainLoop(){
     setTimeout('mainLoop()', 200);
 }
 
+function getWowToken() {
+    var ajax = new XMLHttpRequest();
+    ajax.open('get','https://data.wowtoken.info/snapshot.json');
+    ajax.send();
+    ajax.onreadystatechange = function () {
+        if (ajax.readyState==4 && ajax.status==200) {
+　　　　    var data = JSON.parse(ajax.responseText);
+            innerHtml('WOWToken-current', data.CN.formatted.buy);
+        }
+  　}
+}
+
+getWowToken()
+
 function timeCountdown(cur, node, index) {
     // cur is current time
     // node comes from timeNode
