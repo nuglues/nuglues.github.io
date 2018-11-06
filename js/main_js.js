@@ -53,7 +53,7 @@ emissaryQuest.lenth = emissaryQuest.lenth - 1;
 emissaryQuest.splice(38,0,emissaryPool[0][2],emissaryPool[0][3],emissaryPool[0][4],emissaryPool[0][5],emissaryPool[0][0],emissaryPool[0][1],emissaryPool[0][4],
     emissaryPool[0][3],emissaryPool[0][2],emissaryPool[0][0],emissaryPool[0][1],emissaryPool[0][5],emissaryPool[0][2],emissaryPool[0][4],
     emissaryPool[0][3],emissaryPool[0][0],emissaryPool[0][5],emissaryPool[0][1],emissaryPool[0][3],emissaryPool[0][2],emissaryPool[0][4],
-    emissaryPool[0][1],emissaryPool[0][5]);
+    emissaryPool[0][1],emissaryPool[0][5],emissaryPool[0][0]);
 
 var emissaryReward = new Array(40);
 emissaryReward = emissaryReward.join("老任还没写,").split(","); // initialise array
@@ -61,7 +61,7 @@ emissaryReward.lenth = emissaryReward.lenth - 1; // 批量赋值 https://blog.cs
 emissaryReward.splice(38,0,emissaryPool[1][0],emissaryPool[1][1],emissaryPool[1][0],emissaryPool[1][2],emissaryPool[1][3],emissaryPool[1][4],emissaryPool[1][2],
     emissaryPool[1][1],emissaryPool[1][2],emissaryPool[1][4],emissaryPool[1][1],emissaryPool[1][2],emissaryPool[1][0],emissaryPool[1][4],
     emissaryPool[1][1],emissaryPool[1][4],emissaryPool[1][0],emissaryPool[1][1],emissaryPool[1][1],emissaryPool[1][0],emissaryPool[1][1],
-    emissaryPool[1][3],emissaryPool[1][0]);
+    emissaryPool[1][3],emissaryPool[1][0],emissaryPool[1][2]);
 
 var worldBoss = [];
 worldBoss[0] = ["斯托颂谷地","沃顿","提拉加德海峡","祖达萨","德鲁斯瓦","纳兹米尔"];
@@ -99,7 +99,7 @@ legEmiQuest = legEmiQuest.join("老任还没写,").split(",");
 legEmiQuest.lenth = legEmiQuest.lenth - 1;
 legEmiQuest.splice(43,0,legEmiPool[0],legEmiPool[6],legEmiPool[4],legEmiPool[3],legEmiPool[1],legEmiPool[0],legEmiPool[5],
     legEmiPool[8],legEmiPool[6],legEmiPool[3],legEmiPool[7],legEmiPool[0],legEmiPool[5],legEmiPool[6],
-    legEmiPool[4],legEmiPool[3],legEmiPool[9],legEmiPool[5]);
+    legEmiPool[4],legEmiPool[3],legEmiPool[9],legEmiPool[5],legEmiPool[1]);
 
 var legWorldBoss1 = [];
 legWorldBoss1[0] = ["苏拉玛","苏拉玛","风暴峡湾","风暴峡湾","瓦尔莎拉","瓦尔莎拉","至高岭","至高岭","阿苏纳","阿苏纳","阿苏纳"];
