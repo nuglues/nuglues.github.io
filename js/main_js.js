@@ -73,11 +73,13 @@ var weeklyEventPool = ["争霸艾泽拉斯地下城","宠物对战","时空漫�
 var warFrontlineDonation = []; // 炼金 铭文 锻造 珠宝 工程 制皮 裁缝 附魔 烹饪
 warFrontlineDonation[0] = ["炼金"," 铭文","锻造","珠宝","工程","制皮","裁缝","附魔","烹饪"];
 warFrontlineDonation[1] = [[20,3,60,15,3,2,1,3,60],
-                                    [20,3,2,15,6,2,1,3,60]];
+                                    [20,3,2,15,6,2,1,3,60],
+                                    [20,3,60,15,2,2,1,3,60]];
 warFrontlineDonation[2] = [["海滨治疗药水","智力战争卷轴","镍铜矿石","全能蓝晶石","霜纹弹药","漩涡战鼓","战旗：自由精神","附魔戒指 - 全能之纹","肥厚腰肉"],
-                                    ["海滨法力药水","耐力战争卷轴","镍铜硬化护蹄","跨界绿铱石","速烤燃爆装置","糙皮骑甲","战旗：迅猛集结","附魔戒指 - 爆击之纹","生烤鲶鱼"]];
-var warFrontlineDonationNum = checkQuantity(warFrontlineDonation[1][1]);
-var warFrontlineDonationGoods = warFrontlineDonation[2][1];
+                                    ["海滨法力药水","耐力战争卷轴","镍铜硬化护蹄","跨界绿铱石","速烤燃爆装置","糙皮骑甲","战旗：迅猛集结","附魔戒指 - 爆击之纹","生烤鲶鱼"],
+                                    ["海滨法力药水","战吼战争卷轴","镍铜矿石","全能蓝晶石","燃炎弹药","旋涡战鼓","战旗：方阵防御","附魔武器 - 坚韧远航","无尽之海鲶鱼"]];
+var warFrontlineDonationNum = checkQuantity(warFrontlineDonation[1][2]);
+var warFrontlineDonationGoods = warFrontlineDonation[2][2];
 
 var heartPower = [];
 heartPower[0] = 300;
@@ -206,7 +208,7 @@ function mainLoop(){
     innerHtml("cycleTip-weeklyEvent-Next",weeklyEventPool[weeklyEventTurnNext]);
 
     // For war frontline board
-    innerHtml("war-Frontline-output",warFrontlineOutput(2, "联盟", new Date(2018,10,1,19,10),cur));
+    innerHtml("war-Frontline-output",warFrontlineOutput(1, "部落", new Date(2018,10,1,19,10),cur));
 
     // For goYa!
     if (cur.day == 4 && cur.hour >=7) {
