@@ -155,17 +155,17 @@ function mainLoop(){
     };
 
     //document.getElementById("wQ-Norm").innerHTML = timeRemain.worldQuestNorm[0];
-    innerHtml("wQ-Norm",timeRemain.worldQuestNorm[0]);
-    innerHtml("wQ-COA-5H",timeRemain.worldQuestCOA[0]);
-    innerHtml("wQ-Opp",timeRemain.worldQuestOpp[0]);
-    innerHtml("daily-Quest",timeRemain.dailyQuest[0]);
+    //innerHtml("wQ-Norm",timeRemain.worldQuestNorm[0]);
+    //innerHtml("wQ-COA-5H",timeRemain.worldQuestCOA[0]);
+    //innerHtml("wQ-Opp",timeRemain.worldQuestOpp[0]);
+    //innerHtml("daily-Quest",timeRemain.dailyQuest[0]);
 
-    innerHtml("weekly-Thu",timeRemain.weeklyThu[0]);
-    innerHtml("weekly-Events-State",timeRemain.weeklyEvent[0]);
-    innerHtml("weekly-Events-Time",timeRemain.weeklyEvent[1]);
+    //innerHtml("weekly-Thu",timeRemain.weeklyThu[0]);
+    //innerHtml("weekly-Events-State",timeRemain.weeklyEvent[0]);
+    //innerHtml("weekly-Events-Time",timeRemain.weeklyEvent[1]);
 
-    innerHtml("night-Moon-State",timeRemain.nightMoon[0]);
-    innerHtml("night-Moon-Time",timeRemain.nightMoon[1]);
+    //innerHtml("night-Moon-State",timeRemain.nightMoon[0]);
+    //innerHtml("night-Moon-Time",timeRemain.nightMoon[1]);
 
     // For Information Board
     var deltaDay = {
@@ -248,9 +248,9 @@ function mainLoop(){
     innerHtml("legTip-emQue-1",legEmiQuest[deltaDay.ver801 - 1]);
     innerHtml("legTip-emQue-2",legEmiQuest[deltaDay.ver801 - 2]);
 
-    innerHtml("legTip-emQue-time-2",timeRemain.worldQuestCOA[0]);
-    innerHtml("legTip-emQue-time-1","1天 "+ timeRemain.worldQuestCOA[0]);
-    innerHtml("legTip-emQue-time-0","2天 "+ timeRemain.worldQuestCOA[0]);
+    //innerHtml("legTip-emQue-time-2",timeRemain.worldQuestCOA[0]);
+    //innerHtml("legTip-emQue-time-1","1天 "+ timeRemain.worldQuestCOA[0]);
+    //innerHtml("legTip-emQue-time-0","2天 "+ timeRemain.worldQuestCOA[0]);
 
     var legWorldBoss1Turn = Math.floor(deltaDay.ver801 / 7) % 11; // from 0 to 5
     var legWorldBoss1TurnNext = Math.floor(deltaDay.ver801 / 7 + 1) % 11;
@@ -520,9 +520,11 @@ function checkTime(arr) {
             arr = "0" + arr;
         }
     }
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i] < 10) {
-            arr[i] = "0" + arr[i];
+    else {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] < 10) {
+                arr[i] = "0" + arr[i];
+            }
         }
     }
     return arr;
@@ -571,3 +573,212 @@ function innerHtml(id,str) {
 rightSidebarWidth = "200px";
 document.getElementById("right-sidebarWidth").innerHTML = rightSidebarWidth;
 document.documentElement.style.setProperty('--rightSidebarWidth', rightSidebarWidth);
+
+
+
+/////////////////////////////////////////
+
+var secInMs = 1000;
+var minInMs = secInMs * 60;
+var hrInMs = minInMs * 60;
+// var dayInMs = hrInMs * 24;
+var curr;
+var currT;
+
+function VersionDate(dateObj) {
+    this.date = dateObj;
+}
+VersionDate.prototype.getDays = function () {
+    return Math.floor((currT - this.date.getTime()) / dayInMs);
+};
+
+var ver800Date = new VersionDate(new Date(2018,7,14,7)); // new Date("YYYY,M,D,8:00") does not fit safari
+var ver801Date = new VersionDate(new Date(2018,8,6,7));
+
+function RegularCycleEvent(subCycleLength, parentCycleLength, startTime, periodTimeList, periodNameList, subCycleNumber) {
+    this.subLen = subCycleLength;
+    this.parLen = parentCycleLength;
+    this.startT = startTime;
+    this.timeLi = periodTimeList;
+    this.nameLi = periodNameList;
+    this.subNum = subCycleNumber;
+}
+
+function IrregularCycleEvent(periodTimeList, periodNameList) {
+    this.timeLi = periodTimeList;
+    this.nameLi = periodNameList;
+}
+
+function countDownCalc(eventObj) {
+    let err_input = ["ERROR INPUT _CDCalc"];
+
+    if (eventObj.constructor === RegularCycleEvent){
+        let subLen = eventObj.subLen;
+        let parLen = eventObj.parLen;
+        let startT = eventObj.startT;
+        let timeLi = eventObj.timeLi;
+        let nameLi = eventObj.nameLi;
+        let subNum = eventObj.subNum;
+
+        // error input check _start
+        if (subLen * subNum !== parLen ||
+            timeLi.length !== nameLi.length) {
+            return err_input;
+        }
+        // error input check _end
+
+        // calculate part _start
+        else {
+            if (currT < startT) {
+                return ["即将到来", msTrans(startT - currT)];
+            }
+            else {
+                let deltaMsInSub = (currT - startT) % parLen;
+                let i = 0;
+                while (deltaMsInSub - timeLi[i] > 0) {
+                    deltaMsInSub -= timeLi[i];
+                    i += 1;
+                }
+                let leftMs = timeLi[i] - deltaMsInSub;
+                return [nameLi[i], msTrans(leftMs)];
+            }
+        }
+        // calculate part _end
+    }
+    else if (eventObj.constructor === IrregularCycleEvent) {
+        let timeLi = eventObj.timeLi;
+        let nameLi = eventObj.nameLi;
+
+        // error input check _start
+        if (timeLi.length !== nameLi.length) {
+            return err_input;
+        }
+        // error input check _end
+
+        // calculate part _start
+        for (let i = 0; i < timeLi.length; i++) {
+            if (currT < timeLi[i]) {
+                return [nameLi[i], msTrans(timeLi[i] - currT)];
+            }
+        }
+        // calculate part _end
+    }
+    else {
+        return err_input;
+    }
+}
+
+function msTrans(ms) {
+    if (ms < 0) {
+        return "ERROR INPUT _msTrans";
+    }
+    else {
+        let output_str = "";
+
+        let day = Math.floor(ms / dayInMs);
+        ms -= day*dayInMs;
+        let hr = checkTime(Math.floor(ms / hrInMs));
+        ms -= hr*hrInMs;
+        let min = checkTime(Math.floor(ms / minInMs));
+        ms -= min*minInMs;
+        let sec = checkTime(Math.floor(ms / secInMs));
+
+        if (day > 0) {
+            output_str += day + "天 ";
+        }
+        output_str += hr + ":" + min + ":" + sec;
+
+        return output_str;
+    }
+}
+
+const worldQuestNorm_RCE = new RegularCycleEvent(
+    dayInMs,
+    dayInMs,
+    new Date(2018,7,14,7).getTime(),
+    [hrInMs * 8, hrInMs * 4, hrInMs * 4, hrInMs * 8],
+    new Array(4).fill(["下一波世界任务"]),
+    1);
+
+const worldQuestOppo_RCE = new RegularCycleEvent(
+    dayInMs,
+    dayInMs,
+    new Date(2018,7,14,7).getTime(),
+    [hrInMs * 12, hrInMs * 12],
+    new Array(2).fill(["下一波对面地图世界任务"]),
+    1);
+
+const daily0700_RCE = new RegularCycleEvent(
+    dayInMs,
+    dayInMs,
+    new Date(2018,7,14,7).getTime(),
+    [dayInMs],
+    [["下一波艾酱任务 | 大使任务 | 5H更新","老任还没写","老任还没写"]],
+    1);
+
+const dailyQuest_RCE = new RegularCycleEvent(
+    dayInMs,
+    dayInMs,
+    new Date(2018,7,14,3).getTime(),
+    [dayInMs],
+    [["下一次日常刷新"]],
+    1);
+
+const weeklyThu0700_RCE = new RegularCycleEvent(
+    dayInMs * 7,
+    dayInMs * 7,
+    new Date(2018,8,6,7).getTime(),
+    [dayInMs * 7],
+    [["下一次周CD更新 | 低保"]],
+    1);
+
+const weeklyEvent_RCE = new RegularCycleEvent(
+    dayInMs * 7,
+    dayInMs * 7,
+    new Date(2018,8,6,7).getTime(),
+    [dayInMs * 7 - hrInMs * 3, hrInMs * 3],
+    [["周常活动剩余时间"],["周常活动下次开始"]],
+    1);
+
+const nightMoon_IrCE = new IrregularCycleEvent(
+    [new Date(2018,10,4,0,1).getTime(),new Date(2018,10,10,23,59).getTime(),
+        new Date(2018,11,2,0,1).getTime(),new Date(2018,11,8,23,59).getTime()],
+
+    ["暗月马戏团下次开始","暗月马戏团剩余时间",
+        "暗月马戏团下次开始","暗月马戏团剩余时间"]
+);
+
+var BFAEmissaryPool = [];
+BFAEmissaryPool[0] = ["塔兰吉远征队","始祖龟求知者","沃顿奈","艾泽拉斯的勇士","部落战事","赞达拉帝国"];
+BFAEmissaryPool[1] = ["340装备","1000能量","特质装","200物资","2000金币"];
+
+function newLoop() {
+    curr = new Date();
+    currT = curr.getTime();
+
+    innerHtml("CDBoard-day-1-1",countDownCalc(worldQuestNorm_RCE)[0][0]);
+    innerHtml("CDBoard-day-1-2",countDownCalc(worldQuestNorm_RCE)[1]);
+    innerHtml("CDBoard-day-2-1",countDownCalc(daily0700_RCE)[0][0]);
+    innerHtml("CDBoard-day-2-2",countDownCalc(daily0700_RCE)[1]);
+    innerHtml("CDBoard-day-3-1",countDownCalc(worldQuestOppo_RCE)[0][0]);
+    innerHtml("CDBoard-day-3-2",countDownCalc(worldQuestOppo_RCE)[1]);
+    innerHtml("CDBoard-day-4-1",countDownCalc(dailyQuest_RCE)[0][0]);
+    innerHtml("CDBoard-day-4-2",countDownCalc(dailyQuest_RCE)[1]);
+
+    innerHtml("CDBoard-week-1-1",countDownCalc(weeklyThu0700_RCE)[0][0]);
+    innerHtml("CDBoard-week-1-2",countDownCalc(weeklyThu0700_RCE)[1]);
+    innerHtml("CDBoard-week-2-1",countDownCalc(weeklyEvent_RCE)[0][0]);
+    innerHtml("CDBoard-week-2-2",countDownCalc(weeklyEvent_RCE)[1]);
+
+    innerHtml("CDBoard-month-1-1",countDownCalc(nightMoon_IrCE)[0]);
+    innerHtml("CDBoard-month-1-2",countDownCalc(nightMoon_IrCE)[1]);
+
+
+
+
+    innerHtml("LEGBoard-1-2",countDownCalc(daily0700_RCE)[1]);
+    innerHtml("LEGBoard-2-2","1天 " + countDownCalc(daily0700_RCE)[1]);
+    innerHtml("LEGBoard-3-2","2天 " + countDownCalc(daily0700_RCE)[1]);
+
+    setTimeout('newLoop()', 200);
+}
