@@ -614,7 +614,7 @@ function mainLoop() {
     // LEG board _END_
 
     // For war frontline board | 1-contribute 2-attack
-    innerHtml("war-Frontline-output",warFrontlineOutput(2, "部落", new Date(2018,10,12,19,20)));
+    innerHtml("war-Frontline-output",warFrontlineOutput(2, "部落", new Date(2018,10,12,19,19)));
 
     // right side bar _START_
     innerHtml("rightSidebar-date",curr.getFullYear() + "-" + checkTime(curr.getMonth() + 1) + "-" + checkTime(curr.getDate()));
