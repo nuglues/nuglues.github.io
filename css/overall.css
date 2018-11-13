@@ -8,15 +8,16 @@ h1 {
 }
 
 h2 {
-    margin: 0 0 5px 0;
     text-align: center;
 }
 
-span {
-    /*cursor: url("../img/cursor/wow_text.cur"),text;*/
+span.endSoon{
+    color: #ff4c51;
+    position: absolute;
+    left: 35%;
 }
 
-.goTop {
+.goTopBtn {
     position: fixed;
     bottom: 60px;
     right: 20px;
@@ -26,7 +27,7 @@ span {
     width: 330px;
     background: rgba(31, 128, 123, 0.2);
     padding: 10px;
-    margin: 0 0 15px 20px;
+    margin: 0 0 20px 20px;
     float: left;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
     position: relative;
@@ -58,12 +59,20 @@ span {
     width: 650px;
     background: linear-gradient(130deg, rgba(248, 255, 0, 0.5), rgba(21, 153, 87, 0));
     padding: 10px;
-    margin: 0 10px 15px 20px;
+    margin: 0 10px 20px 20px;
     float: left;
     position: relative;
 }
 
 .link:hover{
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
-    transition-duration: 300ms;
+    transition-duration: 200ms;
+}
+
+hr.type1 {
+    margin: 3px 0 2px 0;
+    width: 100%;
+    color: #7f7f7f;
+    background: rgba(127, 127, 127, 0.36);
+    height: 2px;
 }
