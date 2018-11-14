@@ -23,7 +23,7 @@ span.endSoon{
     right: 20px;
 }
 
-.block {
+div.block {
     width: 330px;
     background: rgba(31, 128, 123, 0.2);
     padding: 10px;
@@ -70,9 +70,14 @@ span.endSoon{
 }
 
 hr.type1 {
-    margin: 3px 0 2px 0;
+    margin: 4px 0 2px 0;
     width: 100%;
     color: #7f7f7f;
     background: rgba(127, 127, 127, 0.36);
     height: 2px;
+}
+
+div.paraBox {
+    display: flex;
+    justify-content: space-between;
 }
