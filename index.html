@@ -13,10 +13,11 @@
 <body onload = "mainLoop();">
 
 <div class = "leftDiv">
-    <h3 style="background: red">v0.0.2 就快来了！</h3>
+    <h3 style="background: red">&nbsp;v0.0.2 就快来了！</h3>
     <h1>今日赞达拉 v0.0.1</h1>
     <div class = "goYa">
-        <span><strong>冲鸭！</strong> </span><span id = "diBao" style = "color: #ff0000"></span><br>
+        <span><strong>冲鸭！</strong> </span><strong><span id = "diBao" style = "color: #ff0000"></span></strong><br>
+        <span id = "LEGAttack" style = "color: #ff0000"></span>
         <div class="paraBox">
             <div id="goYa"></div>
         </div>
@@ -73,11 +74,13 @@
 
     <div class = "block">
         <h2>战争前线(施工中...)</h2><br>
+
         <span id="war-Frontline-output"></span>
     </div>
 
     <div class = "block" style = "background:rgba(64,253,76,0.25);">
         <h2>友情链接</h2><br>
+
         <a class = "link" target = "_blank" href = "https://www.warcraftlogs.com/guild/reports-list/390775/">老年鸽会WCL主页</a><br>
         <a class = "link" target = "_blank" href = "https://www.herodamage.com/">Hero Damage</a> | <a class = "link" target = "_blank" href = "https://www.herodamage.com/zh/">中文</a><br>
         <a class = "link" target = "_blank" href = "http://www.simulationcraft.org/">SimulationCraft</a> | <a class = "link" target = "_blank" href = "http://downloads.simulationcraft.org/?C=M;O=D">下载</a><br>
@@ -120,10 +123,28 @@
     <div class = "block" style = "background: rgba(0,56,255,0.25);">
         <h2>入侵提示(施工中...)</h2><br>
 
-        <strong>LEG入侵</strong><br>
+        <strong>LEG</strong><br>
         <div class="paraBox">
-            <div id="LEG-attack-state"></div> <div id="LEG-attack-zone"></div> <div id="LEG-attack-time" style="text-align: right"></div>
+            <div id="LEG-attack-state"></div> <div id="LEG-attack-zone" style="text-align: center"></div> <div id="LEG-attack-time" style="text-align: right"></div>
         </div>
+    </div>
+
+    <div class = "block" style = "background: rgba(223,255,0,0.25);">
+        <h2>其他信息(施工中...)</h2><br>
+
+        <strong>时光徽章</strong><br>
+
+        <br>
+        <strong>节日活动</strong><br>
+        <div class="paraBox">
+            <div id="festivalCur-name"></div> <div id="festivalCur-endDate" style="text-align: center"></div> <div id="festivalCur-time" style="text-align: right"></div>
+        </div>
+        <hr class="type1">
+        <div class="paraBox">
+            <div id="festivalNext-name"></div> <div id="festivalNext-startDate" style="text-align: center"></div> <div id="festivalNext-time" style="text-align: right"></div>
+        </div>
+        <br>
+        <strong>要塞宠物对战</strong><br>
     </div>
 
     <div style = "clear: both"></div>

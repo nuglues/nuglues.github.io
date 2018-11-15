@@ -1,8 +1,12 @@
 /**<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   assist functions _START_   ********************************/
 
 function msTrans(ms) {
-    if (ms < 0) {
+    if (ms === "") {
+        return "";
+    }
+    else if (ms < 0) {
         return "ERROR INPUT _msTrans";
+        // return ms;
     }
     else {
         let output_str = "";
@@ -96,6 +100,28 @@ function dayTrans (day) {
         default:
             return "error input";
     }
+}
+
+function dateObjToStr(dateObj, yIn, monIn, dateIn, hrIn, minIn, secIn, symbol1, symbol2) {
+    if (dateObj === "" || dateObj === undefined) {
+        return "";
+    }
+    let str = "";
+    const subStr = checkTime([dateObj.getFullYear(), dateObj.getMonth() + 1, dateObj.getDate(), dateObj.getHours(), dateObj.getMinutes(), dateObj.getSeconds()]);
+    for (let i = 1; i < 4; i++) {
+        if (arguments[i] === 1){
+            str += subStr[i - 1] + symbol1;
+        }
+    }
+    str = str.slice(0,-1);
+    str += " ";
+    for (let i = 4; i < 7; i++) {
+        if (arguments[i] === 1){
+            str += subStr[i - 1] + symbol2;
+        }
+    }
+    str = str.slice(0,-1);
+    return str;
 }
 
 function innerHtml(id,str) {

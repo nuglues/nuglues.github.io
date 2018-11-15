@@ -78,7 +78,7 @@ function heartPowerCalc() {
     innerHtml("heartPowerOutput", output);
 }
 
-function countDownCalc(eventObj, subseq) {
+function countDownCalc(eventObj, pos1Shift, pos2ShiftMod, pos2Shift) {
     const err_input = ["ERROR INPUT _CDCalc"];
 
     // regular cycle event PART
@@ -103,30 +103,71 @@ function countDownCalc(eventObj, subseq) {
         // calculate part _START_
         else {
             if (currT < startT) {
-                return [["即将到来"], msTrans(startT - currT)];
+                return [["即将到来"], msTrans(startT - currT), [new Date(startT)]];
             }
             else {
-                if (subseq === undefined) {
-                    subseq =0; // default as 0
+                if (pos1Shift === undefined) {
+                    pos1Shift = 0; // default as 0
+                }
+                if (pos2ShiftMod === undefined) {
+                    pos2ShiftMod = 0; // default as 0
+                }
+                if (pos2Shift === undefined) {
+                    pos2Shift = 0; // default as 0
                 }
 
                 let nameOutput = [];
-                let leftMs;
-                let deltaMsInSub;
-                let k;
-                for (let i = 0; i < nameLi.length; i++) {
-                    deltaMsInSub = (currT - startT + subseq * subLen) % (subLen * nameLi[i].length / timeLi.length);
-                    let j = Math.floor(deltaMsInSub / subLen);
-                    deltaMsInSub = deltaMsInSub % subLen;
-                    k = 0;
-                    while (deltaMsInSub - timeLi[k] > 0) {
-                        deltaMsInSub -= timeLi[k];
-                        k += 1;
+                let pos = [];
+                let posTimeStart;
+                let posTimeEnd;
+                let i;
+
+                for (i = 0; i < nameLi.length; i++) {
+                    let deltaMs = currT - startT;
+                    pos[0] = Math.floor(deltaMs / (subLen * nameLi[i].length / timeLi.length));
+                    deltaMs = deltaMs % (subLen * nameLi[i].length / timeLi.length);
+                    pos[1] = Math.floor(deltaMs / subLen);
+                    deltaMs = deltaMs % subLen;
+                    pos[2] = 0;
+                    while (deltaMs - timeLi[pos[2]] > 0) {
+                        deltaMs -= timeLi[pos[2]];
+                        pos[2] += 1;
                     }
-                    nameOutput[i] = nameLi[i][j * timeLi.length + k];
+
+                    // shift part _START_
+                    if (pos2ShiftMod === 1) {
+                        // 1 is absolute, reset pos2 to 0
+                        pos[2] = 0;
+                    }
+                    pos[2] += pos2Shift;
+                    if (pos[2] < 0) {
+                        pos[1] -= 1;
+                        pos[2] += timeLi.length;
+                    }
+                    if (pos[2] >= timeLi.length) {
+                        pos[2] = pos[2] % timeLi.length;
+                        pos[1] += 1;
+                    }
+                    pos[1] += pos1Shift;
+                    if (pos[1] < 0) {
+                        pos[0] -= 1;
+                        pos[1] += nameLi[i].length / timeLi.length;
+                    }
+                    if (pos[1] >= nameLi[i].length / timeLi.length) {
+                        pos[1] = pos[1] % (nameLi[i].length / timeLi.length);
+                        pos[0] += 1;
+                    }
+                    // shift part _END_
+
+                    nameOutput[i] = nameLi[i][pos[1] * timeLi.length + pos[2]];
                 }
-                leftMs = timeLi[k] - deltaMsInSub + subseq * subLen;
-                return [nameOutput, msTrans(leftMs)];
+
+                posTimeStart = startT + pos[0] * (subLen * nameLi[i - 1].length / timeLi.length) + pos[1] * subLen;
+                for (i = 0; i < pos[2]; i++ ) {
+                    posTimeStart += timeLi[i];
+                }
+                posTimeEnd = posTimeStart + timeLi[i];
+                return [nameOutput, msTrans(posTimeEnd - currT), [new Date(posTimeStart), new Date(posTimeEnd)]];
             }
         }
         // calculate part _END_
@@ -145,20 +186,23 @@ function countDownCalc(eventObj, subseq) {
 
         // calculate part _START_
         let i = 0;
-        let k = 1;
+        let k = 0;
         let nameOutput = [];
         let timeOutput = [];
+        let periodOutput = [];
         while (currT > timeLi[i]) {
             if (currT < timeLi[i + 1]) {
                 nameOutput[k] = nameLi[i * 2 +1];
                 timeOutput[k] = msTrans(timeLi[i + 1] - currT);
+                periodOutput[k] = [new Date(timeLi[i]), new Date(timeLi[i + 1])];
                 k++;
             }
             i += 2;
         }
-        nameOutput[0] = nameLi[i];
-        timeOutput[0] = msTrans(timeLi[i] - currT);
-        return [nameOutput, timeOutput];
+        nameOutput[k] = nameLi[i];
+        timeOutput[k] = msTrans(timeLi[i] - currT);
+        periodOutput[k] = [new Date(timeLi[i]), new Date(timeLi[i + 1])];
+        return [nameOutput, timeOutput, periodOutput];
         // calculate part _END_
     }
 
@@ -207,7 +251,16 @@ const paraIdList = [
     "LEG-argusElite-1", "LEG-argusElite-2",
     "LEG-argusArchy-1", "LEG-argusArchy-2",
 
-    "LEG-attack-state", "LEG-attack-zone", "LEG-attack-time",
+    "LEG-attack-state",
+    "LEG-attack-zone",
+    "LEG-attack-time",
+
+    "festivalCur-name",
+    "festivalCur-endDate",
+    "festivalCur-time",
+    "festivalNext-name",
+    "festivalNext-startDate",
+    "festivalNext-time",
 
     "currentTime-left",
     "currentTime-right",
@@ -219,6 +272,35 @@ let paraStrList = [];
 function mainLoop() {
     curr = new Date();
     currT = curr.getTime();
+
+    // const timeShift = hrInMs*0; // for test
+    // currT += timeShift;
+    // curr = new Date(currT);
+
+    // pretreatment for festival
+    let festivalPre = countDownCalc(festival_IrCE);
+    let festivalOn = [];
+    festivalOn[0] = [];festivalOn[1] = [];festivalOn[2] = [];
+    let festivalNext = [];
+    festivalNext[0] = [];festivalNext[1] = [];festivalNext[2] = [];
+    if (festivalPre[0].length === 1) {
+        festivalPre[0][1] = festivalPre[0][0];
+        festivalPre[1][1] = festivalPre[1][0];
+        festivalPre[2][1] = festivalPre[2][0];
+        festivalPre[0][0] = "当前无节日";
+        festivalPre[1][0] = "";
+        festivalPre[2][0] = "";
+    }
+    let i_fes;
+    for (i_fes = 0; i_fes < festivalPre[0].length - 1; i_fes++) {
+        festivalOn[0][i_fes] = festivalPre[0][i_fes];
+        festivalOn[1][i_fes] = dateObjToStr(festivalPre[2][i_fes][1],0,1,1,1,1,0,"-",":");
+        festivalOn[2][i_fes] = festivalPre[1][i_fes];
+    }
+    festivalNext[0] = festivalPre[0][i_fes];
+    festivalNext[1] = dateObjToStr(festivalPre[2][i_fes][0],0,1,1,1,1,0,"-",":");
+    festivalNext[2] = festivalPre[1][i_fes];
+
 
     paraStrList = [
         // goYa _START_ -- 4*1
@@ -256,12 +338,19 @@ function mainLoop() {
         // LEG board _END_
 
         // Attack board _START_ --
-        [ countDownCalc(LEGAttack_RCE)[0][0] ], [ countDownCalc(LEGAttack_RCE)[0][1] ], [ countDownCalc(LEGAttack_RCE)[1] ],
+        [ countDownCalc(LEGAttack_RCE)[0][0], dateObjToStr(countDownCalc(LEGAttack_RCE, 0, 1, 1)[2][0],0,1,1,1,1,0,"-",":"), dateObjToStr(countDownCalc(LEGAttack_RCE, 1, 1, 1)[2][0],0,1,1,1,1,0,"-",":"), dateObjToStr(countDownCalc(LEGAttack_RCE, 2, 1, 1)[2][0],0,1,1,1,1,0,"-",":"), dateObjToStr(countDownCalc(LEGAttack_RCE, 3, 1, 1)[2][0],0,1,1,1,1,0,"-",":") ],
+        [ "剩余时间", countDownCalc(LEGAttack_RCE)[0][1], countDownCalc(LEGAttack_RCE, 1, 1, 0)[0][1], countDownCalc(LEGAttack_RCE, 2, 1, 0)[0][1], countDownCalc(LEGAttack_RCE, 3, 1, 0)[0][1] ],
+        [ countDownCalc(LEGAttack_RCE)[1], dateObjToStr(countDownCalc(LEGAttack_RCE, 0, 1, 1)[2][1],0,1,1,1,1,0,"-",":"), dateObjToStr(countDownCalc(LEGAttack_RCE, 1, 1, 1)[2][1],0,1,1,1,1,0,"-",":"), dateObjToStr(countDownCalc(LEGAttack_RCE, 2, 1, 1)[2][1],0,1,1,1,1,0,"-",":"), dateObjToStr(countDownCalc(LEGAttack_RCE, 3, 1, 1)[2][1],0,1,1,1,1,0,"-",":") ],
         // Attack board _END_
+
+        // Other info board _START_ --
+        festivalOn[0], festivalOn[1], festivalOn[2],
+        [festivalNext[0]], [festivalNext[1]], [festivalNext[2]],
+        // Other info board _END_
 
         // right side bar _START_ -- 2*2 + 2*1
         [ "北京时间", dayTrans(curr.getDay()) ],
-        [ curr.getFullYear() + "-" + checkTime(curr.getMonth() + 1) + "-" + checkTime(curr.getDate()), checkTime(curr.getHours()) + ":" + checkTime(curr.getMinutes()) + ":" + checkTime(curr.getSeconds()) ],
+        [ dateObjToStr(curr,1,1,1,0,0,0,"-"," "), dateObjToStr(curr,0,0,0,1,1,1," ",":") ],
         [ "8. 0 已开 第" + theVer800Days + "天 第" + checkTime(Math.floor((theVer800Days - 1) / 7 + 1)) + "周", "团本已开 第" + theVer801Days + "天 第" + checkTime(Math.floor((theVer801Days - 1) / 7 + 1)) + "周" ]
         // right side bar _END_
     ];
@@ -271,7 +360,13 @@ function mainLoop() {
         innerHtml("diBao","今天开低保！");
     }
     else{
-        innerHtml("diBao","");
+        innerHtml("diBao", "");
+    }
+    if (countDownCalc(LEGAttack_RCE)[0][0] === "当前入侵中") {
+        innerHtml("LEGAttack", countDownCalc(LEGAttack_RCE)[1] + " " + countDownCalc(LEGAttack_RCE)[0][1] + " " + "军团入侵即将结束" + "<br>");
+    }
+    else {
+        innerHtml("LEGAttack", "");
     }
 
     // For war frontline board | 1-contribute 2-attack

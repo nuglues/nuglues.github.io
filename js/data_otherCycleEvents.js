@@ -113,7 +113,7 @@ weeklyThu0700_RCE.nameLi =
 const LEGAttack_RCE = new RegularCycleEvent(
     new Date(2018,0,1,8).getTime(),
     [hrInMs * 12.5, hrInMs * 6],
-    [["下次入侵", "当前入侵"],
+    [["下次入侵", "当前入侵中"],
     ["至高岭", "至高岭", "风暴峡湾", "风暴峡湾", "至高岭", "至高岭",
         "瓦尔莎拉", "瓦尔莎拉", "阿苏纳", "阿苏纳", "风暴峡湾", "风暴峡湾",
         "瓦尔莎拉", "瓦尔莎拉", "至高岭", "至高岭", "阿苏纳", "阿苏纳",
@@ -125,7 +125,7 @@ const LEGAttack_RCE = new RegularCycleEvent(
 
 /**<<<<<<<<<<<<<<<<<<<<   irregular cycle events _START_   **********************/
 
-// night moon weekly _START_
+// night moon monthly _START_
 const nightMoon_IrCE = new IrregularCycleEvent(
     [new Date(2018,10,4,0,1).getTime(),new Date(2018,10,10,23,59).getTime(),
         new Date(2018,11,2,0,1).getTime(),new Date(2018,11,8,23,59).getTime()],
@@ -135,7 +135,14 @@ const nightMoon_IrCE = new IrregularCycleEvent(
 for (let i = 0; i < nightMoon_IrCE.timeLi.length; i += 2) {
     nightMoon_IrCE.nameLi[i] = "暗月马戏团下次开始";
 }
-// night moon weekly _END_
+// night moon monthly _END_
+
+// festival _START_
+const festival_IrCE = new IrregularCycleEvent(
+    [new Date(2018,10,19,10,0).getTime(),new Date(2018,10,26,9,0).getTime()],
+    ["感恩节", "感恩节"]
+);
+// festival _END_
 
 /**********************   irregular cycle events _END_   >>>>>>>>>>>>>>>>>>>>**/
 
