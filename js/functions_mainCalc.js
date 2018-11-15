@@ -273,7 +273,7 @@ function mainLoop() {
     curr = new Date();
     currT = curr.getTime();
 
-    // const timeShift = hrInMs*0; // for test
+    // const timeShift = dayInMs*5; // for test
     // currT += timeShift;
     // curr = new Date(currT);
 
