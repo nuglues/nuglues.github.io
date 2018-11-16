@@ -91,6 +91,20 @@ div.loadBg {
     z-index: 10;
 }
 
+div.loadBgFadeout {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+
+    animation-name: fadeout;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
 div.loadPic {
     width: 400px;
     height: 400px;
@@ -113,6 +127,11 @@ div.loadPic {
 @keyframes rotation {
     from {transform: rotate(50deg);}
     to {transform: rotate(410deg);}
+}
+
+@keyframes fadeout {
+    from {opacity: 100%; display: block;}
+    to {opacity: 0; display: none;}
 }
 
 div.loadText {
