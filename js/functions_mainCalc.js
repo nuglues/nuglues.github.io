@@ -17,7 +17,8 @@ function warFrontlineOutput(index, camp, startTime){
             const timeRemain = 7 * dayInMs - (currT - startTime.getTime());
             const timeRemainStr = msTrans(timeRemain);
             outputStr += "<strong>" + camp + "进攻中</strong><br>";
-            outputStr += "<br>剩余时间：" + timeRemainStr + "<br>";
+            outputStr += "<br>大致剩余时间：" + timeRemainStr + "<br>";
+            outputStr += "推算结束时间：" + dateObjToStr(new Date(startTime.getTime() + 7 * dayInMs),1,1,1,1,1,1,"-",":") + "<br>";
             outputStr += "<br>" + oppoCamp(camp) + "的小伙伴快去打Boss鸭";
             break;
     }
@@ -212,6 +213,20 @@ function countDownCalc(eventObj, pos1Shift, pos2ShiftMod, pos2Shift) {
     }
 }
 
+function getTokenPrice() {
+    let tokenXmlhttp = new XMLHttpRequest();
+    tokenXmlhttp.open("get", "https://data.wowtoken.info/snapshot.json");
+    tokenXmlhttp.send();
+    tokenXmlhttp.onreadystatechange = function () {
+        if (tokenXmlhttp.readyState === 4 && tokenXmlhttp.status === 200) {
+            const data = JSON.parse(tokenXmlhttp.responseText);
+            innerHtml("tokenPrice-1", dateObjToStr(new Date(data.CN.timestamp*1000), 1,1,1,1,1,1,"-",":"));
+            innerHtml("tokenPrice-2", data.CN.formatted.buy);
+        }
+    };
+
+}
+
 function paraGenerator(idList, strList) {
     let i;
     let p = [];
@@ -255,12 +270,10 @@ const paraIdList = [
     "LEG-attack-zone",
     "LEG-attack-time",
 
-    "festivalCur-name",
-    "festivalCur-endDate",
-    "festivalCur-time",
-    "festivalNext-name",
-    "festivalNext-startDate",
-    "festivalNext-time",
+    "festivalCur-name", "festivalCur-endDate", "festivalCur-time",
+    "festivalNext-name", "festivalNext-startDate", "festivalNext-time",
+    "garrisonPet1-1",
+    "garrisonPet2-1",
 
     "currentTime-left",
     "currentTime-right",
@@ -273,7 +286,7 @@ function mainLoop() {
     curr = new Date();
     currT = curr.getTime();
 
-    // const timeShift = dayInMs*5; // for test
+    // const timeShift = dayInMs*7; // for test
     // currT += timeShift;
     // curr = new Date(currT);
 
@@ -346,6 +359,8 @@ function mainLoop() {
         // Other info board _START_ --
         festivalOn[0], festivalOn[1], festivalOn[2],
         [festivalNext[0]], [festivalNext[1]], [festivalNext[2]],
+        [ countDownCalc(daily0700_RCE)[0][4] ],
+        [ countDownCalc(daily0700_RCE, 1)[0][4] ],
         // Other info board _END_
 
         // right side bar _START_ -- 2*2 + 2*1
@@ -372,18 +387,17 @@ function mainLoop() {
     // For war frontline board | 1-contribute 2-attack
     innerHtml("war-Frontline-output",warFrontlineOutput(2, "部落", new Date(2018,10,12,19,19)));
 
+    // wow token
+    getTokenPrice();
+
     // right side bar _START_
     knowledgeLevel = Math.floor((theVer801Days - 1) / 7 + 2);
     innerHtml("rightSidebar-heartLevel",knowledgeLevel + "级");
-
-    document.documentElement.style.setProperty('--leftDivWidth', leftDivWidAndRightDivHeiCalc()[0]);
-    document.documentElement.style.setProperty('--rightSidebarHeight', leftDivWidAndRightDivHeiCalc()[1]);
-    innerHtml("body-scrollWidth", document.body.scrollWidth);
     // right side bar _END_
 
     paraGenerator(paraIdList, paraStrList);
 
-    setTimeout('mainLoop()', 200);
+    setTimeout('mainLoop()', 500);
 }
 
 /********************************   main loop _END_   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>**/

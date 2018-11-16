@@ -23,7 +23,8 @@ daily0700_RCE.nameLi =
     [["下一波艾酱任务 | 大使任务 | 5H更新"],
         new Array(theVer800Days + 3).fill("老任还没写"),
         new Array(theVer800Days + 3).fill("老任还没写"),
-        new Array(theVer800Days + 3).fill("老任还没写")];
+        new Array(theVer800Days + 3).fill("老任还没写"),
+        []];
 
 const BFAEmissaryPool = [];
 BFAEmissaryPool[0] = ["塔兰吉远征队","始祖龟求知者","沃顿奈","艾泽拉斯的勇士","部落战事","赞达拉帝国"];
@@ -55,11 +56,16 @@ const LEGEmissRewrite =
         LEGEmissaryPool[7],LEGEmissaryPool[0],LEGEmissaryPool[6],LEGEmissaryPool[8],LEGEmissaryPool[3],LEGEmissaryPool[9]];
 
 const unRecordDays = 61;
+
 for (let i = 0; i < BFAEmissRewrite[0].length; i++) {
     daily0700_RCE.nameLi[1][i + unRecordDays] = BFAEmissRewrite[0][i];
     daily0700_RCE.nameLi[2][i + unRecordDays] = BFAEmissRewrite[1][i];
     daily0700_RCE.nameLi[3][i + unRecordDays] = LEGEmissRewrite[i];
 }
+
+const garrisonPet = ["三傻鸟", "亡灵羊", "冰火元素", "鬣蜥人", "火凤凰", "三机械", "缝合二世",
+    "三谜团", "暗黑三人组", "双野猪", "萝卜软泥", "大嘴鸟", "幼苗夫妻", "戈隆兄弟", "三虫子"];
+daily0700_RCE.nameLi[4] = garrisonPet;
 // set daily0700_RCE name list _END_
 
 /********************************   manual settings _END_   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>**/

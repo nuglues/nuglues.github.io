@@ -81,3 +81,48 @@ div.paraBox {
     display: flex;
     justify-content: space-between;
 }
+
+div.loadBg {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: fixed;
+    z-index: 10;
+}
+
+div.loadPic {
+    width: 400px;
+    height: 400px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+
+    transform-origin:50% 50%;
+    animation-name: rotation;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotation {
+    from {transform: rotate(50deg);}
+    to {transform: rotate(410deg);}
+}
+
+div.loadText {
+    width: 100px;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+}

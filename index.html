@@ -10,11 +10,21 @@
 
 </head>
 
-<body onload = "mainLoop();">
+<body onload = "mainLoop();blockAdjust();">
+
+<div class="loadBg" id="loadDiv">
+    <div class="loadPic">
+        <img src = "img/loading.png" style="width: 100%;height: 100%;">
+    </div>
+    <div class="loadText">
+        <span style="color: white"><strong>v0.0.2</strong></span><br>
+        <br>
+        <span style="color: white">它lei了</span>
+    </div>
+</div>
 
 <div class = "leftDiv">
-    <h3 style="background: red">&nbsp;v0.0.2 就快来了！</h3>
-    <h1>今日赞达拉 v0.0.1</h1>
+    <h1>今日赞达拉 v0.0.2</h1>
     <div class = "goYa">
         <span><strong>冲鸭！</strong> </span><strong><span id = "diBao" style = "color: #ff0000"></span></strong><br>
         <span id = "LEGAttack" style = "color: #ff0000"></span>
@@ -73,7 +83,7 @@
     </div>
 
     <div class = "block">
-        <h2>战争前线(施工中...)</h2><br>
+        <h2>战争前线</h2><br>
 
         <span id="war-Frontline-output"></span>
     </div>
@@ -94,7 +104,7 @@
     <div style = "clear: both"></div> <!--end for div in one line-->
 
     <div class = "block" style = "background: rgba(66,255,0,0.25);">
-        <h2>军团信息(施工中...)</h2><br>
+        <h2>军团信息</h2><br>
 
         <strong>大使任务</strong><br>
         <div class="paraBox">
@@ -121,7 +131,7 @@
     </div>
 
     <div class = "block" style = "background: rgba(0,56,255,0.25);">
-        <h2>入侵提示(施工中...)</h2><br>
+        <h2>入侵提示</h2><br>
 
         <strong>LEG</strong><br>
         <div class="paraBox">
@@ -130,10 +140,12 @@
     </div>
 
     <div class = "block" style = "background: rgba(223,255,0,0.25);">
-        <h2>其他信息(施工中...)</h2><br>
+        <h2>其他信息</h2><br>
 
         <strong>时光徽章</strong><br>
-
+        <div class="paraBox">
+            <div id="tokenPrice-1"></div> <div id="tokenPrice-2" style="text-align: right"></div>
+        </div>
         <br>
         <strong>节日活动</strong><br>
         <div class="paraBox">
@@ -145,26 +157,21 @@
         </div>
         <br>
         <strong>要塞宠物对战</strong><br>
+        <div class="paraBox">
+            <div id="garrisonPet1-1"></div>
+        </div>
+        <hr class="type1">
+        <div class="paraBox">
+            <div id="garrisonPet2-1"></div>
+        </div>
     </div>
 
-    <div style = "clear: both"></div>
-    <div class = "block" style = "width: 80px;height: 1200px;">
-        这只是一个<br>
-        测试用方块<br>
-        不用管它
-    </div>
     <div style = "clear: both"></div>
 
 </div>
 
 <div class = "rightSidebar">
-    <span class = "rightSidebarText">这还是一个测试块</span><br>
-    <span class = "rightSidebarText">答应我不要管它</span><br>
-    <span class = "rightSidebarText">好吗</span><br>
-    <br>
-    <span class = "rightSidebarText" id = "body-scrollWidth"></span><br>
-    <span class = "rightSidebarText" id = "right-sidebarWidth"></span><br>
-    <br>
+
     <div class="paraBox">
         <div id="currentTime-left" class="rightSidebarText"></div> <div id="currentTime-right" class="rightSidebarText" style="text-align: right;"></div>
     </div>
@@ -181,6 +188,7 @@
     <!--<a href = "javascript:void(0);" onclick = "heartPowerCalc();">点击计算</a><br>-->
     <button style="margin: 10px 0 10px 0" onclick = "heartPowerCalc();">点击计算所需能量</button><br>
     <span class = "rightSidebarText" style="color: #000;" id="heartPowerOutput"></span><br>
+
 </div>
 
 <div style = "clear: both"></div>

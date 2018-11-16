@@ -140,8 +140,9 @@ for (let i = 0; i < nightMoon_IrCE.timeLi.length; i += 2) {
 // festival _START_
 const festival_IrCE = new IrregularCycleEvent(
     [new Date(2018,10,19,10,0).getTime(),new Date(2018,10,26,9,0).getTime(),
-        new Date(2018,10,20,10,0).getTime(),new Date(2018,10,28,9,0).getTime()],
-    ["感恩节", "感恩节", "test1", "test2"]
+        new Date(2018,10,22,10,0).getTime(),new Date(2018,10,28,9,0).getTime(),
+        new Date(2018,11,22,10,0).getTime(),new Date(2018,11,28,9,0).getTime()],
+    ["感恩节", "感恩节", "test1", "test2", "test3", "test4"]
 );
 // festival _END_
 
