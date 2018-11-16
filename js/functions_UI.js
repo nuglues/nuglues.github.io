@@ -28,8 +28,8 @@ document.onreadystatechange = loading;
 function loading() {
     const loadDiv = document.getElementById("loadDiv");
     if (document.readyState === "complete") {
-        loadDiv.className = "loadBgFadeout";
-        //loadDiv.style.display = "none";
+        //loadDiv.className = "loadBgFadeout";
+        loadDiv.style.display = "none";
         document.body.style.overflow = "auto";
     }
     else {
