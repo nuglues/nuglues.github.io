@@ -29,7 +29,7 @@ function loading() {
     const loadDiv = document.getElementById("loadDiv");
     if (document.readyState === "complete") {
         loadDiv.className = "loadBgFadeout";
-        document.body.style.overflow = "auto";
+        setTimeout(function (){document.body.style.overflow = "auto"}, 500);
     }
     else {
         document.body.style.overflow = "hidden";
