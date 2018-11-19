@@ -13,8 +13,8 @@ warFrontlineDonation[2] =
         ["海滨法力药水","耐力战争卷轴","镍铜硬化护蹄","跨界绿铱石","速烤燃爆装置","糙皮骑甲","战旗：迅猛集结","附魔戒指 - 爆击之纹","生烤鲶鱼"],
         ["海滨法力药水","战吼战争卷轴","镍铜矿石","全能蓝晶石","燃炎弹药","旋涡战鼓","战旗：方阵防御","附魔武器 - 坚韧远航","无尽之海鲶鱼"],
         ["海滨治疗药水","耐力战争卷轴","镍铜硬化马镫","跨界绿依石","速烤爆燃装置","糙皮骑甲","战旗：方阵防御","附魔武器 - 坚韧远航","香料里脊"]];
-const warFrontlineDonationNum = checkQuantity(warFrontlineDonation[1][3]);
-const warFrontlineDonationGoods = warFrontlineDonation[2][3];
+const warFrontlineDonationNum = checkQuantity(warFrontlineDonation[1][warFrontlineDonation[1].length-1]);
+const warFrontlineDonationGoods = warFrontlineDonation[2][warFrontlineDonation[1].length-1];
 
 const daily0700_RCE = new RegularCycleEvent(
     new Date(2018,7,14,7).getTime(),

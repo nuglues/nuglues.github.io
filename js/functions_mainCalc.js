@@ -1,27 +1,28 @@
 /**<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   main calculate functions _START_   ********************************/
 
-function warFrontlineOutput(index, camp, startTime){
-    // index = 1:contributing; index = 2:attack last for 7 days
+function warFrontlineOutput(camp, startTime){
     let outputStr = "";
-    switch (index) {
-        case 1:
-            outputStr += "<strong>" + camp + "捐献中</strong><br>";
+    const timeRemain = 7 * dayInMs - (currT - startTime.getTime());
 
-            //outputStr += "<br>捐献清单收集中……" + "<br>";
-            for (let i = 0; i < 9; i++) {
-                outputStr += "<br>" + warFrontlineDonation[0][i] + " - " + warFrontlineDonationNum[i] + warFrontlineDonationGoods[i];
-            }
-
-            break;
-        case 2:
-            const timeRemain = 7 * dayInMs - (currT - startTime.getTime());
+        if (timeRemain > 0) {
             const timeRemainStr = msTrans(timeRemain);
             outputStr += "<strong>" + camp + "进攻中</strong><br>";
             outputStr += "<br>大致剩余时间：" + timeRemainStr + "<br>";
-            outputStr += "推算结束时间：" + dateObjToStr(new Date(startTime.getTime() + 7 * dayInMs),1,1,1,1,1,1,"-",":") + "<br>";
+            outputStr += "推算结束时间：" + dateObjToStr(new Date(startTime.getTime() + 7 * dayInMs), 1, 1, 1, 1, 1, 1, "-", ":") + "<br>";
             outputStr += "<br>" + oppoCamp(camp) + "的小伙伴快去打Boss鸭";
-            break;
-    }
+        }
+        else {
+            outputStr += "<strong>" + oppoCamp(camp) + "捐献中</strong><br>";
+
+            if (0) {
+                outputStr += "<br>捐献清单收集中……";
+            }
+            else {
+                for (let i = 0; i < 9; i++) {
+                    outputStr += "<br>" + warFrontlineDonation[0][i] + " - " + warFrontlineDonationNum[i] + warFrontlineDonationGoods[i];
+                }
+            }
+        }
     return outputStr;
 }
 
@@ -385,7 +386,7 @@ function mainLoop() {
     }
 
     // For war frontline board | 1-contribute 2-attack
-    innerHtml("war-Frontline-output",warFrontlineOutput(1, "联盟", new Date(2018,10,12,19,19)));
+    innerHtml("war-Frontline-output",warFrontlineOutput("部落", new Date(2018,10,12,19,19)));
 
     // wow token
     getTokenPrice();
