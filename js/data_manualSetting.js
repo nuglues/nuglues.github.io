@@ -6,13 +6,15 @@ warFrontlineDonation[0] = ["炼金"," 铭文","锻造","珠宝","工程","制皮
 warFrontlineDonation[1] =
     [[20,3,60,15,3,2,1,3,60],
         [20,3,2,15,6,2,1,3,60],
-        [20,3,60,15,2,2,1,3,60]];
+        [20,3,60,15,2,2,1,3,60],
+        [20,3,2,15,6,2,1,3,30]];
 warFrontlineDonation[2] =
     [["海滨治疗药水","智力战争卷轴","镍铜矿石","全能蓝晶石","霜纹弹药","漩涡战鼓","战旗：自由精神","附魔戒指 - 全能之纹","肥厚腰肉"],
         ["海滨法力药水","耐力战争卷轴","镍铜硬化护蹄","跨界绿铱石","速烤燃爆装置","糙皮骑甲","战旗：迅猛集结","附魔戒指 - 爆击之纹","生烤鲶鱼"],
-        ["海滨法力药水","战吼战争卷轴","镍铜矿石","全能蓝晶石","燃炎弹药","旋涡战鼓","战旗：方阵防御","附魔武器 - 坚韧远航","无尽之海鲶鱼"]];
-const warFrontlineDonationNum = checkQuantity(warFrontlineDonation[1][2]);
-const warFrontlineDonationGoods = warFrontlineDonation[2][2];
+        ["海滨法力药水","战吼战争卷轴","镍铜矿石","全能蓝晶石","燃炎弹药","旋涡战鼓","战旗：方阵防御","附魔武器 - 坚韧远航","无尽之海鲶鱼"],
+        ["海滨治疗药水","耐力战争卷轴","镍铜硬化马镫","跨界绿依石","速烤爆燃装置","糙皮骑甲","战旗：方阵防御","附魔武器 - 坚韧远航","香料里脊"]];
+const warFrontlineDonationNum = checkQuantity(warFrontlineDonation[1][3]);
+const warFrontlineDonationGoods = warFrontlineDonation[2][3];
 
 const daily0700_RCE = new RegularCycleEvent(
     new Date(2018,7,14,7).getTime(),

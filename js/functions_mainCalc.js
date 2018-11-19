@@ -385,7 +385,7 @@ function mainLoop() {
     }
 
     // For war frontline board | 1-contribute 2-attack
-    innerHtml("war-Frontline-output",warFrontlineOutput(2, "部落", new Date(2018,10,12,19,19)));
+    innerHtml("war-Frontline-output",warFrontlineOutput(1, "联盟", new Date(2018,10,12,19,19)));
 
     // wow token
     getTokenPrice();
