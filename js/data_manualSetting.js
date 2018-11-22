@@ -58,7 +58,7 @@ const LEGEmissRewrite =
         LEGEmissaryPool[3],LEGEmissaryPool[7],LEGEmissaryPool[0],LEGEmissaryPool[5],LEGEmissaryPool[6],LEGEmissaryPool[4],LEGEmissaryPool[3],
         LEGEmissaryPool[9],LEGEmissaryPool[5],LEGEmissaryPool[1],LEGEmissaryPool[2],LEGEmissaryPool[4],LEGEmissaryPool[3],LEGEmissaryPool[1],
         LEGEmissaryPool[7],LEGEmissaryPool[0],LEGEmissaryPool[6],LEGEmissaryPool[8],LEGEmissaryPool[3],LEGEmissaryPool[9],LEGEmissaryPool[7],
-        LEGEmissaryPool[0],LEGEmissaryPool[8],LEGEmissaryPool[2],LEGEmissaryPool[4]];
+        LEGEmissaryPool[0],LEGEmissaryPool[8],LEGEmissaryPool[2],LEGEmissaryPool[4],LEGEmissaryPool[7]];
 
 const unRecordDays = 61;
 
