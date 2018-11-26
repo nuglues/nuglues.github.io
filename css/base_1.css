@@ -1,0 +1,13 @@
+#main-body {
+  width: 100%;
+  display: flex; }
+  #main-body .left-part {
+    flex-grow: 1;
+    min-width: 400px;
+    background: #FF0000; }
+  #main-body .right-part {
+    min-width: 200px;
+    height: 500px;
+    background: #00FFF0; }
+
+/*# sourceMappingURL=base_1.css.map */
