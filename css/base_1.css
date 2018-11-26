@@ -2,12 +2,16 @@
   width: 100%;
   display: flex; }
   #main-body .left-part {
+    min-width: 370px;
+    padding: 0 0 0 10px;
+    background: #FF0000;
     flex-grow: 1;
-    min-width: 400px;
-    background: #FF0000; }
+    display: flex;
+    flex-direction: column; }
   #main-body .right-part {
     min-width: 200px;
     height: 500px;
+    padding: 10px;
     background: #00FFF0; }
 
 /*# sourceMappingURL=base_1.css.map */
