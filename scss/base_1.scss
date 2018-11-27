@@ -15,7 +15,7 @@ body {
         min-width: 400px;
         padding: 10px 230px 10px 10px;
         flex-grow: 1;
-        display: flex;
+        display: none;
         flex-direction: column;
         .main-title {
             margin: 0 10px 10px 10px;
@@ -107,8 +107,8 @@ body {
         }
     }
 
-    .right-part {
-        width: 200px;
+    .right-part, .right-part_Transform {
+        width: 50%;
         height: 100%;
         position: fixed;
         top: 0;
@@ -148,6 +148,14 @@ body {
         }
     }
 
+    .right-part_Transform {
+        animation-name: right-part_Transform;
+        animation-delay: 2.0s;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+    }
+
     .copyright {
         color: white;
         position: fixed;
@@ -159,68 +167,83 @@ body {
     }
 }
 
-div.loadBg {
+.loadingBg, .loadingBg_Transform {
     width: 100%;
     height: 100%;
-    background: #000;
+    background: black;
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-div.loadBgFadeout {
-    width: 100%;
-    height: 100%;
-    background: #000;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    animation-name: fadeout;
+.loadingBg_Transform {
+    animation-name: loadingBg_Transform;
+    animation-delay: 1.0s;
     animation-duration: 0.5s;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
 }
 
-div.loadPic {
-    width: 400px;
-    height: 400px;
-    text-align: center;
-    font-size: 20px;
+.loadingItems, .loadingItems_Fadeout {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 11;
     display: flex;
     justify-content: center;
     align-items: center;
+    .loadingPic {
+        width: 400px;
+        height: 400px;
+        text-align: center;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    transform-origin:50% 50%;
-    animation-name: rotation;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+        transform-origin:50% 50%;
+        animation-name: loadingPic-rotation;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    .loadingText {
+        width: 100px;
+        height: 70px;
+        color: white;
+        position: fixed;
+        text-align: center;
+        font-size: 20px;
+    }
 }
 
-@keyframes rotation {
+.loadingItems_Fadeout {
+    animation-name: loadingItems_Fadeout;
+    animation-duration: 1.0s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+@keyframes loadingPic-rotation {
     from {transform: rotate(50deg);}
     to {transform: rotate(410deg);}
 }
 
-@keyframes fadeout {
-    from {opacity: 100%;
-        width: 100%;height: 100%;}
-    99% {opacity: 0;width: 100%;height: 100%;}
-    to {width: 0;height: 0;}
+@keyframes loadingItems_Fadeout {
+    from {opacity: 100%; z-index: 11;}
+    99% {opacity: 0; z-index: 11;}
+    to {opacity: 0; z-index: -1;}
 }
 
-div.loadText {
-    width: 100px;
-    height: 70px;
-    position: fixed;
-    text-align: center;
-    font-size: 20px;
+@keyframes loadingBg_Transform {
+    from {width: 100%; left: 0; opacity: 100%; z-index: 10;}
+    99% {width: 1px; left: 50%; opacity: 100%; z-index: 10;}
+    to {width: 1px; left: 50%; opacity: 0; z-index: -1;}
+}
+
+@keyframes right-part_Transform {
+    from {width: 50%;}
+    to {width: 200px;}
 }

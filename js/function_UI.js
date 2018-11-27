@@ -2,9 +2,13 @@
 
 document.onreadystatechange = loading;
 function loading() {
-    const loadDiv = document.getElementById("loadDiv");
+    const loadingBg = document.getElementById("loadingBg");
+    const loadingItems = document.getElementById("loadingItems");
+    const right_part = document.getElementById("right_part");
     if (document.readyState === "complete") {
-        loadDiv.className = "loadBgFadeout";
+        loadingBg.className = "loadingBg_Transform";
+        loadingItems.className = "loadingItems_Fadeout";
+        right_part.className = "right-part_Transform";
         setTimeout(function (){document.body.style.overflow = "auto"}, 500);
     }
     else {
