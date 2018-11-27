@@ -1,16 +1,56 @@
+body {
+  cursor: url("../img/cursor/wow_default.cur"), default; }
+
 #main-body {
   width: 100%;
   display: flex; }
   #main-body .left-part {
-    min-width: 380px;
-    padding: 0 0 0 10px;
-    background: #FF0000;
+    min-width: 400px;
+    padding: 10px;
     flex-grow: 1;
     display: flex;
     flex-direction: column; }
+    #main-body .left-part .main-title {
+      margin: 0 10px 10px 10px;
+      font-size: 30px;
+      font-weight: bold;
+      text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33); }
+    #main-body .left-part .goYa {
+      width: 330px;
+      background: linear-gradient(90deg, rgba(248, 255, 0, 0.5), rgba(21, 153, 87, 0));
+      padding: 10px;
+      margin: 10px; }
+      #main-body .left-part .goYa .title {
+        font-weight: bold;
+        font-size: 17px; }
+      #main-body .left-part .goYa .text-red {
+        color: red; }
+    #main-body .left-part .box-part-max {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      #main-body .left-part .box-part-max .box-col {
+        display: flex;
+        flex-direction: column; }
+        #main-body .left-part .box-part-max .box-col .box-1, #main-body .left-part .box-part-max .box-col .box-2 {
+          width: 330px;
+          background: rgba(31, 128, 123, 0.2);
+          padding: 10px;
+          margin: 10px;
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4); }
+          #main-body .left-part .box-part-max .box-col .box-1 .title, #main-body .left-part .box-part-max .box-col .box-2 .title {
+            font-weight: bold;
+            text-align: center;
+            font-size: 25px; }
+          #main-body .left-part .box-part-max .box-col .box-1 .sub-box, #main-body .left-part .box-part-max .box-col .box-2 .sub-box {
+            margin-top: 15px; }
+            #main-body .left-part .box-part-max .box-col .box-1 .sub-box .sub-title, #main-body .left-part .box-part-max .box-col .box-2 .sub-box .sub-title {
+              font-weight: bold;
+              font-size: 17px; }
+            #main-body .left-part .box-part-max .box-col .box-1 .sub-box .text-red, #main-body .left-part .box-part-max .box-col .box-2 .sub-box .text-red {
+              color: red; }
   #main-body .right-part {
-    min-width: 200px;
-    height: 500px;
+    width: 200px;
     padding: 10px;
     background: #00FFF0; }
 
