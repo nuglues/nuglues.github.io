@@ -1,270 +1,211 @@
 ﻿<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang = "zh-CN">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset = "UTF-8">
     <title>快乐咸鱼每一天！</title>
-    <link type="image/x-icon" rel="icon" href="img/icon.ico"/>
-    <link type="text/css" rel="stylesheet" href="css/initialize.css">
-    <link type="text/css" rel="stylesheet" href="css/base_1.css">
+    <link type = "image/x-icon" rel = "icon" href = "img/icon.ico"/>
+    <link type = "text/css" rel = "stylesheet" href = "css/base.css">
+    <link type = "text/css" rel = "stylesheet" href = "css/overall.css">
 
 </head>
 
-<body>
-<div id="main-body">
+<body onload = "mainLoop();blockAdjust();">
 
-    <div class="loadingBg" id="loadingBg"></div>
-    <div class="loadingItems" id="loadingItems">
-        <div class="loadingPic" style="background: url(img/loading.jpg)"></div>
-        <div class="loadingText">
-            <span><strong>v0.0.2</strong></span><br>
-            <br>
-            <span>它lei了</span>
+<div class="loadBg" id="loadDiv">
+    <div class="loadPic" style="background: url(img/loading.jpg)"></div>
+    <div class="loadText">
+        <span style="color: white"><strong>v0.0.2</strong></span><br>
+        <br>
+        <span style="color: white">它lei了</span>
+    </div>
+</div>
+
+<div class = "leftDiv">
+    <h1>今日赞达拉 v0.0.2</h1>
+    <div class = "goYa">
+        <span><strong>冲鸭！</strong> </span><strong><span id = "diBao" style = "color: #ff0000"></span></strong><br>
+        <span id = "LEGAttack" style = "color: #ff0000"></span>
+        <div class="paraBox">
+            <div id="goYa"></div>
+        </div>
+    </div>
+    <div style = "clear: both"></div>
+
+    <div class = "block" style = "background:rgba(128,0,33,0.25);">
+        <h2>倒计时板</h2><br>
+
+        <span><strong>每日刷新</strong></span><br>
+        <div class="paraBox">
+            <div id="refresh-daily-name"></div> <div id="refresh-daily-time"></div>
+        </div>
+        <br>
+        <span><strong>每周刷新</strong></span><br>
+        <div class="paraBox">
+            <div id="refresh-weekly-name"></div> <div id="refresh-weekly-time"></div>
+        </div>
+        <br>
+        <span><strong>每月刷新</strong></span><br>
+        <div class="paraBox">
+            <div id="refresh-monthly-name"></div> <div id="refresh-monthly-time"></div>
         </div>
     </div>
 
+    <div class = "block" style = "background:rgba(253,180,0,0.25);">
+        <h2>信息速览</h2><br>
 
-    <div class="left-part">
-
-        <div class="main-title">今日赞达拉 v0.0.2</div>
-
-        <div class="goYa">
-            <p class="title">冲鸭！</p>
-            <span class="text-red">1</span><span style="font-size: 16px">2</span>
+        <span><strong>大米词缀</strong></span><br>
+        <div id="mythAffix-1"></div>
+        <hr class="type1">
+        <div id="mythAffix-2"></div>
+        <br>
+        <strong>大使任务</strong><br>
+        <div class="paraBox">
+            <div id="BFA-emiss-name"></div> <div id="BFA-emiss-reward" style="text-align: right"></div>
+            <span class="endSoon">(即将结束)</span>
         </div>
-
-        <div class="box-part-max">
-
-            <div class="box-col">
-                <div class="box-1">
-                    <p class="title">倒计时板</p>
-                    <div class="sub-box">
-                        <p class="sub-title">每日刷新</p>
-                        12312<br>
-                        12312<br>
-                        12312<br>
-                        12312<br>
-                    </div>
-                    <div class="sub-box">
-                        <p class="sub-title">每周刷新</p>
-                        12312<br>
-                        12312<br>
-                    </div>
-                    <div class="sub-box">
-                        <p class="sub-title">每月刷新</p>
-                        12312<br>
-                    </div>
-                </div>
-                <div class="box-2">
-                    <p class="title">战争前线</p>
-                    <div class="sub-box">
-                        <p class="sub-title">当前状态 XX进攻/捐赠</p>
-                        12312<br>
-                        12312<br>
-                        12312<br>
-                        12312<br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box-col">
-                <div class="box-1">
-                    <p class="title">BFA信息速览</p>
-                    <div class="sub-box">
-                        <p class="sub-title">大米词缀</p>
-                        12312<br>
-                        <hr class="hr-sub-box">
-                        12312<br>
-                    </div>
-                    <div class="sub-box">
-                        <p class="sub-title">大使任务</p>
-                        12312<br>
-                        <hr class="hr-sub-box">
-                        12312<br>
-                    </div>
-                    <div class="sub-box">
-                        <p class="sub-title">世界BOSS</p>
-                        12312<br>
-                        12312<br>
-                        12312<br>
-                    </div>
-                    <div class="sub-box">
-                        <p class="sub-title">周常活动</p>
-                        12312<br>
-                        <hr class="hr-sub-box">
-                        12312<br>
-                    </div>
-                </div>
-                <div class="box-2">
-                    <p class="title">入侵提示</p>
-                    <div class="sub-box">
-                        <p class="sub-title">LEG</p>
-                        12312<br>
-                        12312<br>
-                        12312<br>
-                        12312<br>
-                        12312<br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box-col">
-                <div class="box-1">
-                    <p class="title">LEG信息速览</p>
-                    <div class="sub-box">
-                        <p class="sub-title">大使任务</p>
-                        12312<br>
-                        12312<br>
-                        12312<br>
-                    </div>
-                    <div class="sub-box">
-                        <p class="sub-title">世界BOSS</p>
-                        12312<br>
-                        12312<br>
-                        <hr class="hr-sub-box">
-                        12312<br>
-                        12312<br>
-                    </div>
-                    <div class="sub-box">
-                        <p class="sub-title">其他</p>
-                        12312<br>
-                        12312<br>
-                        12312<br>
-                    </div>
-                </div>
-                <div class="box-2">
-                    <p class="title">其他信息</p>
-                    <div class="sub-box">
-                        <p class="sub-title">时光徽章</p>
-                        12312<br>
-                    </div>
-                    <div class="sub-box">
-                        <p class="sub-title">节日活动</p>
-                        12312<br>
-                        <hr class="hr-sub-box">
-                        12312<br>
-                    </div>
-                    <div class="sub-box">
-                        <p class="sub-title">要塞宠物小窝</p>
-                        12312<br>
-                        <hr class="hr-sub-box">
-                        12312<br>
-                    </div>
-                </div>
-            </div>
-
+        <br>
+        <span><strong>世界Boss</strong></span><br>
+        <div class="paraBox">
+            <div id="BFA-worldBoss-1-zone"></div> <div id="BFA-worldBoss-1-name"></div>
         </div>
-
-        <div class="box-part-min"  style="display: none">
-
-            <div class="box">
-                <p class="title">信息速览</p>
-                <p class="space-between">
-                    <span>11:05:36</span>
-                    <span>15:05:36</span>
-                    <span>2天 15:05:36</span>
-                </p>
-                <p>残暴 + 激励 + 重伤 + 共生</p>
-                <p class="space-between">
-                    <span>特质装</span>
-                    <span>1000能量</span>
-                    <span>340装备</span>
-                </p>
-                <p class="space-between">
-                    <span>纳兹米尔</span><span>提赞</span>
-                </p>
-                <p>竞技场练习赛</p>
-                <p>节日1</p>
-                <p>节日2</p>
-                <hr class="hr-sub-box">
-                <p class="space-between">
-                    <span>法罗迪斯宫廷</span>
-                    <span>阿古斯防卫军</span>
-                    <span>高岭诸族</span>
-                </p>
-                <p class="space-between">
-                    <span>苏拉玛</span><span>魔王纳扎克</span>
-                </p>
-                <p class="space-between">
-                    <span>安托兰废土</span><span>审判官梅托</span>
-                </p>
-
-            </div>
-
-            <div class="box">
-                <p class="title">战争前线</p>
-                <p>当前状态 XX进攻/捐赠</p>
-                12312<br>
-                12312<br>
-                12312<br>
-                12312<br>
-            </div>
-
+        <hr class="type1">
+        <div class="paraBox">
+            <div id="BFA-worldBoss-2-zone"></div> <div id="BFA-worldBoss-2-name"></div>
         </div>
-
+        <br>
+        <span><strong>周常活动</strong></span><br>
+        <div id="weeklyEvent-1"></div>
+        <hr class="type1">
+        <div id="weeklyEvent-2"></div>
     </div>
 
-    <div class="right-part" id="right_part">
+    <div class = "block">
+        <h2>战争前线</h2><br>
 
-        <div class="box-links">
-            <span class="link">喃大的微博 | 直播 | 个人版</span><br>
-            <span class="link">喃大的微博 | 直播 | 个人版</span><br>
-            <span class="link">喃大的微博 | 直播 | 个人版</span><br>
-            <span class="link">喃大的微博 | 直播 | 个人版</span><br>
-            <span class="link">喃大的微博 | 直播 | 个人版</span><br>
-            <span class="link">喃大的微博 | 直播 | 个人版</span><br>
-            <br>
-            <span class="link">喃大的微博 | 直播 | 个人版</span><br>
-        </div>
-
-        <div class="box-time">
-            <p class="col2"><span>北京时间</span><span>2018-11-27</span></p>
-            <p class="col2"><span>星期二</span><span>13:37:22</span></p>
-            <br>
-            <p class="col2"><span>8. 0 已开 第106天</span><span>第16周</span></p>
-            <p class="col2"><span>团本已开 第83天</span><span>第12周</span></p>
-        </div>
-
-        <div class="box-liver">
-            <p class="col2"><span>神器知识等级</span><span>13级</span></p>
-            <br>
-            <p>肝度需求计算器</p>
-            <p class="desc">存在约±2‰(相对于整级能量)的误差</p>
-            <p>当前项链等级</p>
-            <p>当前已有能量</p>
-            <p>目标项链等级</p>
-            <p>计算结果1</p>
-            <p>计算结果2</p>
-        </div>
-
+        <span id="war-Frontline-output"></span>
     </div>
 
-    <div class="copyright">
-        <p>123</p>
-        <p>123</p>
-        <p>123</p>
-        <p>123</p>
-        <p>Copyright©nuglues</p>
-        <p>All Rights Reserved</p>
+    <div class = "block" style = "background:rgba(64,253,76,0.25);">
+        <h2>友情链接</h2><br>
+
+        <a class = "link" target = "_blank" href = "https://www.warcraftlogs.com/guild/reports-list/390775/">老年鸽会WCL主页</a><br>
+        <a class = "link" target = "_blank" href = "https://www.herodamage.com/">Hero Damage</a> | <a class = "link" target = "_blank" href = "https://www.herodamage.com/zh/">中文</a><br>
+        <a class = "link" target = "_blank" href = "http://www.simulationcraft.org/">SimulationCraft</a> | <a class = "link" target = "_blank" href = "http://downloads.simulationcraft.org/?C=M;O=D">下载</a><br>
+        <a class = "link" target = "_blank" href = "https://www.wowprogress.com/">WoWProgress</a><br>
+        <a class = "link" target = "_blank" href = "http://bbs.nga.cn/thread.php?fid=310">NGA前瞻区</a><br>
+        <a class = "link" target = "_blank" href = "https://weibo.com/nanduianei">喃大的微博</a> | <a class = "link" target = "_blank" href = "https://www.douyu.com/74150">直播间</a> | <a class = "link" target = "_blank" href = "https://bbs.nga.cn/thread.php?fid=-16130685&order_by=postdatedesc">个人版</a><br>
+        <br>
+        <a class = "link" target = "_blank" href = "http://bbs.nga.cn/read.php?tid=15405745">去论坛讨论一发</a><br>
     </div>
 
-    <!--happy north-->
-    <!--<div class="goTopBtn"><a href="javascript:void(0);" onclick="goTop();"><img src="img/happyNorth.gif"></a></div>-->
+    <div style = "clear: both"></div> <!--end for div in one line-->
 
-    <!--copyright-->
-    <!--<div style="position: fixed;bottom: 10px;right: 20px">-->
-        <!--Copyright&copy;<a class="link" target="_blank"-->
-                          <!--href="http://bbs.nga.cn/nuke.php?func=ucp&uid=7789181">任其自然@NGA</a><br>-->
-        <!--<span style="float: right">All Rights Reserved</span>-->
-    <!--</div>-->
+    <div class = "block" style = "background: rgba(66,255,0,0.25);">
+        <h2>军团信息</h2><br>
+
+        <strong>大使任务</strong><br>
+        <div class="paraBox">
+            <div id="LEG-emiss-name"></div> <div id="LEG-emiss-reward" style="text-align: right"></div>
+            <span class="endSoon">(即将结束)</span>
+        </div>
+        <br>
+        <span><strong>世界Boss</strong></span><br>
+        <div class="paraBox">
+            <div id="LEG-worldBoss-1-zone"></div> <div id="LEG-worldBoss-1-name" style="text-align: right"></div>
+        </div>
+        <hr class="type1">
+        <div class="paraBox">
+            <div id="LEG-worldBoss-2-zone"></div> <div id="LEG-worldBoss-2-name" style="text-align: right"></div>
+        </div>
+        <br>
+        <span><strong>其他</strong></span><br>
+        <div class="paraBox">
+            <div id="LEG-argusElite-1"></div> <div id="LEG-argusElite-2" style="text-align: right"></div>
+        </div>
+        <div class="paraBox">
+            <div id="LEG-argusArchy-1"></div> <div id="LEG-argusArchy-2" style="text-align: right"></div>
+        </div>
+    </div>
+
+    <div class = "block" style = "background: rgba(0,56,255,0.25);">
+        <h2>入侵提示</h2><br>
+
+        <strong>LEG</strong><br>
+        <div class="paraBox">
+            <div id="LEG-attack-state"></div> <div id="LEG-attack-zone" style="text-align: center"></div> <div id="LEG-attack-time" style="text-align: right"></div>
+        </div>
+    </div>
+
+    <div class = "block" style = "background: rgba(223,255,0,0.25);">
+        <h2>其他信息</h2><br>
+
+        <strong>时光徽章</strong><a class = "link" target = "_blank" href = "https://wowtoken.info/" style="font-size: 10px; font-style: italic;color: rgba(0,0,255,0.6);float: right">wowtoken.info</a><span style="font-size: 10px; font-style: italic;float: right">*数据来源 </span><br>
+        <div class="paraBox">
+            <div id="tokenPrice-1"></div> <div id="tokenPrice-2" style="text-align: right"></div>
+        </div>
+        <br>
+        <strong>节日活动</strong><br>
+        <div class="paraBox">
+            <div id="festivalCur-name"></div> <div id="festivalCur-endDate" style="text-align: center"></div> <div id="festivalCur-time" style="text-align: right"></div>
+        </div>
+        <hr class="type1">
+        <div class="paraBox">
+            <div id="festivalNext-name"></div> <div id="festivalNext-startDate" style="text-align: center"></div> <div id="festivalNext-time" style="text-align: right"></div>
+        </div>
+        <br>
+        <strong>要塞宠物小窝</strong><br>
+        <div class="paraBox">
+            <div id="garrisonPet1-1"></div>
+        </div>
+        <hr class="type1">
+        <div class="paraBox">
+            <div id="garrisonPet2-1"></div>
+        </div>
+    </div>
+
+    <div style = "clear: both"></div>
 
 </div>
-</body>
-<!--<script type="text/javascript" src="js/functions_mainCalc.js"></script>-->
-<!--<script type="text/javascript" src="js/functions_assist.js"></script>-->
-<script type="text/javascript" src="js/function_UI.js"></script>
 
-<!--<script type="text/javascript" src="js/data_initialize.js"></script>-->
-<!--<script type="text/javascript" src="js/data_manualSetting.js"></script>-->
-<!--<script type="text/javascript" src="js/data_otherCycleEvents.js"></script>-->
+<div class = "rightSidebar">
+
+    <div class="paraBox">
+        <div id="currentTime-left" class="rightSidebarText"></div> <div id="currentTime-right" class="rightSidebarText" style="text-align: right;"></div>
+    </div>
+    <br>
+    <div id="versionDays" class="rightSidebarText"></div>
+    <br>
+    <span class = "rightSidebarText">神器知识等级</span><span class = "rightSidebarText" style = "float: right" id="rightSidebar-heartLevel"></span><br>
+    <br>
+    <span class = "rightSidebarText">肝度需求计算器</span><br>
+    <span class = "rightSidebarText" style="font-size: 12px">存在约±2‰(相对于整级能量)的误差</span><br>
+    <input type="number" id="heartLevelInput" placeholder="当前项链等级 (1~59)"><br>
+    <input type="number" id="heartPowerInput" placeholder="当前已有能量 (留空为0)"><br>
+    <input type="number" id="aimLevelInput" placeholder="目标项链等级 (2~60)"><br>
+    <!--<a href = "javascript:void(0);" onclick = "heartPowerCalc();">点击计算</a><br>-->
+    <button style="margin: 10px 0 10px 0" onclick = "heartPowerCalc();">点击计算所需能量</button><br>
+    <span class = "rightSidebarText" style="color: #000;" id="heartPowerOutput"></span><br>
+
+</div>
+
+<div style = "clear: both"></div>
+
+<!--happy north-->
+<div class = "goTopBtn"><a href = "javascript:void(0);" onclick = "goTop();"><img src = "img/happyNorth.gif"></a></div>
+
+<!--copyright-->
+<div style = "position: fixed;bottom: 10px;right: 20px">
+    Copyright&copy;<a class = "link" target = "_blank" href = "http://bbs.nga.cn/nuke.php?func=ucp&uid=7789181">任其自然@NGA</a><br>
+    <span style = "float: right">All Rights Reserved</span>
+</div>
+
+</body>
+<script type = "text/javascript" src = "js/functions_mainCalc.js"></script>
+<script type = "text/javascript" src = "js/functions_assist.js"></script>
+<script type = "text/javascript" src = "js/functions_UI.js"></script>
+
+<script type = "text/javascript" src = "js/data_initialize.js"></script>
+<script type = "text/javascript" src = "js/data_manualSetting.js"></script>
+<script type = "text/javascript" src = "js/data_otherCycleEvents.js"></script>
 </html>
