@@ -215,6 +215,11 @@ function countDownCalc(eventObj, pos1Shift, pos2ShiftMod, pos2Shift) {
 }
 
 function getTokenPrice() {
+    if (arguments.callee.nextCheck > (new Date()).valueOf()) {
+        return;
+    }
+    arguments.callee.nextCheck = (new Date()).valueOf() + 30000;
+
     let tokenXmlhttp = new XMLHttpRequest();
     tokenXmlhttp.open("get", "https://data.wowtoken.info/snapshot.json");
     tokenXmlhttp.send();
