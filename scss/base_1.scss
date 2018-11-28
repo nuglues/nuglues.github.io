@@ -1,3 +1,25 @@
+@import 'initialize_1.scss';
+
+$T_LOADING_ITEM_FADEOUT_DELAY: 0s;
+$T_LOADING_ITEM_FADEOUT_LAST: 0.4s;
+$T_LOADING_ITEM_FADEOUT_WAIT: 0.3s;
+
+$T_LOADING_BG_TRANSFORM_DELAY: $T_LOADING_ITEM_FADEOUT_DELAY + $T_LOADING_ITEM_FADEOUT_LAST + $T_LOADING_ITEM_FADEOUT_WAIT;
+$T_LOADING_BG_TRANSFORM_LAST: 0.4s;
+$T_LOADING_BG_TRANSFORM_WAIT: 0.3s;
+
+$T_RIGHT_PART_TRANSFORM_DELAY: $T_LOADING_BG_TRANSFORM_DELAY + $T_LOADING_BG_TRANSFORM_LAST + $T_LOADING_BG_TRANSFORM_WAIT;
+$T_RIGHT_PART_TRANSFORM_LAST: 0.7s;
+$T_RIGHT_PART_TRANSFORM_WAIT: 0.3s;
+
+$T_LEFT_BOX_EXPAND_DELAY: $T_LOADING_BG_TRANSFORM_DELAY + $T_LOADING_BG_TRANSFORM_LAST + $T_LOADING_BG_TRANSFORM_WAIT;
+$T_LEFT_BOX_EXPAND_LAST: 1.5s;
+$T_LEFT_BOX_EXPAND_WAIT: 0s;
+
+$T_SHOW_CONTENT_DELAY: $T_LEFT_BOX_EXPAND_DELAY + $T_LEFT_BOX_EXPAND_LAST + $T_LEFT_BOX_EXPAND_WAIT;
+$T_SHOW_CONTENT_LAST: 0.3s;
+$T_SHOW_CONTENT_WAIT: 0s;
+
 html {
     height: 100%;
 }
@@ -15,19 +37,48 @@ body {
         min-width: 400px;
         padding: 10px 230px 10px 10px;
         flex-grow: 1;
-        display: none;
+        display: flex;
         flex-direction: column;
+
         .main-title {
             margin: 0 10px 10px 10px;
             font-size: 30px;
             font-weight: bold;
             text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33);
+
+            opacity: 0;
+            margin-top: -20px;
+            animation-name: fadein-down;
+            animation-delay: $T_SHOW_CONTENT_DELAY;
+            animation-duration: $T_SHOW_CONTENT_LAST;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
         }
         .goYa {
-            width: 330px;
+            width: 0;
+            max-height: 20px;
+            padding: 10px 0;
+            //width: 330px;
+            //padding: 10px;
             background: linear-gradient(90deg, rgba(248, 255, 0, 0.5), rgba(21, 153, 87, 0));
-            padding: 10px;
             margin: 10px;
+
+            animation-name: box-expand;
+            animation-delay: $T_LEFT_BOX_EXPAND_DELAY;
+            animation-duration: $T_LEFT_BOX_EXPAND_LAST;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+
+            .title, .text-red {
+                opacity: 0;
+                margin-top: -20px;
+                animation-name: fadein-down;
+                animation-delay: $T_SHOW_CONTENT_DELAY;
+                animation-duration: $T_SHOW_CONTENT_LAST;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
+            }
+
             .title {
                 font-weight: bold;
                 font-size: 17px;
@@ -44,11 +95,21 @@ body {
                 display: flex;
                 flex-direction: column;
                 .box-1, .box-2 {
-                    width: 330px;
+                    width: 0;
+                    max-height: 20px;
+                    padding: 10px 0;
+                    //width: 330px;
+                    //padding: 10px;
                     background: rgba(31, 128, 123, 0.2);
-                    padding: 10px;
                     margin: 10px;
                     box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+
+                    animation-name: box-expand;
+                    animation-delay: $T_LEFT_BOX_EXPAND_DELAY;
+                    animation-duration: $T_LEFT_BOX_EXPAND_LAST;
+                    animation-timing-function: ease-out;
+                    animation-fill-mode: forwards;
+
                     .title {
                         font-weight: bold;
                         text-align: center;
@@ -107,20 +168,30 @@ body {
         }
     }
 
-    .right-part, .right-part_Transform {
+    .right-part {
         width: 50%;
-        height: 100%;
+        //width: 200px;
+        height: calc(100% - 20px);
         position: fixed;
         top: 0;
         right: 0;
         padding: 10px;
-        background: rgba(0, 0, 0, 0.7);
+        background: white;
+        //background: rgba(0, 0, 0, 0.7);
         border-left: black solid 1px;
         color: white;
         display: flex;
         flex-direction: column;
+
+        animation-name: right-part-transform;
+        animation-delay: $T_RIGHT_PART_TRANSFORM_DELAY;
+        animation-duration: $T_RIGHT_PART_TRANSFORM_LAST;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+
         .box-links {
             margin-bottom: 20px;
+
             .link:hover{
                 text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
                 transition-duration: 400ms;
@@ -128,6 +199,7 @@ body {
         }
         .box-time {
             margin-bottom: 20px;
+
             .col2 {
                 display: flex;
                 justify-content: space-between;
@@ -135,6 +207,7 @@ body {
         }
         .box-liver {
             margin-bottom: 20px;
+
             .col2 {
                 display: flex;
                 justify-content: space-between;
@@ -146,28 +219,18 @@ body {
         .box-theme {
 
         }
-    }
-
-    .right-part_Transform {
-        animation-name: right-part_Transform;
-        animation-delay: 2.0s;
-        animation-duration: 0.5s;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-    }
-
-    .copyright {
-        color: white;
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+        .copyright {
+            color: white;
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
     }
 }
 
-.loadingBg, .loadingBg_Transform {
+.loading-bg, .loading-bg-transform {
     width: 100%;
     height: 100%;
     background: black;
@@ -177,15 +240,15 @@ body {
     z-index: 10;
 }
 
-.loadingBg_Transform {
-    animation-name: loadingBg_Transform;
-    animation-delay: 1.0s;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in;
+.loading-bg-transform {
+    animation-name: loading-bg-transform;
+    animation-delay: $T_LOADING_BG_TRANSFORM_DELAY;
+    animation-duration: $T_LOADING_BG_TRANSFORM_LAST;
+    animation-timing-function: ease-out;
     animation-fill-mode: forwards;
 }
 
-.loadingItems, .loadingItems_Fadeout {
+.loading-items, .loading-items-fadeout {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -194,7 +257,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    .loadingPic {
+    .loading-pic {
         width: 400px;
         height: 400px;
         text-align: center;
@@ -204,12 +267,12 @@ body {
         align-items: center;
 
         transform-origin:50% 50%;
-        animation-name: loadingPic-rotation;
+        animation-name: loading-pic-rotation;
         animation-duration: 1.5s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
     }
-    .loadingText {
+    .loading-text {
         width: 100px;
         height: 70px;
         color: white;
@@ -219,31 +282,76 @@ body {
     }
 }
 
-.loadingItems_Fadeout {
-    animation-name: loadingItems_Fadeout;
-    animation-duration: 1.0s;
+.loading-items-fadeout {
+    animation-name: loading-items-fadeout;
+    animation-delay: $T_LOADING_ITEM_FADEOUT_DELAY;
+    animation-duration: $T_LOADING_ITEM_FADEOUT_LAST;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
 }
 
-@keyframes loadingPic-rotation {
+@keyframes loading-pic-rotation {
     from {transform: rotate(50deg);}
     to {transform: rotate(410deg);}
 }
 
-@keyframes loadingItems_Fadeout {
-    from {opacity: 100%; z-index: 11;}
+@keyframes loading-items-fadeout {
+    from {opacity: 1; z-index: 11;}
     99% {opacity: 0; z-index: 11;}
     to {opacity: 0; z-index: -1;}
 }
 
-@keyframes loadingBg_Transform {
-    from {width: 100%; left: 0; opacity: 100%; z-index: 10;}
-    99% {width: 1px; left: 50%; opacity: 100%; z-index: 10;}
+@keyframes loading-bg-transform {
+    from {width: 100%; left: 0; opacity: 1; z-index: 10;}
+    99% {width: 1px; left: 50%; opacity: 1; z-index: 10;}
     to {width: 1px; left: 50%; opacity: 0; z-index: -1;}
 }
 
-@keyframes right-part_Transform {
-    from {width: 50%;}
-    to {width: 200px;}
+@keyframes box-expand {
+    from {width: 0;max-height: 20px;padding: 10px 0;}
+    40% {width: 330px;max-height: 20px;padding: 10px;}
+    50% {width: 330px;max-height: 20px;padding: 10px;}
+    to {width: 330px;max-height: 450px;padding: 10px;}
+}
+
+@keyframes box-collapse {
+    from {width: 330px;max-height: 450px;padding: 10px;}
+    50% {width: 330px;max-height: 20px;padding: 10px;}
+    40% {width: 330px;max-height: 20px;padding: 10px;}
+    to {width: 0;max-height: 20px;padding: 10px 0;}
+    }
+
+@keyframes right-part-transform {
+    from {}
+    to {width: 200px;background: rgba(0, 0, 0, 0.7);}
+}
+
+@keyframes fadein-down {
+    from {opacity: 0;margin-top: -20px;}
+    to {opacity: 1;margin-top: 0;}
+}
+
+@keyframes fadein-up {
+    from {opacity: 0;margin-top: 20px;}
+    to {opacity: 1;margin-top: 0;}
+}
+
+@keyframes fadein-right {
+    from {opacity: 0;margin-left: -20px;}
+    to {opacity: 1;margin-left: 0;}
+}
+
+@keyframes fadein-left {
+    from {opacity: 0;margin-left: 20px;}
+    to {opacity: 1;margin-left: 0;}
+}
+
+@keyframes hr-expand {
+    from {width: 0;}
+    to {width: 100%;}
+}
+
+@keyframes hr-collapse {
+    from {width: 100%;}
+    to {width: 0;}
 }

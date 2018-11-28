@@ -1,3 +1,51 @@
+@charset "UTF-8";
+/*Css initialization*/
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+  margin: 0;
+  padding: 0; }
+
+/*让这些的标签内外边距都是0*/
+fieldset, img {
+  border: none; }
+
+img {
+  display: block; }
+
+ul, ol {
+  list-style: none; }
+
+body {
+  color: #000000; }
+
+/*clear fix*/
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both; }
+
+.clearfix {
+  zoom: 1; }
+
+.clearit {
+  clear: both;
+  height: 0;
+  font-size: 0;
+  overflow: hidden; }
+
+a {
+  color: #000000;
+  text-decoration: none; }
+
+a:visited {
+  color: #000000; }
+
+a:hover, a:active, a:focus {
+  color: #000000;
+  text-decoration: none; }
+
+/*define constant*/
 html {
   height: 100%; }
 
@@ -13,18 +61,39 @@ body {
     min-width: 400px;
     padding: 10px 230px 10px 10px;
     flex-grow: 1;
-    display: none;
+    display: flex;
     flex-direction: column; }
     #main-body .left-part .main-title {
       margin: 0 10px 10px 10px;
       font-size: 30px;
       font-weight: bold;
-      text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33); }
+      text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33);
+      opacity: 0;
+      margin-top: -20px;
+      animation-name: fadein-down;
+      animation-delay: 2.9s;
+      animation-duration: 0.3s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards; }
     #main-body .left-part .goYa {
-      width: 330px;
+      width: 0;
+      max-height: 20px;
+      padding: 10px 0;
       background: linear-gradient(90deg, rgba(248, 255, 0, 0.5), rgba(21, 153, 87, 0));
-      padding: 10px;
-      margin: 10px; }
+      margin: 10px;
+      animation-name: box-expand;
+      animation-delay: 1.4s;
+      animation-duration: 1.5s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards; }
+      #main-body .left-part .goYa .title, #main-body .left-part .goYa .text-red {
+        opacity: 0;
+        margin-top: -20px;
+        animation-name: fadein-down;
+        animation-delay: 2.9s;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards; }
       #main-body .left-part .goYa .title {
         font-weight: bold;
         font-size: 17px; }
@@ -38,11 +107,17 @@ body {
         display: flex;
         flex-direction: column; }
         #main-body .left-part .box-part-max .box-col .box-1, #main-body .left-part .box-part-max .box-col .box-2 {
-          width: 330px;
+          width: 0;
+          max-height: 20px;
+          padding: 10px 0;
           background: rgba(31, 128, 123, 0.2);
-          padding: 10px;
           margin: 10px;
-          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4); }
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+          animation-name: box-expand;
+          animation-delay: 1.4s;
+          animation-duration: 1.5s;
+          animation-timing-function: ease-out;
+          animation-fill-mode: forwards; }
           #main-body .left-part .box-part-max .box-col .box-1 .title, #main-body .left-part .box-part-max .box-col .box-2 .title {
             font-weight: bold;
             text-align: center;
@@ -84,51 +159,49 @@ body {
           color: #7f7f7f;
           background: rgba(127, 127, 127, 0.36);
           height: 2px; }
-  #main-body .right-part, #main-body .right-part_Transform {
+  #main-body .right-part {
     width: 50%;
-    height: 100%;
+    height: calc(100% - 20px);
     position: fixed;
     top: 0;
     right: 0;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.7);
+    background: white;
     border-left: black solid 1px;
     color: white;
     display: flex;
-    flex-direction: column; }
-    #main-body .right-part .box-links, #main-body .right-part_Transform .box-links {
-      margin-bottom: 20px; }
-      #main-body .right-part .box-links .link:hover, #main-body .right-part_Transform .box-links .link:hover {
-        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
-        transition-duration: 400ms; }
-    #main-body .right-part .box-time, #main-body .right-part_Transform .box-time {
-      margin-bottom: 20px; }
-      #main-body .right-part .box-time .col2, #main-body .right-part_Transform .box-time .col2 {
-        display: flex;
-        justify-content: space-between; }
-    #main-body .right-part .box-liver, #main-body .right-part_Transform .box-liver {
-      margin-bottom: 20px; }
-      #main-body .right-part .box-liver .col2, #main-body .right-part_Transform .box-liver .col2 {
-        display: flex;
-        justify-content: space-between; }
-      #main-body .right-part .box-liver .desc, #main-body .right-part_Transform .box-liver .desc {
-        font-size: 10px; }
-  #main-body .right-part_Transform {
-    animation-name: right-part_Transform;
-    animation-delay: 2.0s;
-    animation-duration: 0.5s;
+    flex-direction: column;
+    animation-name: right-part-transform;
+    animation-delay: 1.4s;
+    animation-duration: 0.7s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards; }
-  #main-body .copyright {
-    color: white;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; }
+    #main-body .right-part .box-links {
+      margin-bottom: 20px; }
+      #main-body .right-part .box-links .link:hover {
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+        transition-duration: 400ms; }
+    #main-body .right-part .box-time {
+      margin-bottom: 20px; }
+      #main-body .right-part .box-time .col2 {
+        display: flex;
+        justify-content: space-between; }
+    #main-body .right-part .box-liver {
+      margin-bottom: 20px; }
+      #main-body .right-part .box-liver .col2 {
+        display: flex;
+        justify-content: space-between; }
+      #main-body .right-part .box-liver .desc {
+        font-size: 10px; }
+    #main-body .right-part .copyright {
+      color: white;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end; }
 
-.loadingBg, .loadingBg_Transform {
+.loading-bg, .loading-bg-transform {
   width: 100%;
   height: 100%;
   background: black;
@@ -137,14 +210,14 @@ body {
   left: 0;
   z-index: 10; }
 
-.loadingBg_Transform {
-  animation-name: loadingBg_Transform;
-  animation-delay: 1.0s;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in;
+.loading-bg-transform {
+  animation-name: loading-bg-transform;
+  animation-delay: 0.7s;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
-.loadingItems, .loadingItems_Fadeout {
+.loading-items, .loading-items-fadeout {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -153,7 +226,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .loadingItems .loadingPic, .loadingItems_Fadeout .loadingPic {
+  .loading-items .loading-pic, .loading-items-fadeout .loading-pic {
     width: 400px;
     height: 400px;
     text-align: center;
@@ -162,11 +235,11 @@ body {
     justify-content: center;
     align-items: center;
     transform-origin: 50% 50%;
-    animation-name: loadingPic-rotation;
+    animation-name: loading-pic-rotation;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear; }
-  .loadingItems .loadingText, .loadingItems_Fadeout .loadingText {
+  .loading-items .loading-text, .loading-items-fadeout .loading-text {
     width: 100px;
     height: 70px;
     color: white;
@@ -174,20 +247,21 @@ body {
     text-align: center;
     font-size: 20px; }
 
-.loadingItems_Fadeout {
-  animation-name: loadingItems_Fadeout;
-  animation-duration: 1.0s;
+.loading-items-fadeout {
+  animation-name: loading-items-fadeout;
+  animation-delay: 0s;
+  animation-duration: 0.4s;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
-@keyframes loadingPic-rotation {
+@keyframes loading-pic-rotation {
   from {
     transform: rotate(50deg); }
   to {
     transform: rotate(410deg); } }
-@keyframes loadingItems_Fadeout {
+@keyframes loading-items-fadeout {
   from {
-    opacity: 100%;
+    opacity: 1;
     z-index: 11; }
   99% {
     opacity: 0;
@@ -195,26 +269,97 @@ body {
   to {
     opacity: 0;
     z-index: -1; } }
-@keyframes loadingBg_Transform {
+@keyframes loading-bg-transform {
   from {
     width: 100%;
     left: 0;
-    opacity: 100%;
+    opacity: 1;
     z-index: 10; }
   99% {
     width: 1px;
     left: 50%;
-    opacity: 100%;
+    opacity: 1;
     z-index: 10; }
   to {
     width: 1px;
     left: 50%;
     opacity: 0;
     z-index: -1; } }
-@keyframes right-part_Transform {
+@keyframes box-expand {
   from {
-    width: 50%; }
+    width: 0;
+    max-height: 20px;
+    padding: 10px 0; }
+  40% {
+    width: 330px;
+    max-height: 20px;
+    padding: 10px; }
+  50% {
+    width: 330px;
+    max-height: 20px;
+    padding: 10px; }
   to {
-    width: 200px; } }
+    width: 330px;
+    max-height: 450px;
+    padding: 10px; } }
+@keyframes box-collapse {
+  from {
+    width: 330px;
+    max-height: 450px;
+    padding: 10px; }
+  50% {
+    width: 330px;
+    max-height: 20px;
+    padding: 10px; }
+  40% {
+    width: 330px;
+    max-height: 20px;
+    padding: 10px; }
+  to {
+    width: 0;
+    max-height: 20px;
+    padding: 10px 0; } }
+@keyframes right-part-transform {
+  to {
+    width: 200px;
+    background: rgba(0, 0, 0, 0.7); } }
+@keyframes fadein-down {
+  from {
+    opacity: 0;
+    margin-top: -20px; }
+  to {
+    opacity: 1;
+    margin-top: 0; } }
+@keyframes fadein-up {
+  from {
+    opacity: 0;
+    margin-top: 20px; }
+  to {
+    opacity: 1;
+    margin-top: 0; } }
+@keyframes fadein-right {
+  from {
+    opacity: 0;
+    margin-left: -20px; }
+  to {
+    opacity: 1;
+    margin-left: 0; } }
+@keyframes fadein-left {
+  from {
+    opacity: 0;
+    margin-left: 20px; }
+  to {
+    opacity: 1;
+    margin-left: 0; } }
+@keyframes hr-expand {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+@keyframes hr-collapse {
+  from {
+    width: 100%; }
+  to {
+    width: 0; } }
 
 /*# sourceMappingURL=base_1.css.map */
