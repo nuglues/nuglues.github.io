@@ -71,18 +71,18 @@ body {
       opacity: 0;
       margin-top: -20px;
       animation-name: fadein-down;
-      animation-delay: 2.9s;
+      animation-delay: 2.05s;
       animation-duration: 0.3s;
       animation-timing-function: ease-out;
       animation-fill-mode: forwards; }
     #main-body .left-part .goYa {
+      background: linear-gradient(90deg, rgba(248, 255, 0, 0.5), rgba(21, 153, 87, 0));
+      margin: 10px;
       width: 0;
       max-height: 20px;
       padding: 10px 0;
-      background: linear-gradient(90deg, rgba(248, 255, 0, 0.5), rgba(21, 153, 87, 0));
-      margin: 10px;
       animation-name: box-expand;
-      animation-delay: 1.4s;
+      animation-delay: 1.3s;
       animation-duration: 1.5s;
       animation-timing-function: ease-out;
       animation-fill-mode: forwards; }
@@ -90,7 +90,7 @@ body {
         opacity: 0;
         margin-top: -20px;
         animation-name: fadein-down;
-        animation-delay: 2.9s;
+        animation-delay: 2.05s;
         animation-duration: 0.3s;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards; }
@@ -107,17 +107,25 @@ body {
         display: flex;
         flex-direction: column; }
         #main-body .left-part .box-part-max .box-col .box-1, #main-body .left-part .box-part-max .box-col .box-2 {
-          width: 0;
-          max-height: 20px;
-          padding: 10px 0;
           background: rgba(31, 128, 123, 0.2);
           margin: 10px;
           box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+          width: 0;
+          max-height: 20px;
+          padding: 10px 0;
           animation-name: box-expand;
-          animation-delay: 1.4s;
+          animation-delay: 1.3s;
           animation-duration: 1.5s;
           animation-timing-function: ease-out;
           animation-fill-mode: forwards; }
+          #main-body .left-part .box-part-max .box-col .box-1 .title, #main-body .left-part .box-part-max .box-col .box-1 .sub-box, #main-body .left-part .box-part-max .box-col .box-2 .title, #main-body .left-part .box-part-max .box-col .box-2 .sub-box {
+            opacity: 0;
+            margin-top: -20px;
+            animation-name: fadein-down;
+            animation-delay: 2.05s;
+            animation-duration: 0.3s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards; }
           #main-body .left-part .box-part-max .box-col .box-1 .title, #main-body .left-part .box-part-max .box-col .box-2 .title {
             font-weight: bold;
             text-align: center;
@@ -131,12 +139,18 @@ body {
               color: red; }
             #main-body .left-part .box-part-max .box-col .box-1 .sub-box .hr-sub-box, #main-body .left-part .box-part-max .box-col .box-2 .sub-box .hr-sub-box {
               margin: 4px 0 2px 0;
-              width: 100%;
               color: #7f7f7f;
               background: rgba(127, 127, 127, 0.36);
-              height: 2px; }
+              height: 2px;
+              width: 0;
+              margin-left: 50%;
+              animation-name: hr-expand;
+              animation-delay: 2.55s;
+              animation-duration: 0.5s;
+              animation-timing-function: ease-out;
+              animation-fill-mode: forwards; }
     #main-body .left-part .box-part-min {
-      display: flex;
+      display: none;
       flex-wrap: wrap;
       align-items: flex-start; }
       #main-body .left-part .box-part-min .box {
@@ -144,7 +158,26 @@ body {
         background: rgba(31, 128, 123, 0.2);
         padding: 10px;
         margin: 10px;
-        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4); }
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+        background: rgba(31, 128, 123, 0.2);
+        margin: 10px;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+        width: 0;
+        max-height: 20px;
+        padding: 10px 0;
+        animation-name: box-expand;
+        animation-delay: 1.3s;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards; }
+        #main-body .left-part .box-part-min .box .title, #main-body .left-part .box-part-min .box .space-between, #main-body .left-part .box-part-min .box p {
+          opacity: 0;
+          margin-top: -20px;
+          animation-name: fadein-down;
+          animation-delay: 2.05s;
+          animation-duration: 0.3s;
+          animation-timing-function: ease-out;
+          animation-fill-mode: forwards; }
         #main-body .left-part .box-part-min .box .title {
           font-weight: bold;
           text-align: center;
@@ -155,10 +188,16 @@ body {
           justify-content: space-between; }
         #main-body .left-part .box-part-min .box .hr-sub-box {
           margin: 4px 0 2px 0;
-          width: 100%;
           color: #7f7f7f;
           background: rgba(127, 127, 127, 0.36);
-          height: 2px; }
+          height: 2px;
+          width: 0;
+          margin-left: 50%;
+          animation-name: hr-expand;
+          animation-delay: 2.55s;
+          animation-duration: 0.5s;
+          animation-timing-function: ease-out;
+          animation-fill-mode: forwards; }
   #main-body .right-part {
     width: 50%;
     height: calc(100% - 20px);
@@ -172,10 +211,18 @@ body {
     display: flex;
     flex-direction: column;
     animation-name: right-part-transform;
-    animation-delay: 1.4s;
+    animation-delay: 1.3s;
     animation-duration: 0.7s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards; }
+    #main-body .right-part .box-links, #main-body .right-part .box-time, #main-body .right-part .box-liver, #main-body .right-part .box-theme, #main-body .right-part .copyright {
+      opacity: 0;
+      margin-top: 20px;
+      animation-name: fadein-up;
+      animation-delay: 2.05s;
+      animation-duration: 0.3s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards; }
     #main-body .right-part .box-links {
       margin-bottom: 20px; }
       #main-body .right-part .box-links .link:hover {
@@ -353,9 +400,11 @@ body {
     margin-left: 0; } }
 @keyframes hr-expand {
   from {
-    width: 0; }
+    width: 0;
+    margin-left: 50%; }
   to {
-    width: 100%; } }
+    width: 100%;
+    margin-left: 4px; } }
 @keyframes hr-collapse {
   from {
     width: 100%; }

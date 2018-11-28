@@ -6,19 +6,24 @@ $T_LOADING_ITEM_FADEOUT_WAIT: 0.3s;
 
 $T_LOADING_BG_TRANSFORM_DELAY: $T_LOADING_ITEM_FADEOUT_DELAY + $T_LOADING_ITEM_FADEOUT_LAST + $T_LOADING_ITEM_FADEOUT_WAIT;
 $T_LOADING_BG_TRANSFORM_LAST: 0.4s;
-$T_LOADING_BG_TRANSFORM_WAIT: 0.3s;
+$T_LOADING_BG_TRANSFORM_WAIT: 0.2s;
 
 $T_RIGHT_PART_TRANSFORM_DELAY: $T_LOADING_BG_TRANSFORM_DELAY + $T_LOADING_BG_TRANSFORM_LAST + $T_LOADING_BG_TRANSFORM_WAIT;
 $T_RIGHT_PART_TRANSFORM_LAST: 0.7s;
 $T_RIGHT_PART_TRANSFORM_WAIT: 0.3s;
 
 $T_LEFT_BOX_EXPAND_DELAY: $T_LOADING_BG_TRANSFORM_DELAY + $T_LOADING_BG_TRANSFORM_LAST + $T_LOADING_BG_TRANSFORM_WAIT;
+//$T_LEFT_BOX_EXPAND_DELAY: 0s;
 $T_LEFT_BOX_EXPAND_LAST: 1.5s;
 $T_LEFT_BOX_EXPAND_WAIT: 0s;
 
-$T_SHOW_CONTENT_DELAY: $T_LEFT_BOX_EXPAND_DELAY + $T_LEFT_BOX_EXPAND_LAST + $T_LEFT_BOX_EXPAND_WAIT;
+$T_SHOW_CONTENT_DELAY: $T_LEFT_BOX_EXPAND_DELAY + $T_LEFT_BOX_EXPAND_LAST * 0.5 + $T_LEFT_BOX_EXPAND_WAIT;
 $T_SHOW_CONTENT_LAST: 0.3s;
-$T_SHOW_CONTENT_WAIT: 0s;
+$T_SHOW_CONTENT_WAIT: 0.2s;
+
+$T_HR_EXPAND_DELAY: $T_SHOW_CONTENT_DELAY + $T_SHOW_CONTENT_LAST + $T_SHOW_CONTENT_WAIT;
+$T_HR_EXPAND_LAST: 0.5s;
+$T_HR_EXPAND_WAIT: 0s;
 
 html {
     height: 100%;
@@ -55,14 +60,14 @@ body {
             animation-fill-mode: forwards;
         }
         .goYa {
-            width: 0;
-            max-height: 20px;
-            padding: 10px 0;
             //width: 330px;
             //padding: 10px;
             background: linear-gradient(90deg, rgba(248, 255, 0, 0.5), rgba(21, 153, 87, 0));
             margin: 10px;
 
+            width: 0;
+            max-height: 20px;
+            padding: 10px 0;
             animation-name: box-expand;
             animation-delay: $T_LEFT_BOX_EXPAND_DELAY;
             animation-duration: $T_LEFT_BOX_EXPAND_LAST;
@@ -95,20 +100,31 @@ body {
                 display: flex;
                 flex-direction: column;
                 .box-1, .box-2 {
-                    width: 0;
-                    max-height: 20px;
-                    padding: 10px 0;
+
                     //width: 330px;
                     //padding: 10px;
                     background: rgba(31, 128, 123, 0.2);
                     margin: 10px;
                     box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
 
+                    width: 0;
+                    max-height: 20px;
+                    padding: 10px 0;
                     animation-name: box-expand;
                     animation-delay: $T_LEFT_BOX_EXPAND_DELAY;
                     animation-duration: $T_LEFT_BOX_EXPAND_LAST;
                     animation-timing-function: ease-out;
                     animation-fill-mode: forwards;
+
+                    .title, .sub-box {
+                        opacity: 0;
+                        margin-top: -20px;
+                        animation-name: fadein-down;
+                        animation-delay: $T_SHOW_CONTENT_DELAY;
+                        animation-duration: $T_SHOW_CONTENT_LAST;
+                        animation-timing-function: ease-out;
+                        animation-fill-mode: forwards;
+                    }
 
                     .title {
                         font-weight: bold;
@@ -126,10 +142,18 @@ body {
                         }
                         .hr-sub-box {
                             margin: 4px 0 2px 0;
-                            width: 100%;
+                            //width: 100%;
                             color: #7f7f7f;
                             background: rgba(127, 127, 127, 0.36);
                             height: 2px;
+
+                            width: 0;
+                            margin-left: 50%;
+                            animation-name: hr-expand;
+                            animation-delay: $T_HR_EXPAND_DELAY;
+                            animation-duration: $T_HR_EXPAND_LAST;
+                            animation-timing-function: ease-out;
+                            animation-fill-mode: forwards;
                         }
                     }
                 }
@@ -138,7 +162,7 @@ body {
             }
         }
         .box-part-min {
-            display: flex;
+            display: none;
             flex-wrap: wrap;
             align-items: flex-start;
             .box {
@@ -147,6 +171,32 @@ body {
                 padding: 10px;
                 margin: 10px;
                 box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+
+                //width: 330px;
+                //padding: 10px;
+                background: rgba(31, 128, 123, 0.2);
+                margin: 10px;
+                box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+
+                width: 0;
+                max-height: 20px;
+                padding: 10px 0;
+                animation-name: box-expand;
+                animation-delay: $T_LEFT_BOX_EXPAND_DELAY;
+                animation-duration: $T_LEFT_BOX_EXPAND_LAST;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
+
+                .title, .space-between, p {
+                    opacity: 0;
+                    margin-top: -20px;
+                    animation-name: fadein-down;
+                    animation-delay: $T_SHOW_CONTENT_DELAY;
+                    animation-duration: $T_SHOW_CONTENT_LAST;
+                    animation-timing-function: ease-out;
+                    animation-fill-mode: forwards;
+                }
+
                 .title {
                     font-weight: bold;
                     text-align: center;
@@ -159,10 +209,18 @@ body {
                 }
                 .hr-sub-box {
                     margin: 4px 0 2px 0;
-                    width: 100%;
+                    //width: 100%;
                     color: #7f7f7f;
                     background: rgba(127, 127, 127, 0.36);
                     height: 2px;
+
+                    width: 0;
+                    margin-left: 50%;
+                    animation-name: hr-expand;
+                    animation-delay: $T_HR_EXPAND_DELAY;
+                    animation-duration: $T_HR_EXPAND_LAST;
+                    animation-timing-function: ease-out;
+                    animation-fill-mode: forwards;
                 }
             }
         }
@@ -188,6 +246,16 @@ body {
         animation-duration: $T_RIGHT_PART_TRANSFORM_LAST;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
+
+        .box-links, .box-time, .box-liver, .box-theme, .copyright {
+            opacity: 0;
+            margin-top: 20px;
+            animation-name: fadein-up;
+            animation-delay: $T_SHOW_CONTENT_DELAY;
+            animation-duration: $T_SHOW_CONTENT_LAST;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+        }
 
         .box-links {
             margin-bottom: 20px;
@@ -347,8 +415,8 @@ body {
 }
 
 @keyframes hr-expand {
-    from {width: 0;}
-    to {width: 100%;}
+    from {width: 0; margin-left: 50%}
+    to {width: 100%; margin-left: 4px}
 }
 
 @keyframes hr-collapse {

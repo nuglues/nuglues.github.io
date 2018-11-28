@@ -4,15 +4,19 @@ document.onreadystatechange = loading;
 function loading() {
     const loading_bg = document.getElementById("loading-bg");
     const loading_items = document.getElementById("loading-items");
-    //const right_part = document.getElementById("right_part");
+    const left_part = document.getElementById("left-part");
+    const right_part = document.getElementById("right-part");
     if (document.readyState === "complete") {
         loading_bg.className = "loading-bg-transform";
         loading_items.className = "loading-items-fadeout";
-        //right_part.className = "right-part_Transform";
+        // setTimeout(function (){left_part.style.display = "flex"}, 1300);
+        // setTimeout(function (){right_part.style.display = "flex"}, 1300);
         setTimeout(function (){document.body.style.overflow = "auto"}, 3000);
     }
     else {
         document.body.style.overflow = "hidden";
+        // left_part.style.display = "none";
+        // right_part.style.display = "none";
     }
 }
 
