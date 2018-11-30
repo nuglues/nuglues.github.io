@@ -14,7 +14,7 @@ function warFrontlineOutput(camp, startTime){
         else {
             outputStr += "<strong>" + oppoCamp(camp) + "捐献中</strong><br>";
 
-            if (1) {
+            if (0) {
                 outputStr += "<br>捐献清单收集中……";
             }
             else {
@@ -386,7 +386,7 @@ function mainLoop() {
     }
 
     // For war frontline board | 1-contribute 2-attack
-    innerHtml("war-Frontline-output",warFrontlineOutput("联盟", new Date(2018,10,23,18,30)));
+    innerHtml("war-Frontline-output",warFrontlineOutput("联盟", new Date(2018,10,23,17,40)));
 
     // wow token
     getTokenPrice();
