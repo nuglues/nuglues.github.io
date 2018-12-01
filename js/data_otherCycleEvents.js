@@ -142,7 +142,7 @@ const nightMoon_IrCE = new IrregularCycleEvent(
         new Date(2019,10,3,0,1).getTime(),new Date(2019,10,9,23,59).getTime(),
         new Date(2019,11,1,0,1).getTime(),new Date(2019,11,7,23,59).getTime()],
 
-    new Array(4).fill("暗月马戏团剩余时间"));
+    new Array(28).fill("暗月马戏团剩余时间"));
 
 for (let i = 0; i < nightMoon_IrCE.timeLi.length; i += 2) {
     nightMoon_IrCE.nameLi[i] = "暗月马戏团下次开始";
