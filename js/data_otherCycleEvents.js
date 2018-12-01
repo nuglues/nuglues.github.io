@@ -128,7 +128,19 @@ const LEGAttack_RCE = new RegularCycleEvent(
 // night moon monthly _START_
 const nightMoon_IrCE = new IrregularCycleEvent(
     [new Date(2018,10,4,0,1).getTime(),new Date(2018,10,10,23,59).getTime(),
-        new Date(2018,11,2,0,1).getTime(),new Date(2018,11,8,23,59).getTime()],
+        new Date(2018,11,2,0,1).getTime(),new Date(2018,11,8,23,59).getTime(),
+        new Date(2019,0,6,0,1).getTime(),new Date(2019,0,12,23,59).getTime(),
+        new Date(2019,1,3,0,1).getTime(),new Date(2019,1,9,23,59).getTime(),
+        new Date(2019,2,3,0,1).getTime(),new Date(2019,2,9,23,59).getTime(),
+        new Date(2019,3,7,0,1).getTime(),new Date(2019,3,13,23,59).getTime(),
+        new Date(2019,4,5,0,1).getTime(),new Date(2019,4,11,23,59).getTime(),
+        new Date(2019,5,2,0,1).getTime(),new Date(2019,5,8,23,59).getTime(),
+        new Date(2019,6,7,0,1).getTime(),new Date(2019,6,13,23,59).getTime(),
+        new Date(2019,7,4,0,1).getTime(),new Date(2019,7,10,23,59).getTime(),
+        new Date(2019,8,1,0,1).getTime(),new Date(2019,8,7,23,59).getTime(),
+        new Date(2019,9,6,0,1).getTime(),new Date(2019,9,12,23,59).getTime(),
+        new Date(2019,10,3,0,1).getTime(),new Date(2019,10,9,23,59).getTime(),
+        new Date(2019,11,1,0,1).getTime(),new Date(2019,11,7,23,59).getTime()],
 
     new Array(4).fill("暗月马戏团剩余时间"));
 
@@ -141,8 +153,15 @@ for (let i = 0; i < nightMoon_IrCE.timeLi.length; i += 2) {
 const festival_IrCE = new IrregularCycleEvent(
     [new Date(2018,10,19,10,0).getTime(),new Date(2018,10,26,9,0).getTime(),
         new Date(2018,11,16,10,0).getTime(),new Date(2019,0,2,6,0).getTime(),
-        new Date(2019,0,28,10,0).getTime(),new Date(2019,1,11,10,0).getTime()],
-    ["感恩节", "感恩节", "冬幕节", "冬幕节", "春节", "春节"]
+        new Date(2019,0,28,10,0).getTime(),new Date(2019,1,11,10,0).getTime(),
+        new Date(2019,1,5,10,0).getTime(),new Date(2019,1,19,10,0).getTime(),
+        new Date(2019,3,22,10,0).getTime(),new Date(2019,3,29,10,0).getTime(),
+        new Date(2019,3,29,10,0).getTime(),new Date(2019,4,6,10,0).getTime(),
+        new Date(2019,5,21,10,0).getTime(),new Date(2019,6,5,10,0).getTime(),
+        new Date(2019,8,20,10,0).getTime(),new Date(2019,9,6,10,0).getTime(),
+        new Date(2019,9,18,10,0).getTime(),new Date(2019,10,1,11,0).getTime()],
+    ["感恩节", "感恩节", "冬幕节", "冬幕节", "春节", "春节","情人节","情人节","复活节","复活节",
+        "儿童周","儿童周","仲夏火焰节","仲夏火焰节","美酒节","美酒节","万圣节","万圣节"]
 );
 // festival _END_
 
