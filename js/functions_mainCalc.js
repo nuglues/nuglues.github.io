@@ -8,7 +8,7 @@ function warFrontlineOutput(camp, startTime){
             const timeRemainStr = msTrans(timeRemain);
             outputStr += "<strong>" + camp + "进攻中</strong><br>";
             outputStr += "<br>大致剩余时间：" + timeRemainStr + "<br>";
-            outputStr += "推算结束时间：" + dateObjToStr(new Date(startTime.getTime() + 7 * dayInMs), 1, 1, 1, 1, 1, 1, "-", ":") + "<br>";
+            outputStr += "推算结束时刻：" + dateObjToStr(new Date(startTime.getTime() + 7 * dayInMs), 1, 1, 1, 1, 1, 1, "-", ":") + "<br>";
             outputStr += "<br>" + oppoCamp(camp) + "的小伙伴快去打Boss鸭";
         }
         else {
