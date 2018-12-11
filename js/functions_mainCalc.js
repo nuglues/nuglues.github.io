@@ -14,7 +14,7 @@ function warFrontlineOutput(camp, startTime){
         else {
             outputStr += "<strong>" + oppoCamp(camp) + "捐献中</strong><br>";
 
-            if (0) {
+            if (1) {
                 outputStr += "<br>捐献清单收集中……";
             }
             else {
