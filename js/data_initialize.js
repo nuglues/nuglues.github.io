@@ -43,8 +43,10 @@ function IrregularCycleEvent(periodTimeList, periodNameList) {
 
 const ver800Date = new VersionDate(new Date(2018,7,14,7)); // new Date("YYYY,M,D,8:00") does not fit safari
 const ver801Date = new VersionDate(new Date(2018,8,6,7));
+const ver810Date = new VersionDate(new Date(2018,11,13,7));
 const theVer800Days = ver800Date.getDays();
 const theVer801Days = ver801Date.getDays();
+const theVer810Days = ver810Date.getDays();
 
 let knowledgeLevel = 0;
 let heartPower = [];

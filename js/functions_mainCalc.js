@@ -367,7 +367,8 @@ function mainLoop() {
         // right side bar _START_ -- 2*2 + 2*1
         [ "北京时间", dayTrans(curr.getDay()) ],
         [ dateObjToStr(curr,1,1,1,0,0,0,"-"," "), dateObjToStr(curr,0,0,0,1,1,1," ",":") ],
-        [ "8. 0 已开 第" + theVer800Days + "天 第" + checkTime(Math.floor((theVer800Days - 1) / 7 + 1)) + "周", "团本已开 第" + theVer801Days + "天 第" + checkTime(Math.floor((theVer801Days - 1) / 7 + 1)) + "周" ]
+        [ "8. 0 已开 第" + theVer800Days + "天 第" + checkTime(Math.floor((theVer800Days - 1) / 7 + 1)) + "周", "团本已开 第" + theVer801Days + "天 第" + checkTime(Math.floor((theVer801Days - 1) / 7 + 1)) + "周","-----",
+            "8. 1 已开 第" + theVer810Days + "天 第" + checkTime(Math.floor((theVer810Days - 1) / 7 + 1)) + "周" ]
         // right side bar _END_
     ];
 
