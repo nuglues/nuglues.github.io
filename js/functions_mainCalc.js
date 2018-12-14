@@ -23,7 +23,9 @@ function warFrontlineOutput(camp, startTime){
                 }
             }
         }
-    return outputStr;
+
+        outputStr = '施工中';
+        return outputStr;
 }
 
 function isLegal_heartPowerCalc(curL, curP, aimL) {
