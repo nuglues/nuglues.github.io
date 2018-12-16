@@ -35,7 +35,7 @@ daily0700_RCE.nameLi =
 const BFAEmissaryPool = [];
 BFAEmissaryPool[0] = ["塔兰吉远征队","始祖龟求知者","沃顿奈","艾泽拉斯的勇士","部落战事","赞达拉帝国"];
 //                          0               1           2           3               4           5
-BFAEmissaryPool[1] = ["340装备","1000能量","特质装","200物资","2000金币"];
+BFAEmissaryPool[1] = ["340装备","1000能量","特质装","200物资","2000金币","始祖龟装备"];
 //                      0           1           2       3           4
 
 const BFAEmissRewrite = [];
@@ -48,7 +48,8 @@ BFAEmissRewrite[0] =
         BFAEmissaryPool[0][1],BFAEmissaryPool[0][4],BFAEmissaryPool[0][3],BFAEmissaryPool[0][2],BFAEmissaryPool[0][0],BFAEmissaryPool[0][1],BFAEmissaryPool[0][5],
         BFAEmissaryPool[0][4],BFAEmissaryPool[0][3],BFAEmissaryPool[0][2],BFAEmissaryPool[0][0],BFAEmissaryPool[0][5],BFAEmissaryPool[0][1],BFAEmissaryPool[0][3],
         BFAEmissaryPool[0][4],BFAEmissaryPool[0][2],BFAEmissaryPool[0][1],BFAEmissaryPool[0][5],BFAEmissaryPool[0][0],BFAEmissaryPool[0][2],BFAEmissaryPool[0][3],
-        BFAEmissaryPool[0][4],BFAEmissaryPool[0][1],BFAEmissaryPool[0][0],BFAEmissaryPool[0][5],BFAEmissaryPool[0][2],BFAEmissaryPool[0][3],BFAEmissaryPool[0][4]];
+        BFAEmissaryPool[0][4],BFAEmissaryPool[0][1],BFAEmissaryPool[0][0],BFAEmissaryPool[0][5],BFAEmissaryPool[0][2],BFAEmissaryPool[0][3],BFAEmissaryPool[0][4],
+        BFAEmissaryPool[0][1]];
 BFAEmissRewrite[1] =
     [BFAEmissaryPool[1][0],BFAEmissaryPool[1][1],BFAEmissaryPool[1][0],BFAEmissaryPool[1][2],BFAEmissaryPool[1][3],BFAEmissaryPool[1][4],BFAEmissaryPool[1][2],
         BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][4],BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][0],BFAEmissaryPool[1][4],
@@ -58,7 +59,8 @@ BFAEmissRewrite[1] =
         BFAEmissaryPool[1][4],BFAEmissaryPool[1][2],BFAEmissaryPool[1][1],BFAEmissaryPool[1][4],BFAEmissaryPool[1][4],BFAEmissaryPool[1][3],BFAEmissaryPool[1][2],
         BFAEmissaryPool[1][2],BFAEmissaryPool[1][1],BFAEmissaryPool[1][3],BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][4],BFAEmissaryPool[1][1],
         BFAEmissaryPool[1][1],BFAEmissaryPool[1][0],BFAEmissaryPool[1][4],BFAEmissaryPool[1][3],BFAEmissaryPool[1][4],BFAEmissaryPool[1][4],BFAEmissaryPool[1][1],
-        BFAEmissaryPool[1][0],BFAEmissaryPool[1][3],BFAEmissaryPool[1][2],BFAEmissaryPool[1][4],BFAEmissaryPool[1][4],BFAEmissaryPool[1][1],BFAEmissaryPool[1][3]];
+        BFAEmissaryPool[1][0],BFAEmissaryPool[1][3],BFAEmissaryPool[1][2],BFAEmissaryPool[1][4],BFAEmissaryPool[1][4],BFAEmissaryPool[1][1],BFAEmissaryPool[1][3],
+        BFAEmissaryPool[1][5]];
 
 const LEGEmissaryPool = ["法罗迪斯宫廷","织梦者","高岭诸族","瓦拉加尔","堕夜精灵","肯瑞托","守望者","抗魔联军","圣光军团","阿古斯防卫军"];
 //                              0           1       2           3           4           5       6       7           8           9
@@ -71,7 +73,8 @@ const LEGEmissRewrite =
         LEGEmissaryPool[0],LEGEmissaryPool[8],LEGEmissaryPool[2],LEGEmissaryPool[4],LEGEmissaryPool[7],LEGEmissaryPool[5],LEGEmissaryPool[0],
         LEGEmissaryPool[4],LEGEmissaryPool[3],LEGEmissaryPool[2],LEGEmissaryPool[0],LEGEmissaryPool[9],LEGEmissaryPool[5],LEGEmissaryPool[2],
         LEGEmissaryPool[4],LEGEmissaryPool[6],LEGEmissaryPool[9],LEGEmissaryPool[7],LEGEmissaryPool[5],LEGEmissaryPool[4],LEGEmissaryPool[6],
-        LEGEmissaryPool[2],LEGEmissaryPool[9],LEGEmissaryPool[5],LEGEmissaryPool[0],LEGEmissaryPool[8],LEGEmissaryPool[2],LEGEmissaryPool[4]];
+        LEGEmissaryPool[2],LEGEmissaryPool[9],LEGEmissaryPool[5],LEGEmissaryPool[0],LEGEmissaryPool[8],LEGEmissaryPool[2],LEGEmissaryPool[4],
+        LEGEmissaryPool[9]];
 
 const unRecordDays = 61;
 
