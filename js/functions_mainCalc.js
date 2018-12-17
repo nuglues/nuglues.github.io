@@ -196,7 +196,7 @@ function countDownCalc(eventObj, pos1Shift, pos2ShiftMod, pos2Shift) {
         let periodOutput = [];
         while (currT > timeLi[i]) {
             if (currT < timeLi[i + 1]) {
-                nameOutput[k] = nameLi[i * 2 +1];
+                nameOutput[k] = nameLi[i +1];
                 timeOutput[k] = msTrans(timeLi[i + 1] - currT);
                 periodOutput[k] = [new Date(timeLi[i]), new Date(timeLi[i + 1])];
                 k++;
@@ -295,6 +295,7 @@ function mainLoop() {
 
     // pretreatment for festival
     let festivalPre = countDownCalc(festival_IrCE);
+    console.log(festivalPre);
     let festivalOn = [];
     festivalOn[0] = [];festivalOn[1] = [];festivalOn[2] = [];
     let festivalNext = [];
