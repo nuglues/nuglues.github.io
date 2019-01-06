@@ -35,7 +35,7 @@ daily0700_RCE.nameLi =
 const BFAEmissaryPool = [];
 BFAEmissaryPool[0] = ["塔兰吉远征队","始祖龟求知者","沃顿奈","艾泽拉斯的勇士","部落战事","赞达拉帝国"];
 //                          0               1           2           3               4           5
-BFAEmissaryPool[1] = ["340装备","1000能量","特质装","200物资","2000金币","始祖龟装备","赞达拉装备","纳兹米尔装备"];
+BFAEmissaryPool[1] = ["340装备","1000能量","特质装","200物资","2000金币","始祖龟装备","赞达拉装备","纳兹米尔装备","赞达拉武器"];
 //                      0           1           2       3           4
 
 const BFAEmissRewrite = [];
@@ -66,7 +66,7 @@ BFAEmissRewrite[1] =
         BFAEmissaryPool[1][5],BFAEmissaryPool[1][6],BFAEmissaryPool[1][7],BFAEmissaryPool[1][2],BFAEmissaryPool[1][3],BFAEmissaryPool[1][1],BFAEmissaryPool[1][3],
         BFAEmissaryPool[1][2],BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][4],BFAEmissaryPool[1][1],BFAEmissaryPool[1][5],BFAEmissaryPool[1][1],
         BFAEmissaryPool[1][1],BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][1],BFAEmissaryPool[1][6],BFAEmissaryPool[1][4],BFAEmissaryPool[1][3],
-        BFAEmissaryPool[1][6]];
+        BFAEmissaryPool[1][8]];
 
 const LEGEmissaryPool = ["法罗迪斯宫廷","织梦者","高岭诸族","瓦拉加尔","堕夜精灵","肯瑞托","守望者","抗魔联军","圣光军团","阿古斯防卫军"];
 //                              0           1       2           3           4           5       6       7           8           9
