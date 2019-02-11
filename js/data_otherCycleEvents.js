@@ -50,18 +50,18 @@ mythAffixPool[3] = ["共生", "收割"];
 
 const mythAffixOrder = {
     ver801: [
-        mythAffixPool[0][0] + " + " + mythAffixPool[1][0] + " + " + mythAffixPool[2][0] + " + " + mythAffixPool[3][0],
-        mythAffixPool[0][1] + " + " + mythAffixPool[1][1] + " + " + mythAffixPool[2][1] + " + " + mythAffixPool[3][0],
-        mythAffixPool[0][0] + " + " + mythAffixPool[1][2] + " + " + mythAffixPool[2][2] + " + " + mythAffixPool[3][0],
-        mythAffixPool[0][1] + " + " + mythAffixPool[1][3] + " + " + mythAffixPool[2][0] + " + " + mythAffixPool[3][0],
-        mythAffixPool[0][0] + " + " + mythAffixPool[1][4] + " + " + mythAffixPool[2][1] + " + " + mythAffixPool[3][0],
-        mythAffixPool[0][1] + " + " + mythAffixPool[1][2] + " + " + mythAffixPool[2][3] + " + " + mythAffixPool[3][0],
-        mythAffixPool[0][0] + " + " + mythAffixPool[1][0] + " + " + mythAffixPool[2][4] + " + " + mythAffixPool[3][0],
-        mythAffixPool[0][1] + " + " + mythAffixPool[1][4] + " + " + mythAffixPool[2][5] + " + " + mythAffixPool[3][0],
-        mythAffixPool[0][0] + " + " + mythAffixPool[1][1] + " + " + mythAffixPool[2][2] + " + " + mythAffixPool[3][0],
-        mythAffixPool[0][1] + " + " + mythAffixPool[1][3] + " + " + mythAffixPool[2][3] + " + " + mythAffixPool[3][0],
-        mythAffixPool[0][0] + " + " + mythAffixPool[1][2] + " + " + mythAffixPool[2][5] + " + " + mythAffixPool[3][0],
-        mythAffixPool[0][1] + " + " + mythAffixPool[1][4] + " + " + mythAffixPool[2][4] + " + " + mythAffixPool[3][0]]
+        mythAffixPool[0][0] + " + " + mythAffixPool[1][0] + " + " + mythAffixPool[2][0] + " + " + mythAffixPool[3][1],
+        mythAffixPool[0][1] + " + " + mythAffixPool[1][1] + " + " + mythAffixPool[2][1] + " + " + mythAffixPool[3][1],
+        mythAffixPool[0][0] + " + " + mythAffixPool[1][2] + " + " + mythAffixPool[2][2] + " + " + mythAffixPool[3][1],
+        mythAffixPool[0][1] + " + " + mythAffixPool[1][3] + " + " + mythAffixPool[2][0] + " + " + mythAffixPool[3][1],
+        mythAffixPool[0][0] + " + " + mythAffixPool[1][4] + " + " + mythAffixPool[2][1] + " + " + mythAffixPool[3][1],
+        mythAffixPool[0][1] + " + " + mythAffixPool[1][2] + " + " + mythAffixPool[2][3] + " + " + mythAffixPool[3][1],
+        mythAffixPool[0][0] + " + " + mythAffixPool[1][0] + " + " + mythAffixPool[2][4] + " + " + mythAffixPool[3][1],
+        mythAffixPool[0][1] + " + " + mythAffixPool[1][4] + " + " + mythAffixPool[2][5] + " + " + mythAffixPool[3][1],
+        mythAffixPool[0][0] + " + " + mythAffixPool[1][1] + " + " + mythAffixPool[2][2] + " + " + mythAffixPool[3][1],
+        mythAffixPool[0][1] + " + " + mythAffixPool[1][3] + " + " + mythAffixPool[2][3] + " + " + mythAffixPool[3][1],
+        mythAffixPool[0][0] + " + " + mythAffixPool[1][2] + " + " + mythAffixPool[2][5] + " + " + mythAffixPool[3][1],
+        mythAffixPool[0][1] + " + " + mythAffixPool[1][4] + " + " + mythAffixPool[2][4] + " + " + mythAffixPool[3][1]]
     /*
     强韧+血池+死疽
     残暴+崩裂+无常
