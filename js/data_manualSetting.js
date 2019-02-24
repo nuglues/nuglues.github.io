@@ -57,8 +57,8 @@ BFAEmissRewrite[0] =
         BFAEmissaryPool[0][2],BFAEmissaryPool[0][0],BFAEmissaryPool[0][5],BFAEmissaryPool[0][1],BFAEmissaryPool[0][4],BFAEmissaryPool[0][2],BFAEmissaryPool[0][3],
         BFAEmissaryPool[0][5],BFAEmissaryPool[0][1],BFAEmissaryPool[0][0],BFAEmissaryPool[0][4],BFAEmissaryPool[0][2],BFAEmissaryPool[0][3],BFAEmissaryPool[0][1],
         BFAEmissaryPool[0][0],BFAEmissaryPool[0][5],BFAEmissaryPool[0][2],BFAEmissaryPool[0][3],BFAEmissaryPool[0][4],BFAEmissaryPool[0][0],BFAEmissaryPool[0][1],
-	    BFAEmissaryPool[0][5],BFAEmissaryPool[0][2],BFAEmissaryPool[0][3],BFAEmissaryPool[0][4],BFAEmissaryPool[0][0],BFAEmissaryPool[0][1],BFAEmissaryPool[0][5],
-    	BFAEmissaryPool[0][4],BFAEmissaryPool[0][3],BFAEmissaryPool[0][2],BFAEmissaryPool[0][1],BFAEmissaryPool[0][0],BFAEmissaryPool[0][5],BFAEmissaryPool[0][3],
+        BFAEmissaryPool[0][5],BFAEmissaryPool[0][2],BFAEmissaryPool[0][3],BFAEmissaryPool[0][4],BFAEmissaryPool[0][0],BFAEmissaryPool[0][1],BFAEmissaryPool[0][5],
+        BFAEmissaryPool[0][4],BFAEmissaryPool[0][3],BFAEmissaryPool[0][2],BFAEmissaryPool[0][1],BFAEmissaryPool[0][0],BFAEmissaryPool[0][5],BFAEmissaryPool[0][3],
     	BFAEmissaryPool[0][2]];
 BFAEmissRewrite[1] =
     [BFAEmissaryPool[1][0],BFAEmissaryPool[1][1],BFAEmissaryPool[1][0],BFAEmissaryPool[1][2],BFAEmissaryPool[1][3],BFAEmissaryPool[1][4],BFAEmissaryPool[1][2],
