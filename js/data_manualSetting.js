@@ -59,7 +59,7 @@ BFAEmissRewrite[0] =
         BFAEmissaryPool[0][0],BFAEmissaryPool[0][5],BFAEmissaryPool[0][2],BFAEmissaryPool[0][3],BFAEmissaryPool[0][4],BFAEmissaryPool[0][0],BFAEmissaryPool[0][1],
         BFAEmissaryPool[0][5],BFAEmissaryPool[0][2],BFAEmissaryPool[0][3],BFAEmissaryPool[0][4],BFAEmissaryPool[0][0],BFAEmissaryPool[0][1],BFAEmissaryPool[0][5],
         BFAEmissaryPool[0][4],BFAEmissaryPool[0][3],BFAEmissaryPool[0][2],BFAEmissaryPool[0][1],BFAEmissaryPool[0][0],BFAEmissaryPool[0][5],BFAEmissaryPool[0][3],
-        BFAEmissaryPool[0][2],BFAEmissaryPool[0][4],BFAEmissaryPool[0][0]];
+        BFAEmissaryPool[0][2],BFAEmissaryPool[0][4],BFAEmissaryPool[0][0],BFAEmissaryPool[0][5]];
 BFAEmissRewrite[1] =
     [BFAEmissaryPool[1][0],BFAEmissaryPool[1][1],BFAEmissaryPool[1][0],BFAEmissaryPool[1][2],BFAEmissaryPool[1][3],BFAEmissaryPool[1][4],BFAEmissaryPool[1][2],
         BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][4],BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][0],BFAEmissaryPool[1][4],
@@ -80,7 +80,7 @@ BFAEmissRewrite[1] =
         BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][4],BFAEmissaryPool[1][1],BFAEmissaryPool[1][10],BFAEmissaryPool[1][3],BFAEmissaryPool[1][4],
 	    BFAEmissaryPool[1][6],BFAEmissaryPool[1][3],BFAEmissaryPool[1][1],BFAEmissaryPool[1][10],BFAEmissaryPool[1][7],BFAEmissaryPool[1][1],BFAEmissaryPool[1][1],
     	BFAEmissaryPool[1][4],BFAEmissaryPool[1][1],BFAEmissaryPool[1][1],BFAEmissaryPool[1][4],BFAEmissaryPool[1][8],BFAEmissaryPool[1][8],BFAEmissaryPool[1][1],
-    	BFAEmissaryPool[1][2],BFAEmissaryPool[1][1],BFAEmissaryPool[1][4]];
+    	BFAEmissaryPool[1][2],BFAEmissaryPool[1][1],BFAEmissaryPool[1][4],BFAEmissaryPool[1][4]];
 
 const LEGEmissaryPool = ["法罗迪斯宫廷","织梦者","高岭诸族","瓦拉加尔","堕夜精灵","肯瑞托","守望者","抗魔联军","圣光军团","阿古斯防卫军"];
 //                              0           1       2           3           4           5       6       7           8           9
@@ -104,7 +104,7 @@ const LEGEmissRewrite =
         LEGEmissaryPool[5],LEGEmissaryPool[9],LEGEmissaryPool[6],LEGEmissaryPool[4],LEGEmissaryPool[8],LEGEmissaryPool[7],LEGEmissaryPool[5],
 	    LEGEmissaryPool[9],LEGEmissaryPool[2],LEGEmissaryPool[4],LEGEmissaryPool[3],LEGEmissaryPool[1],LEGEmissaryPool[9],LEGEmissaryPool[5],
     	LEGEmissaryPool[2],LEGEmissaryPool[6],LEGEmissaryPool[4],LEGEmissaryPool[9],LEGEmissaryPool[0],LEGEmissaryPool[1],LEGEmissaryPool[4],
-    	LEGEmissaryPool[8],LEGEmissaryPool[6],LEGEmissaryPool[9]];
+    	LEGEmissaryPool[8],LEGEmissaryPool[6],LEGEmissaryPool[9],LEGEmissaryPool[1]];
 
 const unRecordDays = 61;
 
