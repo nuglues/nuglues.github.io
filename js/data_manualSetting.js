@@ -89,7 +89,7 @@ BFAEmissRewrite[1] =
         BFAEmissaryPool[1][1],BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][2],BFAEmissaryPool[1][2],BFAEmissaryPool[1][10],BFAEmissaryPool[1][1],
         BFAEmissaryPool[1][4],BFAEmissaryPool[1][4],BFAEmissaryPool[1][5],BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][10],BFAEmissaryPool[1][4],
         BFAEmissaryPool[1][2],BFAEmissaryPool[1][5],BFAEmissaryPool[1][2],BFAEmissaryPool[1][1],BFAEmissaryPool[1][3],BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],
-        BFAEmissaryPool[1][3],BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][10],BFAEmissaryPool[1][1],BFAEmissaryPool[1][8],BFAEmissaryPool[1][4],
+        BFAEmissaryPool[1][3],BFAEmissaryPool[1][1],BFAEmissaryPool[1][2],BFAEmissaryPool[1][10],BFAEmissaryPool[1][1],BFAEmissaryPool[1][6],BFAEmissaryPool[1][4],
         BFAEmissaryPool[1][1]];
 
 const LEGEmissaryPool = ["法罗迪斯宫廷","织梦者","高岭诸族","瓦拉加尔","堕夜精灵","肯瑞托","守望者","抗魔联军","圣光军团","阿古斯防卫军"];
